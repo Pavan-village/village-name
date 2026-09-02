@@ -241,7 +241,25 @@
     }
 
 </script>
-```
+<div id="photoViewer" class="photo-viewer" onclick="closePhoto()">
+    <span class="close-button">&times;</span>
+    <img id="largePhoto" src="" alt="Temple Photo">
+</div>
+
+<script>
+    const galleryPhotos = document.querySelectorAll(".gallery-container img");
+
+    galleryPhotos.forEach(function(photo) {
+        photo.onclick = function() {
+            document.getElementById("photoViewer").style.display = "flex";
+            document.getElementById("largePhoto").src = this.src;
+        };
+    });
+
+    function closePhoto() {
+        document.getElementById("photoViewer").style.display = "none";
+    }
+</script>
 
 </body>
 
