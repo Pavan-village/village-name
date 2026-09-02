@@ -1,81 +1,197 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ಹನುಮಂತರಾಯನ ದಿನ್ನೆ | ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</title>
+```
+<title>Hanumantharayana Dinne | Aranya Anjaneya Swamy Temple</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 
 <body>
 
-    <header>
-        <h1>ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ</h1>
-        <p>ನಮ್ಮ ಊರು • ನಮ್ಮ ಸಂಸ್ಕೃತಿ • ನಮ್ಮ ಪರಂಪರೆ</p>
-    </header>
+```
+<header>
+    <h1 id="title">Welcome to Hanumantharayana Dinne</h1>
+    <p id="tagline">Our Village • Our Culture • Our Tradition</p>
 
-    <nav>
-        <a href="#home">ಮುಖಪುಟ</a>
-        <a href="#temple">ದೇವಸ್ಥಾನ</a>
-        <a href="#history">ಇತಿಹಾಸ</a>
-        <a href="#gallery">ಚಿತ್ರಗಳು<</a>
-        <a href="#contact">ಸಂಪರ್ಕ<</a>
-    </nav>
+    <div class="language-buttons">
+        <button onclick="showKannada()">ಕನ್ನಡ</button>
+        <button onclick="showEnglish()">English</button>
+    </div>
+</header>
 
-    <main>
+<nav>
+    <a href="#home" id="navHome">Home</a>
+    <a href="#temple" id="navTemple">Temple</a>
+    <a href="#history" id="navHistory">History</a>
+    <a href="#gallery" id="navGallery">Gallery</a>
+    <a href="#contact" id="navContact">Contact</a>
+</nav>
 
-        <section id="home">
-            <h2>ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ</h2>
-            <p>
-                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ
-                ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ.ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ,
-               ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
-            </p>
-        </section>
+<main>
 
-        <section id="temple">
-            <h2>ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h2>
-            <p>
-                ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ.
-                ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ,ವಿಶೇಷತೆಗಳು ಮತ್ತುಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.
-            </p>
-        </section>
+    <section id="home">
+        <h2 id="homeTitle">Welcome to Hanumantharayana Dinne</h2>
+        <p id="homeText">
+            Welcome to the official website of Hanumantharayana Dinne.
+            Here you can learn about our village, culture, traditions
+            and the Aranya Anjaneya Swamy Temple.
+        </p>
+    </section>
 
-        <section id="history">
-            <h2>ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ</h2>
-            <p>
-                ನಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ,
-                ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ
-                ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದುು.
-            </p>
-        </section>
+    <section id="temple">
+        <h2 id="templeTitle">Aranya Anjaneya Swamy Temple</h2>
+        <p id="templeText">
+            Aranya Anjaneya Swamy Temple is an important spiritual
+            place connected with our village and its traditions.
+            Information about the temple, its history and celebrations
+            will be added here.
+        </p>
+    </section>
 
-        <section id="gallery">
-            <h2>ಚಿತ್ರಗಳ ಸಂಗ್ರಹ</h2>
-            <p>
-                ಸನಮ್ಮ ಊರು ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ
-                ದೇವಸ್ಥಾನದ ಸುಂದರ ಚಿತ್ರಗಳನ್ನು ಇಲ್ಲಿ
-                ನೋಡಬಹುದುು.
-            </p>
-        </section>
+    <section id="history">
+        <h2 id="historyTitle">Village History</h2>
+        <p id="historyText">
+            The history, traditions and special features of
+            Hanumantharayana Dinne will be added here.
+        </p>
+    </section>
 
-        <section id="contact">
-            <h2>ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
-            <p>
-                ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ
-                ಸೇರಿಸಲಾಗುವುದು.
-            </p>
-        </section>
+    <section id="gallery">
+        <h2 id="galleryTitle">Village Gallery</h2>
+        <p id="galleryText">
+            Beautiful photos of Hanumantharayana Dinne and
+            Aranya Anjaneya Swamy Temple will be displayed here.
+        </p>
+    </section>
 
-    </main>
+    <section id="contact">
+        <h2 id="contactTitle">Contact Us</h2>
+        <p id="contactText">
+            Contact information will be added here.
+        </p>
+    </section>
 
-    <footer>
-        <p>© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ</p>
-    </footer>
+</main>
+
+<footer>
+    <p id="footerText">© 2026 Hanumantharayana Dinne</p>
+</footer>
+
+<script>
+
+    function showKannada() {
+
+        document.documentElement.lang = "kn";
+
+        document.getElementById("title").innerText =
+            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
+
+        document.getElementById("tagline").innerText =
+            "ನಮ್ಮ ಊರು • ನಮ್ಮ ಸಂಸ್ಕೃತಿ • ನಮ್ಮ ಪರಂಪರೆ";
+
+        document.getElementById("navHome").innerText = "ಮುಖಪುಟ";
+        document.getElementById("navTemple").innerText = "ದೇವಸ್ಥಾನ";
+        document.getElementById("navHistory").innerText = "ಇತಿಹಾಸ";
+        document.getElementById("navGallery").innerText = "ಚಿತ್ರಗಳು";
+        document.getElementById("navContact").innerText = "ಸಂಪರ್ಕ";
+
+        document.getElementById("homeTitle").innerText =
+            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
+
+        document.getElementById("homeText").innerText =
+            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
+
+        document.getElementById("templeTitle").innerText =
+            "ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+
+        document.getElementById("templeText").innerText =
+            "ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+
+        document.getElementById("historyTitle").innerText =
+            "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
+
+        document.getElementById("historyText").innerText =
+            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
+
+        document.getElementById("galleryTitle").innerText =
+            "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
+
+        document.getElementById("galleryText").innerText =
+            "ನಮ್ಮ ಊರು ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಸುಂದರ ಚಿತ್ರಗಳನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+
+        document.getElementById("contactTitle").innerText =
+            "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
+        document.getElementById("contactText").innerText =
+            "ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
+
+        document.getElementById("footerText").innerText =
+            "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
+    }
+
+
+    function showEnglish() {
+
+        document.documentElement.lang = "en";
+
+        document.getElementById("title").innerText =
+            "Welcome to Hanumantharayana Dinne";
+
+        document.getElementById("tagline").innerText =
+            "Our Village • Our Culture • Our Tradition";
+
+        document.getElementById("navHome").innerText = "Home";
+        document.getElementById("navTemple").innerText = "Temple";
+        document.getElementById("navHistory").innerText = "History";
+        document.getElementById("navGallery").innerText = "Gallery";
+        document.getElementById("navContact").innerText = "Contact";
+
+        document.getElementById("homeTitle").innerText =
+            "Welcome to Hanumantharayana Dinne";
+
+        document.getElementById("homeText").innerText =
+            "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
+
+        document.getElementById("templeTitle").innerText =
+            "Aranya Anjaneya Swamy Temple";
+
+        document.getElementById("templeText").innerText =
+            "Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
+
+        document.getElementById("historyTitle").innerText =
+            "Village History";
+
+        document.getElementById("historyText").innerText =
+            "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
+
+        document.getElementById("galleryTitle").innerText =
+            "Village Gallery";
+
+        document.getElementById("galleryText").innerText =
+            "Beautiful photos of Hanumantharayana Dinne and Aranya Anjaneya Swamy Temple will be displayed here.";
+
+        document.getElementById("contactTitle").innerText =
+            "Contact Us";
+
+        document.getElementById("contactText").innerText =
+            "Contact information will be added here.";
+
+        document.getElementById("footerText").innerText =
+            "© 2026 Hanumantharayana Dinne";
+    }
+
+</script>
+```
 
 </body>
 
 </html>
+
