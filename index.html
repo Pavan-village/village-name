@@ -247,18 +247,17 @@
 </div>
 
 <script>
-    const galleryPhotos = document.querySelectorAll(".gallery-container img");
 
-    galleryPhotos.forEach(function(photo) {
-        photo.onclick = function() {
-            document.getElementById("photoViewer").style.display = "flex";
-            document.getElementById("largePhoto").src = this.src;
-        };
+document.querySelectorAll(".gallery-container img").forEach(function(photo) {
+    photo.addEventListener("click", function() {
+        document.getElementById("largePhoto").src = this.src;
+        document.getElementById("photoViewer").style.display = "flex";
     });
+});
 
-    function closePhoto() {
-        document.getElementById("photoViewer").style.display = "none";
-    }
+function closePhoto() {
+    document.getElementById("photoViewer").style.display = "none";
+}
 </script>
 
 </body>
