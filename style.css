@@ -126,3 +126,20 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+main section {
+    background: transparent !important;
+    box-shadow: none;
+}
+
+main section p,
+main section h2 {
+    background: transparent !important;
+}
+
+header {
+    background: transparent !important;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.35) !important;
+}
