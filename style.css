@@ -115,3 +115,14 @@ footer {
     color: white;
     cursor: pointer;
 }
+body {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.55)
+    ), url("hanuman.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
