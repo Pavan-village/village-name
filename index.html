@@ -237,8 +237,14 @@
         document.getElementById("footerText").innerText =
             "© 2026 Hanumantharayana Dinne";
     }
-        function showGallery() {
-    document.getElementById("gallery").style.display = "block";
+   function showGallery() {
+    var gallery = document.getElementById("gallery");
+
+    if (gallery.style.display === "none") {
+        gallery.style.display = "block";
+    } else {
+        gallery.style.display = "none";
+    }
 }
 
 </script>
