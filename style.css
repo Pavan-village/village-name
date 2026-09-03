@@ -175,3 +175,12 @@ main section p {
     text-shadow: 2px 2px 4px #000 !important;
     font-weight: 500;
 }
+main section h2 {
+    color: #ffd166 !important;
+    text-shadow: 2px 2px 4px black !important;
+}
+
+main section p {
+    color: white !important;
+    text-shadow: 2px 2px 4px black !important;
+}
