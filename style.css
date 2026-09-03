@@ -143,3 +143,20 @@ header {
 nav {
     background: rgba(0, 0, 0, 0.35) !important;
 }
+header {
+    background: transparent !important;
+}
+
+main section {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+main section h2,
+main section p {
+    background: transparent !important;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.35) !important;
+}
