@@ -1,25 +1,20 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="kn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Sri Aranya Anjaneya Swamy Temple</title>
+    <title>Sri Aranya Anjaneya Swamy Temple</title>
 
-<link rel="stylesheet" href="style.css">
-```
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="showKannada()">
 
-```
 <header>
-    <h1 id="title"> Sri Aranya Anjaneya Swamy Temple</h1>
-   <p id="tagline">Devotion • Faith • Tradition</p>
+    <h1 id="title">ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+    <p id="tagline">ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ</p>
 
     <div class="language-buttons">
         <button onclick="showKannada()">ಕನ್ನಡ</button>
@@ -28,216 +23,198 @@
 </header>
 
 <nav>
-    <a href="#home" id="navHome">Home</a>
-    <a href="#temple" id="navTemple">Temple</a>
-    <a href="#history" id="navHistory">History</a>
-    <a href="#gallery" id="navGallery" onclick="showGallery()">Gallery</a>
-    <a href="#contact" id="navContact">Contact</a>
+    <a href="#home" id="navHome">ಮುಖಪುಟ</a>
+    <a href="#temple" id="navTemple">ದೇವಸ್ಥಾನ</a>
+    <a href="#history" id="navHistory">ಇತಿಹಾಸ</a>
+    <a href="#gallery" id="navGallery" onclick="showGallery()">ಚಿತ್ರಗಳು</a>
+    <a href="#contact" id="navContact">ಸಂಪರ್ಕ</a>
 </nav>
 
 <main>
 
     <section id="home">
-        <h2 id="homeTitle">Welcome to Sri Aranya Anjaneya Swamy Temple</h2>
+        <h2 id="homeTitle">ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ</h2>
+
         <p id="homeText">
-            Welcome to the official website of Hanumantharayana Dinne.
-            Here you can learn about our village, culture, traditions
-            and the Aranya Anjaneya Swamy Temple.
+            ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ.
+            ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ
+            ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
         </p>
     </section>
 
     <section id="temple">
-        <h2 id="templeTitle"> Sri Aranya Anjaneya Swamy Temple</h2>
+        <h2 id="templeTitle">ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h2>
+
         <p id="templeText">
-             Sri Aranya Anjaneya Swamy Temple is an important spiritual
-            place connected with our village and its traditions.
-            Information about the temple, its history and celebrations
-            will be added here.
+            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ
+            ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ
+            ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.
         </p>
     </section>
 
     <section id="history">
-        <h2 id="historyTitle">Village History</h2>
+        <h2 id="historyTitle">ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ</h2>
+
         <p id="historyText">
-            The history, traditions and special features of
-            Hanumantharayana Dinne will be added here.
+            ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ
+            ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
         </p>
     </section>
 
     <section id="gallery" style="display: none;">
-    <h2 id="galleryTitle">Village Gallery</h2>
 
-    <div class="gallery-container">
+        <h2 id="galleryTitle">ಚಿತ್ರಗಳ ಸಂಗ್ರಹ</h2>
 
-        <img src="WhatsApp Image 2026-09-02 at 5.10.58 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+        <div class="gallery-container">
 
-        <img src="WhatsApp Image 2026-09-02 at 5.11.55 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.10.58 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.11.55 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.12.23 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (3).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
+            <img src="WhatsApp Image 2026-09-02 at 5.14.45 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
 
-        <img src="WhatsApp Image 2026-09-02 at 5.12.23 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (3).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.45 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-    </div>
-</section>
+        </div>
+    </section>
 
     <section id="contact">
-        <h2 id="contactTitle">Contact Us</h2>
+
+        <h2 id="contactTitle">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
+
         <p id="contactText">
-            Contact information will be added here.
+            ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
         </p>
-        <a href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
-   target="_blank">
-    📍 View Temple Location on Google Maps
-</a>
+
+        <a href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9" target="_blank">
+            📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
+        </a>
+
     </section>
 
 </main>
 
 <footer>
-    <p id="footerText">© 2026 Hanumantharayana Dinne</p>
+    <p id="footerText">© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ</p>
 </footer>
+
 
 <script>
 
-    function showKannada() {
+function showKannada() {
 
-        document.documentElement.lang = "kn";
+    document.documentElement.lang = "kn";
 
-        document.getElementById("title").innerText =
-            "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+    document.getElementById("title").innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
-        document.getElementById("tagline").innerText =
-    "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
+    document.getElementById("tagline").innerText =
+        "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
 
-        document.getElementById("navHome").innerText = "ಮುಖಪುಟ";
-        document.getElementById("navTemple").innerText = "ದೇವಸ್ಥಾನ";
-        document.getElementById("navHistory").innerText = "ಇತಿಹಾಸ";
-        document.getElementById("navGallery").innerText = "ಚಿತ್ರಗಳು";
-        document.getElementById("navContact").innerText = "ಸಂಪರ್ಕ";
+    document.getElementById("navHome").innerText = "ಮುಖಪುಟ";
+    document.getElementById("navTemple").innerText = "ದೇವಸ್ಥಾನ";
+    document.getElementById("navHistory").innerText = "ಇತಿಹಾಸ";
+    document.getElementById("navGallery").innerText = "ಚಿತ್ರಗಳು";
+    document.getElementById("navContact").innerText = "ಸಂಪರ್ಕ";
 
-        document.getElementById("homeTitle").innerText =
-            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
+    document.getElementById("homeTitle").innerText =
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
 
-        document.getElementById("homeText").innerText =
-            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
+    document.getElementById("homeText").innerText =
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
 
-        document.getElementById("templeTitle").innerText =
-            "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+    document.getElementById("templeTitle").innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
-        document.getElementById("templeText").innerText =
-            "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+    document.getElementById("templeText").innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
 
-        document.getElementById("historyTitle").innerText =
-            "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
+    document.getElementById("historyTitle").innerText =
+        "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
 
-        document.getElementById("historyText").innerText =
-            "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
+    document.getElementById("historyText").innerText =
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
 
-        document.getElementById("galleryTitle").innerText =
-            "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
+    document.getElementById("galleryTitle").innerText =
+        "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
 
-        document.getElementById("galleryText").innerText =
-            "ನಮ್ಮ ಊರು ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಸುಂದರ ಚಿತ್ರಗಳನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+    document.getElementById("contactTitle").innerText =
+        "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
 
-        document.getElementById("contactTitle").innerText =
-            "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
+    document.getElementById("contactText").innerText =
+        "ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
 
-        document.getElementById("contactText").innerText =
-            "ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
-
-        document.getElementById("footerText").innerText =
-            "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
-    }
+    document.getElementById("footerText").innerText =
+        "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
+}
 
 
-    function showEnglish() {
+function showEnglish() {
 
-        document.documentElement.lang = "en";
+    document.documentElement.lang = "en";
 
-        document.getElementById("title").innerText =
-            "Welcome to Sri Aranya Anjaneya Swamy Temple";
+    document.getElementById("title").innerText =
+        "Sri Aranya Anjaneya Swamy Temple";
 
-        document.getElementById("tagline").innerText =
-            "Our Village • Our Culture • Our Tradition";
+    document.getElementById("tagline").innerText =
+        "Devotion • Faith • Tradition";
 
-        document.getElementById("navHome").innerText = "Home";
-        document.getElementById("navTemple").innerText = "Temple";
-        document.getElementById("navHistory").innerText = "History";
-        document.getElementById("navGallery").innerText = "Gallery";
-        document.getElementById("navContact").innerText = "Contact";
+    document.getElementById("navHome").innerText = "Home";
+    document.getElementById("navTemple").innerText = "Temple";
+    document.getElementById("navHistory").innerText = "History";
+    document.getElementById("navGallery").innerText = "Gallery";
+    document.getElementById("navContact").innerText = "Contact";
 
-        document.getElementById("homeTitle").innerText =
-            "Welcome to Hanumantharayana Dinne";
+    document.getElementById("homeTitle").innerText =
+        "Welcome to Sri Aranya Anjaneya Swamy Temple";
 
-        document.getElementById("homeText").innerText =
-            "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
+    document.getElementById("homeText").innerText =
+        "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
 
-        document.getElementById("templeTitle").innerText =
-            "Sri Aranya Anjaneya Swamy Temple";
+    document.getElementById("templeTitle").innerText =
+        "Sri Aranya Anjaneya Swamy Temple";
 
-        document.getElementById("templeText").innerText =
-            " Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
+    document.getElementById("templeText").innerText =
+        "Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
 
-        document.getElementById("historyTitle").innerText =
-            "Village History";
+    document.getElementById("historyTitle").innerText =
+        "Village History";
 
-        document.getElementById("historyText").innerText =
-            "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
+    document.getElementById("historyText").innerText =
+        "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
 
-        document.getElementById("galleryTitle").innerText =
-            "Village Gallery";
+    document.getElementById("galleryTitle").innerText =
+        "Village Gallery";
 
-        document.getElementById("galleryText").innerText =
-            "Beautiful photos of Hanumantharayana Dinne and Aranya Anjaneya Swamy Temple will be displayed here.";
+    document.getElementById("contactTitle").innerText =
+        "Contact Us";
 
-        document.getElementById("contactTitle").innerText =
-            "Contact Us";
+    document.getElementById("contactText").innerText =
+        "Contact information will be added here.";
 
-        document.getElementById("contactText").innerText =
-            "Contact information will be added here.";
+    document.getElementById("footerText").innerText =
+        "© 2026 Hanumantharayana Dinne";
+}
 
-        document.getElementById("footerText").innerText =
-            "© 2026 Hanumantharayana Dinne";
-    }
-   function showGallery() {
+
+function showGallery() {
+
     var gallery = document.getElementById("gallery");
 
     if (gallery.style.display === "none") {
@@ -247,27 +224,38 @@
     }
 }
 
-</script>
-<div id="photoViewer" class="photo-viewer">
-   <span class="close-button" onclick="closePhoto()">&times;</span>
-    <img id="largePhoto" src="" alt="Temple Photo">
-</div>
 
-<script>
 document.addEventListener("click", function(event) {
+
     if (event.target.matches(".gallery-container img")) {
-        document.getElementById("largePhoto").src = event.target.src;
-        document.getElementById("photoViewer").style.display = "flex";
+
+        document.getElementById("largePhoto").src =
+            event.target.src;
+
+        document.getElementById("photoViewer").style.display =
+            "flex";
     }
 });
 
+
 function closePhoto() {
-    document.getElementById("photoViewer").style.display = "none";
+
+    document.getElementById("photoViewer").style.display =
+        "none";
+
     document.getElementById("largePhoto").src = "";
 }
+
 </script>
 
+
+<div id="photoViewer" class="photo-viewer">
+
+    <span class="close-button" onclick="closePhoto()">&times;</span>
+
+    <img id="largePhoto" src="" alt="Temple Photo">
+
+</div>
+
 </body>
-
 </html>
-
