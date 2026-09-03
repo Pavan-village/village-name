@@ -160,3 +160,8 @@ main section p {
 nav {
     background: rgba(0, 0, 0, 0.35) !important;
 }
+main section h2,
+main section p {
+    color: white !important;
+    text-shadow: 2px 2px 5px black;
+}
