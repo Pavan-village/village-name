@@ -42,6 +42,7 @@
         </p>
     </section>
 
+
     <section id="temple">
         <h2 id="templeTitle">ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h2>
 
@@ -52,6 +53,7 @@
         </p>
     </section>
 
+
     <section id="history">
         <h2 id="historyTitle">ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ</h2>
 
@@ -60,6 +62,7 @@
             ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
         </p>
     </section>
+
 
     <section id="gallery" style="display: none;">
 
@@ -94,30 +97,34 @@
         </div>
     </section>
 
+
     <section id="contact">
 
-    <h2 id="contactTitle">Contact Us</h2>
+        <h2 id="contactTitle">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
 
-    <h3 class="maintenance-name">Maintenance Name</h3>
-    <h3 class="maintenance-name">ನಿರ್ವಹಣೆ ಹೆಸರು</h3>
-    <p>
-        <strong>ಕೃಷ್ಣ ಮೂರ್ತಿ / Krishna Murthi</strong><br>
-        📞 <a href="tel:9964056335">9964056335</a>
-    </p>
+        <h3 class="maintenance-name">Maintenance Name</h3>
+        <h3 class="maintenance-name">ನಿರ್ವಹಣೆ ಹೆಸರು</h3>
 
-    <h3>🕉️ This Week's Pandit</h3>
+        <p>
+            <strong>ಕೃಷ್ಣ ಮೂರ್ತಿ / Krishna Murthi</strong><br>
+            📞 <a href="tel:9964056335">9964056335</a>
+        </p>
 
-    <div id="weeklyPandit">
-        <!-- Pandit contact will appear automatically here -->
-    </div>
 
-    <a href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9" target="_blank">
-        📍 View Temple Location on Google Maps
-    </a>
+        <h3 id="panditTitle">🕉️ ಈ ವಾರದ ಪಂಡಿತರು</h3>
 
-</section>
+        <div id="weeklyPandit">
+        </div>
+
+
+        <a href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9" target="_blank">
+            📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
+        </a>
+
+    </section>
 
 </main>
+
 
 <footer>
     <p id="footerText">© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ</p>
@@ -125,6 +132,90 @@
 
 
 <script>
+
+/* ================================
+   WEEKLY PANDIT SCHEDULE
+   ================================
+
+   Sunday, September 6, 2026
+   = Purushottama Chari
+
+   Next Sunday
+   = Sarvottama Chari
+
+   Then they alternate every Sunday.
+*/
+
+function updateWeeklyPandit(language) {
+
+    const startDate = new Date(2026, 8, 6);
+    const today = new Date();
+
+    startDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+
+    const difference =
+        Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+
+    const weekNumber =
+        Math.floor(difference / 7);
+
+    const panditNumber =
+        ((weekNumber % 2) + 2) % 2;
+
+
+    let panditName;
+    let phone;
+
+    if (panditNumber === 0) {
+
+        panditName = "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
+        phone = "9844028935";
+
+    } else {
+
+        panditName = "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
+        phone = "9880655949";
+
+    }
+
+
+    if (language === "kn") {
+
+        document.getElementById("panditTitle").innerText =
+            "🕉️ ಈ ವಾರದ ಪಂಡಿತರು";
+
+        document.getElementById("weeklyPandit").innerHTML =
+            "<div class='pandit-card'>" +
+            "<strong>" + panditName + "</strong><br>" +
+            "📞 <a href='tel:" + phone + "'>" + phone + "</a>" +
+            "</div>";
+
+    } else {
+
+        let englishName;
+
+        if (panditNumber === 0) {
+            englishName = "Purushottama Chari";
+        } else {
+            englishName = "Sarvottama Chari";
+        }
+
+        document.getElementById("panditTitle").innerText =
+            "🕉️ This Week's Pandit";
+
+        document.getElementById("weeklyPandit").innerHTML =
+            "<div class='pandit-card'>" +
+            "<strong>" + englishName + "</strong><br>" +
+            "📞 <a href='tel:" + phone + "'>" + phone + "</a>" +
+            "</div>";
+    }
+}
+
+
+/* ================================
+   KANNADA
+   ================================ */
 
 function showKannada() {
 
@@ -136,17 +227,28 @@ function showKannada() {
     document.getElementById("tagline").innerText =
         "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
 
-    document.getElementById("navHome").innerText = "ಮುಖಪುಟ";
-    document.getElementById("navTemple").innerText = "ದೇವಸ್ಥಾನ";
-    document.getElementById("navHistory").innerText = "ಇತಿಹಾಸ";
-    document.getElementById("navGallery").innerText = "ಚಿತ್ರಗಳು";
-    document.getElementById("navContact").innerText = "ಸಂಪರ್ಕ";
+    document.getElementById("navHome").innerText =
+        "ಮುಖಪುಟ";
+
+    document.getElementById("navTemple").innerText =
+        "ದೇವಸ್ಥಾನ";
+
+    document.getElementById("navHistory").innerText =
+        "ಇತಿಹಾಸ";
+
+    document.getElementById("navGallery").innerText =
+        "ಚಿತ್ರಗಳು";
+
+    document.getElementById("navContact").innerText =
+        "ಸಂಪರ್ಕ";
+
 
     document.getElementById("homeTitle").innerText =
-        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
 
     document.getElementById("homeText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
+
 
     document.getElementById("templeTitle").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
@@ -154,25 +256,33 @@ function showKannada() {
     document.getElementById("templeText").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
 
+
     document.getElementById("historyTitle").innerText =
         "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
 
     document.getElementById("historyText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
 
+
     document.getElementById("galleryTitle").innerText =
         "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
+
 
     document.getElementById("contactTitle").innerText =
         "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
 
-    document.getElementById("contactText").innerText =
-        "ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
 
     document.getElementById("footerText").innerText =
         "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
+
+
+    updateWeeklyPandit("kn");
 }
 
+
+/* ================================
+   ENGLISH
+   ================================ */
 
 function showEnglish() {
 
@@ -184,11 +294,22 @@ function showEnglish() {
     document.getElementById("tagline").innerText =
         "Devotion • Faith • Tradition";
 
-    document.getElementById("navHome").innerText = "Home";
-    document.getElementById("navTemple").innerText = "Temple";
-    document.getElementById("navHistory").innerText = "History";
-    document.getElementById("navGallery").innerText = "Gallery";
-    document.getElementById("navContact").innerText = "Contact";
+
+    document.getElementById("navHome").innerText =
+        "Home";
+
+    document.getElementById("navTemple").innerText =
+        "Temple";
+
+    document.getElementById("navHistory").innerText =
+        "History";
+
+    document.getElementById("navGallery").innerText =
+        "Gallery";
+
+    document.getElementById("navContact").innerText =
+        "Contact";
+
 
     document.getElementById("homeTitle").innerText =
         "Welcome to Sri Aranya Anjaneya Swamy Temple";
@@ -196,11 +317,13 @@ function showEnglish() {
     document.getElementById("homeText").innerText =
         "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
 
+
     document.getElementById("templeTitle").innerText =
         "Sri Aranya Anjaneya Swamy Temple";
 
     document.getElementById("templeText").innerText =
         "Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
+
 
     document.getElementById("historyTitle").innerText =
         "Village History";
@@ -208,31 +331,46 @@ function showEnglish() {
     document.getElementById("historyText").innerText =
         "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
 
+
     document.getElementById("galleryTitle").innerText =
         "Village Gallery";
+
 
     document.getElementById("contactTitle").innerText =
         "Contact Us";
 
-    document.getElementById("contactText").innerText =
-        "Contact information will be added here.";
 
     document.getElementById("footerText").innerText =
         "© 2026 Hanumantharayana Dinne";
+
+
+    updateWeeklyPandit("en");
 }
 
 
+/* ================================
+   GALLERY
+   ================================ */
+
 function showGallery() {
 
-    var gallery = document.getElementById("gallery");
+    var gallery =
+        document.getElementById("gallery");
 
     if (gallery.style.display === "none") {
+
         gallery.style.display = "block";
+
     } else {
+
         gallery.style.display = "none";
     }
 }
 
+
+/* ================================
+   LARGE PHOTO VIEWER
+   ================================ */
 
 document.addEventListener("click", function(event) {
 
@@ -252,7 +390,8 @@ function closePhoto() {
     document.getElementById("photoViewer").style.display =
         "none";
 
-    document.getElementById("largePhoto").src = "";
+    document.getElementById("largePhoto").src =
+        "";
 }
 
 </script>
@@ -260,11 +399,14 @@ function closePhoto() {
 
 <div id="photoViewer" class="photo-viewer">
 
-    <span class="close-button" onclick="closePhoto()">&times;</span>
+    <span class="close-button" onclick="closePhoto()">
+        &times;
+    </span>
 
     <img id="largePhoto" src="" alt="Temple Photo">
 
 </div>
+
 
 </body>
 </html>
