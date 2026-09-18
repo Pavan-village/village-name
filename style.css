@@ -880,3 +880,90 @@ a:focus-visible {
         transition-duration: 0.01ms !important;
     }
 }
+/* ================================
+   ENHANCED PANDIT CARD
+   ================================ */
+
+.pandit-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.pandit-card::before {
+    content: "🕉️";
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 28px;
+
+    opacity: 0.25;
+
+    animation: panditSymbol 2s ease-in-out infinite;
+}
+
+.pandit-card strong {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    animation: panditName 0.8s ease;
+}
+
+.pandit-card a {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 209, 102, 0.12);
+
+    border: 1px solid rgba(255, 209, 102, 0.5);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.pandit-card a:hover {
+    background: #ffd166;
+
+    color: black;
+
+    transform: scale(1.08);
+}
+
+
+/* Pandit animation */
+
+@keyframes panditSymbol {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(5deg) scale(1.15);
+    }
+
+}
+
+@keyframes panditName {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
