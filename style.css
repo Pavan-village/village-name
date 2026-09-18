@@ -2456,3 +2456,85 @@ footer {
     }
 
 }
+/* ================================
+   EXPLORE BUTTON PULSE
+   ================================ */
+
+.explore-button {
+    animation:
+        explorePulse 2.5s ease-in-out infinite;
+}
+
+.explore-button:hover {
+    animation: none;
+}
+
+@keyframes explorePulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 28px rgba(255, 209, 102, 0.45);
+    }
+
+}
+/* ================================
+   GOOGLE MAPS BUTTON
+   ================================ */
+
+#contact > a:last-child {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border: 2px solid #ffd166;
+
+    color: white !important;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#contact > a:last-child:hover {
+    background: #ffd166;
+
+    color: black !important;
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 10px 25px rgba(255, 209, 102, 0.4);
+}
+/* ================================
+   SMOOTH PAGE SCROLL
+   ================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 90px;
+}
