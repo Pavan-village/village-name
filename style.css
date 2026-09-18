@@ -967,3 +967,52 @@ a:focus-visible {
     }
 
 }
+/* ================================
+   CALL MAINTENANCE BUTTON
+   ================================ */
+
+.call-button {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border: 2px solid #ffd166;
+
+    color: white !important;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.call-button:hover {
+    background: #ffd166;
+
+    color: black !important;
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.call-button:active {
+    transform: scale(0.95);
+}
