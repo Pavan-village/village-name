@@ -2538,3 +2538,49 @@ html {
 section {
     scroll-margin-top: 90px;
 }
+/* ================================
+   MOBILE TOUCH FEEDBACK
+   ================================ */
+
+@media (max-width: 700px) {
+
+    button,
+    nav a,
+    .explore-button,
+    .call-button,
+    .pandit-card a {
+        -webkit-tap-highlight-color: transparent;
+
+        transition:
+            transform 0.2s ease,
+            background 0.2s ease;
+    }
+
+    button:active,
+    nav a:active,
+    .explore-button:active,
+    .call-button:active,
+    .pandit-card a:active {
+        transform: scale(0.94);
+    }
+
+}
+/* ================================
+   MOBILE GALLERY GRID
+   ================================ */
+
+@media (max-width: 450px) {
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .gallery-container img {
+        height: 150px;
+
+        border-radius: 12px;
+    }
+
+}
