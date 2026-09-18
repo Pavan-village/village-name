@@ -1275,3 +1275,92 @@ a:focus-visible {
     }
 
 }
+/* ================================
+   TEMPLE INFO SECTION
+   ================================ */
+
+.info-section {
+    text-align: center;
+}
+
+
+/* Temple icon */
+
+.info-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+
+    display: inline-block;
+
+    animation: templeFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255, 209, 102, 0.6));
+}
+
+
+/* Information card */
+
+.info-card {
+    max-width: 800px;
+
+    margin: 25px auto 0;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid rgba(255, 209, 102, 0.3);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+
+    background: rgba(0, 0, 0, 0.45);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Temple icon animation */
+
+@keyframes templeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 550px) {
+
+    .info-icon {
+        font-size: 48px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+}
