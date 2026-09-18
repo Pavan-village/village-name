@@ -393,6 +393,57 @@ function closePhoto() {
     document.getElementById("largePhoto").src =
         "";
 }
+/* ================================
+   NAVIGATION INTERACTION
+   ================================ */
+
+document.querySelectorAll("nav a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        document.querySelectorAll("nav a").forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+    });
+
+});
+
+
+/* ================================
+   ACTIVE NAVIGATION ON SCROLL
+   ================================ */
+
+const sections = document.querySelectorAll("main section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", function() {
+
+    let currentSection = "";
+
+    sections.forEach(function(section) {
+
+        const sectionTop = section.offsetTop;
+
+        if (window.scrollY >= sectionTop - 180) {
+            currentSection = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(function(link) {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + currentSection) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
 
 </script>
 
