@@ -2425,3 +2425,34 @@ body::before {
     }
 
 }
+/* ================================
+   PREMIUM FOOTER
+   ================================ */
+
+footer {
+    position: relative;
+
+    border-top:
+        1px solid rgba(255, 209, 102, 0.35);
+
+    box-shadow:
+        0 -5px 25px rgba(255, 209, 102, 0.08);
+
+    animation:
+        footerGlow 4s ease-in-out infinite;
+}
+
+@keyframes footerGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 -5px 20px rgba(255, 209, 102, 0.06);
+    }
+
+    50% {
+        box-shadow:
+            0 -5px 30px rgba(255, 209, 102, 0.2);
+    }
+
+}
