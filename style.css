@@ -1016,3 +1016,262 @@ a:focus-visible {
 .call-button:active {
     transform: scale(0.95);
 }
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.hero-section {
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    animation: heroContentAppear 1.2s ease;
+}
+
+
+/* Om symbol */
+
+.hero-symbol {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: omFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 12px rgba(255, 209, 102, 0.7));
+}
+
+
+/* Hero heading */
+
+.hero-section h2 {
+    font-size: clamp(30px, 6vw, 52px) !important;
+
+    margin-bottom: 20px;
+
+    animation:
+        heroTitleAppear 1.2s ease,
+        heroGlow 3s ease-in-out infinite;
+}
+
+
+/* Hero paragraph */
+
+.hero-section p {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    font-size: clamp(16px, 2.5vw, 20px);
+
+    line-height: 1.8;
+
+    animation: fadeUp 1.5s ease;
+}
+
+
+/* Explore button */
+
+.explore-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border: 2px solid #ffd166;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.explore-button:hover {
+    background: #ffd166;
+
+    color: black;
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 12px 30px rgba(255, 209, 102, 0.35);
+}
+
+.explore-button:active {
+    transform: scale(0.95);
+}
+
+
+/* Scroll indicator */
+
+.scroll-indicator {
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    opacity: 0.8;
+
+    animation: fadeUp 2s ease;
+}
+
+.scroll-indicator span {
+    font-size: 30px;
+
+    animation: scrollArrow 1.5s ease-in-out infinite;
+}
+
+.scroll-indicator small {
+    font-size: 12px;
+
+    text-shadow:
+        2px 2px 3px black;
+}
+
+
+/* ================================
+   HERO ANIMATIONS
+   ================================ */
+
+@keyframes heroContentAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes heroTitleAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes omFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+@keyframes heroGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 10px rgba(255, 209, 102, 0.2);
+    }
+
+    50% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 25px rgba(255, 209, 102, 0.7);
+    }
+
+}
+
+@keyframes scrollArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+}
+
+
+/* ================================
+   MOBILE HERO
+   ================================ */
+
+@media (max-width: 550px) {
+
+    .hero-section {
+        min-height: 70vh;
+
+        margin-top: 15px;
+    }
+
+    .hero-symbol {
+        font-size: 45px;
+    }
+
+    .hero-section p {
+        line-height: 1.7;
+    }
+
+    .explore-button {
+        padding: 12px 23px;
+
+        font-size: 16px;
+    }
+
+}
