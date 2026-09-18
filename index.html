@@ -444,7 +444,106 @@ window.addEventListener("scroll", function() {
     });
 
 });
+/* ================================
+   INTERACTIVE PHOTO GALLERY
+   ================================ */
 
+let currentPhotoIndex = 0;
+
+const galleryImages = document.querySelectorAll(
+    ".gallery-container img"
+);
+
+
+/* Open selected photo */
+
+document.querySelectorAll(".gallery-container img").forEach(
+    function(image, index) {
+
+        image.addEventListener("click", function() {
+
+            currentPhotoIndex = index;
+
+            showCurrentPhoto();
+
+            document.getElementById("photoViewer").style.display =
+                "flex";
+
+        });
+
+    }
+);
+
+
+/* Show current photo */
+
+function showCurrentPhoto() {
+
+    if (galleryImages.length === 0) {
+        return;
+    }
+
+    document.getElementById("largePhoto").src =
+        galleryImages[currentPhotoIndex].src;
+
+}
+
+
+/* Previous photo */
+
+function previousPhoto() {
+
+    currentPhotoIndex--;
+
+    if (currentPhotoIndex < 0) {
+        currentPhotoIndex = galleryImages.length - 1;
+    }
+
+    showCurrentPhoto();
+
+}
+
+
+/* Next photo */
+
+function nextPhoto() {
+
+    currentPhotoIndex++;
+
+    if (currentPhotoIndex >= galleryImages.length) {
+        currentPhotoIndex = 0;
+    }
+
+    showCurrentPhoto();
+
+}
+
+
+/* Keyboard controls */
+
+document.addEventListener("keydown", function(event) {
+
+    const viewer =
+        document.getElementById("photoViewer");
+
+    if (viewer.style.display === "flex") {
+
+        if (event.key === "ArrowLeft") {
+            previousPhoto();
+        }
+
+        if (event.key === "ArrowRight") {
+            nextPhoto();
+        }
+
+        if (event.key === "Escape") {
+            closePhoto();
+        }
+
+    }
+
+});
+    
 </script>
 
 
