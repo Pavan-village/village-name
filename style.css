@@ -2019,3 +2019,31 @@ footer {
     }
 
 }
+/* ================================
+   MOBILE NAVIGATION SCROLL
+   ================================ */
+
+@media (max-width: 700px) {
+
+    nav {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        white-space: nowrap;
+
+        justify-content: flex-start;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex: 0 0 auto;
+    }
+
+}
