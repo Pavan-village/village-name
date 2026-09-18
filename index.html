@@ -450,11 +450,19 @@ window.addEventListener("scroll", function() {
 
 <div id="photoViewer" class="photo-viewer">
 
+    <button class="photo-nav prev-photo" onclick="previousPhoto()">
+        &#10094;
+    </button>
+
+    <img id="largePhoto" src="" alt="Temple Photo">
+
+    <button class="photo-nav next-photo" onclick="nextPhoto()">
+        &#10095;
+    </button>
+
     <span class="close-button" onclick="closePhoto()">
         &times;
     </span>
-
-    <img id="largePhoto" src="" alt="Temple Photo">
 
 </div>
 
