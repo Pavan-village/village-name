@@ -1801,3 +1801,101 @@ nav a {
     }
 
 }
+/* ================================
+   BACK TO TOP BUTTON
+   ================================ */
+
+#backToTop {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 2px solid #ffd166;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #ffd166;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    z-index: 9999;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Show button */
+
+#backToTop.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* Hover */
+
+#backToTop:hover {
+    background: #ffd166;
+
+    color: black;
+
+    transform:
+        translateY(-5px)
+        scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(255, 209, 102, 0.45);
+}
+
+
+/* Click */
+
+#backToTop:active {
+    transform: scale(0.92);
+}
+
+
+/* Mobile */
+
+@media (max-width: 550px) {
+
+    #backToTop {
+        width: 45px;
+        height: 45px;
+
+        right: 14px;
+        bottom: 14px;
+
+        font-size: 24px;
+    }
+
+}
