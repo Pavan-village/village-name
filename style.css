@@ -2086,3 +2086,342 @@ button[onclick="showGallery()"]:hover {
     box-shadow:
         0 8px 20px rgba(255, 209, 102, 0.3);
 }
+/* ================================
+   NAVIGATION GLOW
+   ================================ */
+
+nav {
+    box-shadow:
+        0 4px 20px rgba(255, 209, 102, 0.12);
+
+    border-bottom:
+        1px solid rgba(255, 209, 102, 0.25);
+}
+
+nav a:hover {
+    text-shadow:
+        0 0 10px rgba(255, 209, 102, 0.8);
+}
+
+nav a.active {
+    text-shadow:
+        0 0 12px rgba(255, 209, 102, 0.9);
+}
+/* ================================
+   HEADER TITLE GLOW
+   ================================ */
+
+header h1 {
+    animation:
+        headerTitleGlow 3s ease-in-out infinite;
+}
+
+@keyframes headerTitleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 5px rgba(255, 209, 102, 0.2);
+    }
+
+    50% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 20px rgba(255, 209, 102, 0.75);
+    }
+
+}
+/* ================================
+   LANGUAGE BUTTON ANIMATION
+   ================================ */
+
+.language-buttons button {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.language-buttons button:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 6px 18px rgba(255, 209, 102, 0.35);
+}
+
+.language-buttons button:active {
+    transform: scale(0.94);
+}
+/* ================================
+   TEMPLE CARD SHINE
+   ================================ */
+
+.info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 209, 102, 0.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    pointer-events: none;
+}
+
+.info-card:hover::before {
+    left: 140%;
+
+    transition:
+        left 0.9s ease;
+}
+/* ================================
+   HISTORY CARD SHINE
+   ================================ */
+
+#history .info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+#history .info-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -20%;
+    left: -100%;
+
+    width: 50%;
+    height: 140%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 209, 102, 0.16),
+            transparent
+        );
+
+    transform: skewX(-25deg);
+
+    pointer-events: none;
+}
+
+#history .info-card:hover::before {
+    left: 150%;
+
+    transition:
+        left 1s ease;
+}
+/* ================================
+   CONTACT CARD PULSE
+   ================================ */
+
+.pandit-card {
+    animation:
+        contactCardFloat 4s ease-in-out infinite;
+}
+
+.pandit-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes contactCardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+/* ================================
+   MOBILE CONTACT BUTTONS
+   ================================ */
+
+@media (max-width: 550px) {
+
+    .pandit-card a,
+    .call-button {
+        display: block;
+
+        width: 85%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 13px 18px;
+
+        font-size: 16px;
+
+        box-sizing: border-box;
+    }
+
+}
+/* ================================
+   HOME NAVIGATION HIGHLIGHT
+   ================================ */
+
+nav a[href="#home"] {
+    font-weight: bold;
+
+    position: relative;
+}
+
+nav a[href="#home"]::before {
+    content: "🏠";
+
+    margin-right: 5px;
+
+    display: inline-block;
+
+    animation:
+        homeIconFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes homeIconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+}
+/* ================================
+   SECTION GLOW DIVIDER
+   ================================ */
+
+main section:not(:first-child)::before {
+    content: "✦";
+
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    color: #ffd166;
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 12px rgba(255, 209, 102, 0.8);
+
+    animation:
+        dividerGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes dividerGlow {
+
+    0%,
+    100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+}
+/* ================================
+   GALLERY IMAGE ZOOM
+   ================================ */
+
+.gallery-container img {
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.gallery-container img:hover {
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.55);
+}
+/* ================================
+   AMBIENT TEMPLE GLOW
+   ================================ */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    top: 35%;
+    left: 50%;
+
+    width: 450px;
+    height: 450px;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 209, 102, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+        ambientGlow 6s ease-in-out infinite;
+}
+
+@keyframes ambientGlow {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+        opacity: 1;
+    }
+
+}
