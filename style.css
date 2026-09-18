@@ -2047,3 +2047,42 @@ footer {
     }
 
 }
+/* ================================
+   GALLERY BUTTON ANIMATION
+   ================================ */
+
+button[onclick="showGallery()"] {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+button[onclick="showGallery()"]::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 209, 102, 0.25);
+
+    transition: left 0.5s ease;
+}
+
+button[onclick="showGallery()"]:hover::before {
+    left: 100%;
+}
+
+button[onclick="showGallery()"]:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 209, 102, 0.3);
+}
