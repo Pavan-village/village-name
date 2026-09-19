@@ -329,41 +329,57 @@
 function updateWeeklyPandit(language) {
 
     const startDate = new Date(2026, 8, 6);
-
     const today = new Date();
 
     startDate.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
-    const difference =
-        Math.floor(
-            (today - startDate) /
-            (1000 * 60 * 60 * 24)
-        );
+    const difference = Math.floor(
+        (today - startDate) / (1000 * 60 * 60 * 24)
+    );
 
-    const weekNumber =
-        Math.floor(difference / 7);
-
-    const panditNumber =
-        ((weekNumber % 2) + 2) % 2;
+    const weekNumber = Math.floor(difference / 7);
+    const panditNumber = ((weekNumber % 2) + 2) % 2;
 
     let panditName;
     let englishName;
     let phone;
 
     if (panditNumber === 0) {
-
         panditName = "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
         englishName = "Purushottama Chari";
         phone = "9844028935";
-
     } else {
-
         panditName = "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
         englishName = "Sarvottama Chari";
         phone = "9880655949";
-
     }
+
+    const currentSunday = new Date(startDate);
+    currentSunday.setDate(
+        startDate.getDate() + (weekNumber * 7)
+    );
+
+    const nextSunday = new Date(currentSunday);
+    nextSunday.setDate(
+        currentSunday.getDate() + 7
+    );
+
+    const options = {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+    };
+
+    const currentDate = currentSunday.toLocaleDateString(
+        "en-IN",
+        options
+    );
+
+    const nextDate = nextSunday.toLocaleDateString(
+        "en-IN",
+        options
+    );
 
     if (language === "kn") {
 
@@ -371,16 +387,14 @@ function updateWeeklyPandit(language) {
             "🕉️ ಈ ವಾರದ ಪಂಡಿತರು";
 
         document.getElementById("weeklyPandit").innerHTML =
-
             "<div class='pandit-card'>" +
 
-            "<strong>" +
-            panditName +
-            "</strong><br>" +
+            "<strong>" + panditName + "</strong><br><br>" +
 
-            "📞 <a href='tel:" +
-            phone +
-            "'>" +
+            "📅 " + currentDate +
+            " → " + nextDate + "<br><br>" +
+
+            "📞 <a href='tel:" + phone + "'>" +
             phone +
             "</a>" +
 
@@ -392,22 +406,19 @@ function updateWeeklyPandit(language) {
             "🕉️ This Week's Pandit";
 
         document.getElementById("weeklyPandit").innerHTML =
-
             "<div class='pandit-card'>" +
 
-            "<strong>" +
-            englishName +
-            "</strong><br>" +
+            "<strong>" + englishName + "</strong><br><br>" +
 
-            "📞 <a href='tel:" +
-            phone +
-            "'>" +
+            "📅 " + currentDate +
+            " → " + nextDate + "<br><br>" +
+
+            "📞 <a href='tel:" + phone + "'>" +
             phone +
             "</a>" +
 
             "</div>";
     }
-
 }
 
 
