@@ -2081,42 +2081,13 @@ section {
             0.01ms !important;
     }
 }
-/* 📱 Mobile Hanuman Background Fix */
+/* =========================
+   📱 MOBILE HANUMAN BACKGROUND
+   ========================= */
 
 @media (max-width: 768px) {
 
     body {
-        background-image:
-            linear-gradient(
-                rgba(0, 0, 0, 0.55),
-                rgba(0, 0, 0, 0.55)
-            ),
-            url("hanuman.jfif");
-
-        background-size: cover;
-        background-position: center top;
-        background-repeat: no-repeat;
-
-        /* Important for mobile browsers */
-        background-attachment: scroll;
-    }
-
-}
-/* 📱 Mobile Full-Screen Hanuman Background */
-
-@media (max-width: 768px) {
-
-    html,
-    body {
-        min-height: 100%;
-        background: none !important;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-
         background:
             linear-gradient(
                 rgba(0, 0, 0, 0.55),
@@ -2124,12 +2095,12 @@ section {
             ),
             url("hanuman.jfif");
 
-        background-size: cover;
-        background-position: center center;
+        background-size: contain;
+        background-position: center top;
         background-repeat: no-repeat;
+        background-attachment: scroll;
 
-        z-index: -1;
-        pointer-events: none;
+        background-color: #000;
     }
 
 }
