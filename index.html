@@ -13,12 +13,21 @@
 
 <body onload="showKannada()">
 
-<!-- BACK TO TOP BUTTON -->
+<!-- =========================================
+     BACK TO TOP
+     ========================================= -->
 
-<button id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+<button
+    id="backToTop"
+    onclick="scrollToTop()"
+    aria-label="Back to top">
     ↑
 </button>
 
+
+<!-- =========================================
+     HEADER
+     ========================================= -->
 
 <header>
 
@@ -32,11 +41,15 @@
 
     <div class="language-buttons">
 
-        <button onclick="showKannada()">
+        <button
+            type="button"
+            onclick="showKannada()">
             ಕನ್ನಡ
         </button>
 
-        <button onclick="showEnglish()">
+        <button
+            type="button"
+            onclick="showEnglish()">
             English
         </button>
 
@@ -44,6 +57,10 @@
 
 </header>
 
+
+<!-- =========================================
+     NAVIGATION
+     ========================================= -->
 
 <nav>
 
@@ -59,7 +76,10 @@
         ಇತಿಹಾಸ
     </a>
 
-    <a href="#gallery" id="navGallery" onclick="showGallery()">
+    <a
+        href="#gallery"
+        id="navGallery"
+        onclick="showGallery(event)">
         ಚಿತ್ರಗಳು
     </a>
 
@@ -70,223 +90,326 @@
 </nav>
 
 
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
+
 <main>
 
-<!-- ================================
-     HOME
-     ================================ -->
 
-<section id="home" class="hero-section">
+    <!-- =====================================
+         HOME
+         ===================================== -->
 
-    <div class="hero-content">
+    <section
+        id="home"
+        class="hero-section">
 
-        <div class="hero-symbol">
-            🕉️
+        <div class="hero-content">
+
+            <div class="hero-symbol">
+                🕉️
+            </div>
+
+            <h2 id="homeTitle">
+                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ
+            </h2>
+
+            <p id="homeText">
+                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ
+                ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ
+                ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು
+                ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
+            </p>
+
+            <a
+                href="#temple"
+                class="explore-button"
+                id="exploreButton">
+                ✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ
+            </a>
+
+            <div class="scroll-indicator">
+
+                <span>
+                    ↓
+                </span>
+
+                <small id="scrollText">
+                    ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ
+                </small>
+
+            </div>
+
         </div>
 
-        <h2 id="homeTitle">
-            ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ
+    </section>
+
+
+    <!-- =====================================
+         TEMPLE
+         ===================================== -->
+
+    <section
+        id="temple"
+        class="info-section">
+
+        <div class="info-icon">
+            🛕
+        </div>
+
+        <h2 id="templeTitle">
+            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ
         </h2>
 
-        <p id="homeText">
-            ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ
-            ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ
-            ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
-        </p>
+        <div class="info-card">
 
-        <a href="#temple" class="explore-button" id="exploreButton">
-            ✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ
-        </a>
-
-        <div class="scroll-indicator">
-
-            <span>
-                ↓
-            </span>
-
-            <small id="scrollText">
-                ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ
-            </small>
+            <p id="templeText">
+                ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ
+                ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ,
+                ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ
+                ನೋಡಬಹುದು.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ================================
-     TEMPLE
-     ================================ -->
+    <!-- =====================================
+         HISTORY
+         ===================================== -->
 
-<section id="temple" class="info-section">
+    <section
+        id="history"
+        class="info-section">
 
-    <div class="info-icon">
-        🛕
-    </div>
+        <div class="info-icon history-icon">
+            📖
+        </div>
 
-    <h2 id="templeTitle">
-        ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ
-    </h2>
+        <h2 id="historyTitle">
+            ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ
+        </h2>
 
-    <div class="info-card">
+        <div class="info-card">
 
-        <p id="templeText">
-            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ
-            ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು
-            ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.
+            <p id="historyText">
+                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು
+                ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         GALLERY
+         ===================================== -->
+
+    <section
+        id="gallery"
+        style="display: none;">
+
+        <h2 id="galleryTitle">
+            ಚಿತ್ರಗಳ ಸಂಗ್ರಹ
+        </h2>
+
+        <div class="gallery-container">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.10.58 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.11.55 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.23 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.24 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.24 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.41 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.41 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (3).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.44 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.44 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.45 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CONTACT
+         ===================================== -->
+
+    <section id="contact">
+
+        <h2 id="contactTitle">
+            ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ
+        </h2>
+
+
+        <!-- MAINTENANCE -->
+
+        <h3
+            class="maintenance-name"
+            id="maintenanceTitleKn">
+            ನಿರ್ವಹಣೆ
+        </h3>
+
+        <p>
+
+            <strong>
+                ಕೃಷ್ಣ ಮೂರ್ತಿ / Krishna Murthi
+            </strong>
+
+            <br>
+
+            <a
+                class="call-button"
+                href="tel:9964056335"
+                id="maintenanceCall">
+                📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ
+            </a>
+
         </p>
 
-    </div>
 
-</section>
+        <!-- WEEKLY PANDIT -->
 
+        <h3 id="panditTitle">
+            🕉️ ಈ ವಾರದ ಪಂಡಿತರು
+        </h3>
 
-<!-- ================================
-     HISTORY
-     ================================ -->
-
-<section id="history" class="info-section">
-
-    <div class="info-icon history-icon">
-        📖
-    </div>
-
-    <h2 id="historyTitle">
-        ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ
-    </h2>
-
-    <div class="info-card">
-
-        <p id="historyText">
-            ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು
-            ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
+        <p
+            id="panditScheduleHint"
+            class="pandit-schedule-hint">
+            📅 ಪ್ರತಿ ಭಾನುವಾರ ಪಂಡಿತರ ಬದಲಾವಣೆ
         </p>
 
-    </div>
-
-</section>
-
-
-<!-- ================================
-     GALLERY
-     ================================ -->
-
-<section id="gallery" style="display: none;">
-
-    <h2 id="galleryTitle">
-        ಚಿತ್ರಗಳ ಸಂಗ್ರಹ
-    </h2>
-
-    <div class="gallery-container">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.10.58 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.11.55 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.12.23 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.12.24 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.01 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.13.02 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.41 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.42 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (2).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM (3).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.43 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM (1).jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.44 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-        <img src="WhatsApp Image 2026-09-02 at 5.14.45 PM.jpeg" alt="Aranya Anjaneya Swamy Temple">
-
-    </div>
-
-</section>
+        <div id="weeklyPandit">
+            <!-- Weekly Pandit information will appear here -->
+        </div>
 
 
-<!-- ================================
-     CONTACT
-     ================================ -->
+        <!-- GOOGLE MAPS -->
 
-<section id="contact">
-
-    <h2 id="contactTitle">
-        ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ
-    </h2>
-
-    <h3 class="maintenance-name" id="maintenanceTitleKn">
-        ನಿರ್ವಹಣೆ
-    </h3>
-
-    <p>
-
-        <strong>
-            ಕೃಷ್ಣ ಮೂರ್ತಿ / Krishna Murthi
-        </strong>
-
-        <br>
-
-        <a class="call-button" href="tel:9964056335" id="maintenanceCall">
-            📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ
+        <a
+            id="mapsButton"
+            href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
+            target="_blank"
+            rel="noopener noreferrer">
+            📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
         </a>
 
-    </p>
-
-
-    <h3 id="panditTitle">
-        🕉️ ಈ ವಾರದ ಪಂಡಿತರು
-    </h3>
-<div id="weeklyPandit">
-
-    <!-- Weekly Pandit information will appear here -->
-
-</div>
-
-
-    <a
-        id="mapsButton"
-        href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
-    </a>
-
-</section>
+    </section>
 
 </main>
 
 
-<!-- ================================
+<!-- =========================================
      FOOTER
-     ================================ -->
+     ========================================= -->
 
 <footer>
 
@@ -297,34 +420,54 @@
 </footer>
 
 
-<!-- ================================
+<!-- =========================================
      PHOTO VIEWER
-     ================================ -->
+     ========================================= -->
 
-<div id="photoViewer" class="photo-viewer">
+<div
+    id="photoViewer"
+    class="photo-viewer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Temple photo viewer">
 
-    <button class="photo-nav prev-photo" onclick="previousPhoto()">
+    <button
+        type="button"
+        class="photo-nav prev-photo"
+        onclick="previousPhoto()"
+        aria-label="Previous photo">
         &#10094;
     </button>
 
-    <img id="largePhoto" src="" alt="Temple Photo">
+    <img
+        id="largePhoto"
+        src=""
+        alt="Temple Photo">
 
-    <button class="photo-nav next-photo" onclick="nextPhoto()">
+    <button
+        type="button"
+        class="photo-nav next-photo"
+        onclick="nextPhoto()"
+        aria-label="Next photo">
         &#10095;
     </button>
 
-    <span class="close-button" onclick="closePhoto()">
+    <button
+        type="button"
+        class="close-button"
+        onclick="closePhoto()"
+        aria-label="Close photo viewer">
         &times;
-    </span>
+    </button>
 
 </div>
 
 
 <script>
 
-/* ================================
+/* =========================================
    WEEKLY PANDIT SCHEDULE
-   ================================ */
+   ========================================= */
 
 function updateWeeklyPandit(language) {
 
@@ -335,35 +478,52 @@ function updateWeeklyPandit(language) {
     today.setHours(0, 0, 0, 0);
 
     const difference = Math.floor(
-        (today - startDate) / (1000 * 60 * 60 * 24)
+        (today - startDate) /
+        (1000 * 60 * 60 * 24)
     );
 
-    const weekNumber = Math.floor(difference / 7);
-    const panditNumber = ((weekNumber % 2) + 2) % 2;
+    const weekNumber = Math.floor(
+        difference / 7
+    );
+
+    const panditNumber =
+        ((weekNumber % 2) + 2) % 2;
 
     let panditName;
     let englishName;
     let phone;
 
     if (panditNumber === 0) {
+
         panditName = "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
         englishName = "Purushottama Chari";
         phone = "9844028935";
+
     } else {
+
         panditName = "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
         englishName = "Sarvottama Chari";
         phone = "9880655949";
+
     }
 
-    const currentSunday = new Date(startDate);
+
+    const currentSunday =
+        new Date(startDate);
+
     currentSunday.setDate(
-        startDate.getDate() + (weekNumber * 7)
+        startDate.getDate() +
+        (weekNumber * 7)
     );
 
-    const nextSunday = new Date(currentSunday);
+
+    const nextSunday =
+        new Date(currentSunday);
+
     nextSunday.setDate(
         currentSunday.getDate() + 7
     );
+
 
     const options = {
         day: "numeric",
@@ -371,30 +531,54 @@ function updateWeeklyPandit(language) {
         year: "numeric"
     };
 
-    const currentDate = currentSunday.toLocaleDateString(
-        "en-IN",
-        options
-    );
 
-    const nextDate = nextSunday.toLocaleDateString(
-        "en-IN",
-        options
-    );
+    const currentDate =
+        currentSunday.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+
+    const nextDate =
+        nextSunday.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
 
     if (language === "kn") {
 
-        document.getElementById("panditTitle").innerText =
+        document.getElementById(
+            "panditTitle"
+        ).innerText =
             "🕉️ ಈ ವಾರದ ಪಂಡಿತರು";
 
-        document.getElementById("weeklyPandit").innerHTML =
+
+        document.getElementById(
+            "panditScheduleHint"
+        ).innerText =
+            "📅 ಪ್ರತಿ ಭಾನುವಾರ ಪಂಡಿತರ ಬದಲಾವಣೆ";
+
+
+        document.getElementById(
+            "weeklyPandit"
+        ).innerHTML =
+
             "<div class='pandit-card'>" +
 
-            "<strong>" + panditName + "</strong><br><br>" +
+            "<strong>" +
+            panditName +
+            "</strong><br><br>" +
 
-            "📅 " + currentDate +
-            " → " + nextDate + "<br><br>" +
+            "📅 " +
+            currentDate +
+            " → " +
+            nextDate +
+            "<br><br>" +
 
-            "📞 <a href='tel:" + phone + "'>" +
+            "📞 <a href='tel:" +
+            phone +
+            "'>" +
             phone +
             "</a>" +
 
@@ -402,18 +586,37 @@ function updateWeeklyPandit(language) {
 
     } else {
 
-        document.getElementById("panditTitle").innerText =
+        document.getElementById(
+            "panditTitle"
+        ).innerText =
             "🕉️ This Week's Pandit";
 
-        document.getElementById("weeklyPandit").innerHTML =
+
+        document.getElementById(
+            "panditScheduleHint"
+        ).innerText =
+            "📅 Pandit changes every Sunday";
+
+
+        document.getElementById(
+            "weeklyPandit"
+        ).innerHTML =
+
             "<div class='pandit-card'>" +
 
-            "<strong>" + englishName + "</strong><br><br>" +
+            "<strong>" +
+            englishName +
+            "</strong><br><br>" +
 
-            "📅 " + currentDate +
-            " → " + nextDate + "<br><br>" +
+            "📅 " +
+            currentDate +
+            " → " +
+            nextDate +
+            "<br><br>" +
 
-            "📞 <a href='tel:" + phone + "'>" +
+            "📞 <a href='tel:" +
+            phone +
+            "'>" +
             phone +
             "</a>" +
 
@@ -422,19 +625,22 @@ function updateWeeklyPandit(language) {
 }
 
 
-/* ================================
+/* =========================================
    KANNADA
-   ================================ */
+   ========================================= */
 
 function showKannada() {
 
     document.documentElement.lang = "kn";
 
+
     document.getElementById("title").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
+
     document.getElementById("tagline").innerText =
         "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
+
 
     document.getElementById("navHome").innerText =
         "ಮುಖಪುಟ";
@@ -451,65 +657,83 @@ function showKannada() {
     document.getElementById("navContact").innerText =
         "ಸಂಪರ್ಕ";
 
+
     document.getElementById("homeTitle").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
+
 
     document.getElementById("homeText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
 
+
     document.getElementById("exploreButton").innerText =
         "✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ";
 
+
     document.getElementById("scrollText").innerText =
-        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ";
+        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ";
+
 
     document.getElementById("templeTitle").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
+
     document.getElementById("templeText").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+
 
     document.getElementById("historyTitle").innerText =
         "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
 
+
     document.getElementById("historyText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
+
 
     document.getElementById("galleryTitle").innerText =
         "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
 
+
     document.getElementById("contactTitle").innerText =
         "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
 
     document.getElementById("maintenanceTitleKn").innerText =
         "ನಿರ್ವಹಣೆ";
 
+
     document.getElementById("maintenanceCall").innerText =
         "📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
 
     document.getElementById("mapsButton").innerText =
         "📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ";
 
+
     document.getElementById("footerText").innerText =
         "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
+
 
     updateWeeklyPandit("kn");
 }
 
 
-/* ================================
+/* =========================================
    ENGLISH
-   ================================ */
+   ========================================= */
 
 function showEnglish() {
 
     document.documentElement.lang = "en";
 
+
     document.getElementById("title").innerText =
         "Sri Aranya Anjaneya Swamy Temple";
 
+
     document.getElementById("tagline").innerText =
         "Devotion • Faith • Tradition";
+
 
     document.getElementById("navHome").innerText =
         "Home";
@@ -526,123 +750,331 @@ function showEnglish() {
     document.getElementById("navContact").innerText =
         "Contact";
 
+
     document.getElementById("homeTitle").innerText =
         "Welcome to Sri Aranya Anjaneya Swamy Temple";
+
 
     document.getElementById("homeText").innerText =
         "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
 
+
     document.getElementById("exploreButton").innerText =
         "✨ Explore Temple";
+
 
     document.getElementById("scrollText").innerText =
         "Scroll to explore";
 
+
     document.getElementById("templeTitle").innerText =
         "Sri Aranya Anjaneya Swamy Temple";
+
 
     document.getElementById("templeText").innerText =
         "Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
 
+
     document.getElementById("historyTitle").innerText =
         "Village History";
+
 
     document.getElementById("historyText").innerText =
         "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
 
+
     document.getElementById("galleryTitle").innerText =
         "Village Gallery";
+
 
     document.getElementById("contactTitle").innerText =
         "Contact Us";
 
+
     document.getElementById("maintenanceTitleKn").innerText =
         "Maintenance";
+
 
     document.getElementById("maintenanceCall").innerText =
         "📞 Call Maintenance";
 
+
     document.getElementById("mapsButton").innerText =
         "📍 View Temple Location on Google Maps";
 
+
     document.getElementById("footerText").innerText =
         "© 2026 Hanumantharayana Dinne";
+
 
     updateWeeklyPandit("en");
 }
 
 
-/* ================================
-   GALLERY
-   ================================ */
+/* =========================================
+   GALLERY SHOW / HIDE
+   ========================================= */
 
-function showGallery() {
+function showGallery(event) {
 
-    var gallery =
+    if (event) {
+        event.preventDefault();
+    }
+
+    const gallery =
         document.getElementById("gallery");
+
 
     if (gallery.style.display === "none") {
 
         gallery.style.display = "block";
 
+        setTimeout(function() {
+
+            gallery.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 50);
+
     } else {
 
         gallery.style.display = "none";
+
+        document.getElementById("home")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
     }
 }
 
 
-/* ================================
-   LARGE PHOTO VIEWER
-   ================================ */
+/* =========================================
+   PHOTO GALLERY
+   ========================================= */
 
-document.addEventListener("click", function(event) {
+let currentPhotoIndex = 0;
 
-    if (
-        event.target.matches(
-            ".gallery-container img"
-        )
-    ) {
 
-        document.getElementById("largePhoto").src =
-            event.target.src;
+const galleryImages =
+    document.querySelectorAll(
+        ".gallery-container img"
+    );
 
-        document.getElementById("photoViewer").style.display =
-            "flex";
+
+galleryImages.forEach(
+    function(image, index) {
+
+        image.addEventListener(
+            "click",
+            function() {
+
+                currentPhotoIndex = index;
+
+                showCurrentPhoto();
+
+                document.getElementById(
+                    "photoViewer"
+                ).style.display = "flex";
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   SHOW CURRENT PHOTO
+   ========================================= */
+
+function showCurrentPhoto() {
+
+    if (galleryImages.length === 0) {
+        return;
     }
 
-});
 
+    const largePhoto =
+        document.getElementById(
+            "largePhoto"
+        );
+
+
+    largePhoto.src =
+        galleryImages[
+            currentPhotoIndex
+        ].src;
+
+
+    largePhoto.alt =
+        galleryImages[
+            currentPhotoIndex
+        ].alt;
+}
+
+
+/* =========================================
+   PREVIOUS PHOTO
+   ========================================= */
+
+function previousPhoto() {
+
+    currentPhotoIndex--;
+
+
+    if (currentPhotoIndex < 0) {
+
+        currentPhotoIndex =
+            galleryImages.length - 1;
+    }
+
+
+    showCurrentPhoto();
+}
+
+
+/* =========================================
+   NEXT PHOTO
+   ========================================= */
+
+function nextPhoto() {
+
+    currentPhotoIndex++;
+
+
+    if (
+        currentPhotoIndex >=
+        galleryImages.length
+    ) {
+
+        currentPhotoIndex = 0;
+    }
+
+
+    showCurrentPhoto();
+}
+
+
+/* =========================================
+   CLOSE PHOTO
+   ========================================= */
 
 function closePhoto() {
 
-    document.getElementById("photoViewer").style.display =
-        "none";
+    document.getElementById(
+        "photoViewer"
+    ).style.display = "none";
 
-    document.getElementById("largePhoto").src =
-        "";
+
+    document.getElementById(
+        "largePhoto"
+    ).src = "";
+
+
+    document.body.style.overflow = "";
 }
 
 
-/* ================================
-   NAVIGATION INTERACTION
-   ================================ */
+/* =========================================
+   CLOSE VIEWER WHEN CLICKING BACKGROUND
+   ========================================= */
 
-document.querySelectorAll("nav a").forEach(
+document.getElementById(
+    "photoViewer"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            this
+        ) {
+
+            closePhoto();
+        }
+
+    }
+);
+
+
+/* =========================================
+   KEYBOARD PHOTO CONTROLS
+   ========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const viewer =
+            document.getElementById(
+                "photoViewer"
+            );
+
+
+        if (
+            viewer.style.display === "flex"
+        ) {
+
+            if (
+                event.key === "ArrowLeft"
+            ) {
+
+                previousPhoto();
+            }
+
+
+            if (
+                event.key === "ArrowRight"
+            ) {
+
+                nextPhoto();
+            }
+
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closePhoto();
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   NAVIGATION CLICK
+   ========================================= */
+
+document.querySelectorAll(
+    "nav a"
+).forEach(
     function(link) {
 
         link.addEventListener(
             "click",
             function() {
 
-                document.querySelectorAll("nav a")
-                    .forEach(function(item) {
+                document.querySelectorAll(
+                    "nav a"
+                ).forEach(
+                    function(item) {
 
                         item.classList.remove(
                             "active"
                         );
 
-                    });
+                    }
+                );
+
 
                 this.classList.add(
                     "active"
@@ -655,19 +1087,21 @@ document.querySelectorAll("nav a").forEach(
 );
 
 
-/* ================================
+/* =========================================
    ACTIVE NAVIGATION ON SCROLL
-   ================================ */
+   ========================================= */
 
 const sections =
     document.querySelectorAll(
         "main section"
     );
 
+
 const navLinks =
     document.querySelectorAll(
         "nav a"
     );
+
 
 window.addEventListener(
     "scroll",
@@ -675,11 +1109,21 @@ window.addEventListener(
 
         let currentSection = "";
 
+
         sections.forEach(
             function(section) {
 
+                if (
+                    section.style.display ===
+                    "none"
+                ) {
+                    return;
+                }
+
+
                 const sectionTop =
                     section.offsetTop;
+
 
                 if (
                     window.scrollY >=
@@ -695,6 +1139,7 @@ window.addEventListener(
             }
         );
 
+
         navLinks.forEach(
             function(link) {
 
@@ -702,8 +1147,11 @@ window.addEventListener(
                     "active"
                 );
 
+
                 if (
-                    link.getAttribute("href") ===
+                    link.getAttribute(
+                        "href"
+                    ) ===
                     "#" + currentSection
                 ) {
 
@@ -719,146 +1167,15 @@ window.addEventListener(
 );
 
 
-/* ================================
-   INTERACTIVE PHOTO GALLERY
-   ================================ */
-
-let currentPhotoIndex = 0;
-
-const galleryImages =
-    document.querySelectorAll(
-        ".gallery-container img"
-    );
-
-document.querySelectorAll(
-    ".gallery-container img"
-).forEach(
-    function(image, index) {
-
-        image.addEventListener(
-            "click",
-            function() {
-
-                currentPhotoIndex =
-                    index;
-
-                showCurrentPhoto();
-
-                document.getElementById(
-                    "photoViewer"
-                ).style.display =
-                    "flex";
-
-            }
-        );
-
-    }
-);
-
-
-function showCurrentPhoto() {
-
-    if (
-        galleryImages.length === 0
-    ) {
-
-        return;
-    }
-
-    document.getElementById(
-        "largePhoto"
-    ).src =
-        galleryImages[
-            currentPhotoIndex
-        ].src;
-}
-
-
-function previousPhoto() {
-
-    currentPhotoIndex--;
-
-    if (
-        currentPhotoIndex < 0
-    ) {
-
-        currentPhotoIndex =
-            galleryImages.length - 1;
-    }
-
-    showCurrentPhoto();
-}
-
-
-function nextPhoto() {
-
-    currentPhotoIndex++;
-
-    if (
-        currentPhotoIndex >=
-        galleryImages.length
-    ) {
-
-        currentPhotoIndex =
-            0;
-    }
-
-    showCurrentPhoto();
-}
-
-
-/* ================================
-   KEYBOARD PHOTO CONTROLS
-   ================================ */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        const viewer =
-            document.getElementById(
-                "photoViewer"
-            );
-
-        if (
-            viewer.style.display === "flex"
-        ) {
-
-            if (
-                event.key === "ArrowLeft"
-            ) {
-
-                previousPhoto();
-            }
-
-            if (
-                event.key === "ArrowRight"
-            ) {
-
-                nextPhoto();
-            }
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                closePhoto();
-            }
-
-        }
-
-    }
-);
-
-
-/* ================================
+/* =========================================
    BACK TO TOP
-   ================================ */
+   ========================================= */
 
 const backToTop =
     document.getElementById(
         "backToTop"
     );
+
 
 window.addEventListener(
     "scroll",
@@ -887,11 +1204,8 @@ window.addEventListener(
 function scrollToTop() {
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
