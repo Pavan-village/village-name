@@ -2577,3 +2577,77 @@ section {
     }
 
 }
+/* ✨ Premium Hero Animation */
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    animation: heroEntrance 1.2s ease-out both;
+}
+
+.hero-symbol {
+    display: inline-block;
+    font-size: 55px;
+    animation: omFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.7));
+}
+
+.hero-content h2 {
+    animation: heroTitleGlow 3s ease-in-out infinite;
+}
+
+.explore-button {
+    animation: explorePulse 2.2s ease-in-out infinite;
+}
+
+@keyframes heroEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes omFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+}
+
+@keyframes heroTitleGlow {
+    0%, 100% {
+        text-shadow: 0 0 8px rgba(255, 193, 7, 0.25);
+    }
+    50% {
+        text-shadow: 0 0 22px rgba(255, 193, 7, 0.7);
+    }
+}
+
+@keyframes explorePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+/* 📱 Mobile adjustment */
+@media (max-width: 600px) {
+    .hero-symbol {
+        font-size: 45px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+}
