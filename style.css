@@ -343,66 +343,59 @@ main section p {
    ========================= */
 
 .pandit-card {
-    display: inline-block;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 24px 20px;
+    text-align: center;
 
-    min-width: 260px;
-
-    margin: 15px auto;
-
-    padding: 22px 30px;
-
+    background: rgba(255, 248, 220, 0.92);
+    border: 2px solid #d4a017;
     border-radius: 18px;
 
-    background:
-        rgba(0, 0, 0, 0.45);
-
-    border:
-        1px solid rgba(255, 209, 102, 0.5);
-
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.35);
+        0 8px 25px rgba(0, 0, 0, 0.18),
+        0 0 18px rgba(255, 193, 7, 0.25);
 
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-
-    animation:
-        cardAppear 0.8s ease;
+    animation: panditCardGlow 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pandit-card:hover {
-    transform:
-        translateY(-8px)
-        scale(1.03);
-
+    transform: translateY(-6px);
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.45);
+        0 12px 30px rgba(0, 0, 0, 0.22),
+        0 0 25px rgba(255, 193, 7, 0.45);
 }
 
 .pandit-card strong {
-    color: #ffd166;
-
-    font-size: 21px;
-
-    text-shadow:
-        2px 2px 4px black;
+    display: inline-block;
+    font-size: 24px;
+    color: #8b0000;
+    margin-bottom: 5px;
 }
 
-.pandit-card a,
-#contact a {
-    color: #ffffff;
-
+.pandit-card a {
+    color: #006400;
     font-weight: bold;
-
     text-decoration: none;
-
-    transition:
-        color 0.3s ease;
 }
 
-.pandit-card a:hover,
-#contact a:hover {
-    color: #ffd166;
+.pandit-card a:hover {
+    text-decoration: underline;
+}
+
+@keyframes panditCardGlow {
+    0%, 100% {
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.18),
+            0 0 18px rgba(255, 193, 7, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 10px 28px rgba(0, 0, 0, 0.20),
+            0 0 28px rgba(255, 193, 7, 0.45);
+    }
 }
 
 
