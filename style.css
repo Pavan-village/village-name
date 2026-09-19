@@ -2081,3 +2081,24 @@ section {
             0.01ms !important;
     }
 }
+/* 📱 Mobile Hanuman Background Fix */
+
+@media (max-width: 768px) {
+
+    body {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.55)
+            ),
+            url("hanuman.jfif");
+
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+
+        /* Important for mobile browsers */
+        background-attachment: scroll;
+    }
+
+}
