@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="kn">
 
@@ -71,7 +72,6 @@
 
 <main>
 
-
 <!-- ================================
      HOME
      ================================ -->
@@ -94,8 +94,8 @@
             ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
         </p>
 
-        <a href="#temple" class="explore-button">
-            ✨ Explore Temple
+        <a href="#temple" class="explore-button" id="exploreButton">
+            ✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ
         </a>
 
         <div class="scroll-indicator">
@@ -104,8 +104,8 @@
                 ↓
             </span>
 
-            <small>
-                Scroll to explore
+            <small id="scrollText">
+                ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ
             </small>
 
         </div>
@@ -241,11 +241,7 @@
         ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ
     </h2>
 
-    <h3 class="maintenance-name">
-        Maintenance
-    </h3>
-
-    <h3 class="maintenance-name">
+    <h3 class="maintenance-name" id="maintenanceTitleKn">
         ನಿರ್ವಹಣೆ
     </h3>
 
@@ -257,8 +253,8 @@
 
         <br>
 
-        <a class="call-button" href="tel:9964056335">
-            📞 Call Maintenance
+        <a class="call-button" href="tel:9964056335" id="maintenanceCall">
+            📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ
         </a>
 
     </p>
@@ -272,7 +268,12 @@
     </div>
 
 
-    <a href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9" target="_blank">
+    <a
+        id="mapsButton"
+        href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
     </a>
 
@@ -319,7 +320,6 @@
 
 <script>
 
-
 /* ================================
    WEEKLY PANDIT SCHEDULE
    ================================ */
@@ -331,7 +331,6 @@ function updateWeeklyPandit(language) {
     const today = new Date();
 
     startDate.setHours(0, 0, 0, 0);
-
     today.setHours(0, 0, 0, 0);
 
     const difference =
@@ -346,35 +345,28 @@ function updateWeeklyPandit(language) {
     const panditNumber =
         ((weekNumber % 2) + 2) % 2;
 
-
     let panditName;
+    let englishName;
     let phone;
-
 
     if (panditNumber === 0) {
 
-        panditName =
-            "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
-
-        phone =
-            "9844028935";
+        panditName = "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
+        englishName = "Purushottama Chari";
+        phone = "9844028935";
 
     } else {
 
-        panditName =
-            "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
-
-        phone =
-            "9880655949";
+        panditName = "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
+        englishName = "Sarvottama Chari";
+        phone = "9880655949";
 
     }
-
 
     if (language === "kn") {
 
         document.getElementById("panditTitle").innerText =
             "🕉️ ಈ ವಾರದ ಪಂಡಿತರು";
-
 
         document.getElementById("weeklyPandit").innerHTML =
 
@@ -394,25 +386,8 @@ function updateWeeklyPandit(language) {
 
     } else {
 
-        let englishName;
-
-
-        if (panditNumber === 0) {
-
-            englishName =
-                "Purushottama Chari";
-
-        } else {
-
-            englishName =
-                "Sarvottama Chari";
-
-        }
-
-
         document.getElementById("panditTitle").innerText =
             "🕉️ This Week's Pandit";
-
 
         document.getElementById("weeklyPandit").innerHTML =
 
@@ -440,76 +415,72 @@ function updateWeeklyPandit(language) {
 
 function showKannada() {
 
-    document.documentElement.lang =
-        "kn";
-
+    document.documentElement.lang = "kn";
 
     document.getElementById("title").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
-
     document.getElementById("tagline").innerText =
         "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
-
 
     document.getElementById("navHome").innerText =
         "ಮುಖಪುಟ";
 
-
     document.getElementById("navTemple").innerText =
         "ದೇವಸ್ಥಾನ";
-
 
     document.getElementById("navHistory").innerText =
         "ಇತಿಹಾಸ";
 
-
     document.getElementById("navGallery").innerText =
         "ಚಿತ್ರಗಳು";
-
 
     document.getElementById("navContact").innerText =
         "ಸಂಪರ್ಕ";
 
-
     document.getElementById("homeTitle").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
-
 
     document.getElementById("homeText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
 
+    document.getElementById("exploreButton").innerText =
+        "✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ";
+
+    document.getElementById("scrollText").innerText =
+        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ";
 
     document.getElementById("templeTitle").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
 
-
     document.getElementById("templeText").innerText =
         "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
-
 
     document.getElementById("historyTitle").innerText =
         "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
 
-
     document.getElementById("historyText").innerText =
         "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
-
 
     document.getElementById("galleryTitle").innerText =
         "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
 
-
     document.getElementById("contactTitle").innerText =
         "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
 
+    document.getElementById("maintenanceTitleKn").innerText =
+        "ನಿರ್ವಹಣೆ";
+
+    document.getElementById("maintenanceCall").innerText =
+        "📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
+    document.getElementById("mapsButton").innerText =
+        "📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ";
 
     document.getElementById("footerText").innerText =
         "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
 
-
     updateWeeklyPandit("kn");
-
 }
 
 
@@ -519,76 +490,72 @@ function showKannada() {
 
 function showEnglish() {
 
-    document.documentElement.lang =
-        "en";
-
+    document.documentElement.lang = "en";
 
     document.getElementById("title").innerText =
         "Sri Aranya Anjaneya Swamy Temple";
 
-
     document.getElementById("tagline").innerText =
         "Devotion • Faith • Tradition";
-
 
     document.getElementById("navHome").innerText =
         "Home";
 
-
     document.getElementById("navTemple").innerText =
         "Temple";
-
 
     document.getElementById("navHistory").innerText =
         "History";
 
-
     document.getElementById("navGallery").innerText =
         "Gallery";
-
 
     document.getElementById("navContact").innerText =
         "Contact";
 
-
     document.getElementById("homeTitle").innerText =
         "Welcome to Sri Aranya Anjaneya Swamy Temple";
-
 
     document.getElementById("homeText").innerText =
         "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
 
+    document.getElementById("exploreButton").innerText =
+        "✨ Explore Temple";
+
+    document.getElementById("scrollText").innerText =
+        "Scroll to explore";
 
     document.getElementById("templeTitle").innerText =
         "Sri Aranya Anjaneya Swamy Temple";
 
-
     document.getElementById("templeText").innerText =
         "Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
-
 
     document.getElementById("historyTitle").innerText =
         "Village History";
 
-
     document.getElementById("historyText").innerText =
         "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
-
 
     document.getElementById("galleryTitle").innerText =
         "Village Gallery";
 
-
     document.getElementById("contactTitle").innerText =
         "Contact Us";
 
+    document.getElementById("maintenanceTitleKn").innerText =
+        "Maintenance";
+
+    document.getElementById("maintenanceCall").innerText =
+        "📞 Call Maintenance";
+
+    document.getElementById("mapsButton").innerText =
+        "📍 View Temple Location on Google Maps";
 
     document.getElementById("footerText").innerText =
         "© 2026 Hanumantharayana Dinne";
 
-
     updateWeeklyPandit("en");
-
 }
 
 
@@ -601,19 +568,14 @@ function showGallery() {
     var gallery =
         document.getElementById("gallery");
 
-
     if (gallery.style.display === "none") {
 
-        gallery.style.display =
-            "block";
+        gallery.style.display = "block";
 
     } else {
 
-        gallery.style.display =
-            "none";
-
+        gallery.style.display = "none";
     }
-
 }
 
 
@@ -632,10 +594,8 @@ document.addEventListener("click", function(event) {
         document.getElementById("largePhoto").src =
             event.target.src;
 
-
         document.getElementById("photoViewer").style.display =
             "flex";
-
     }
 
 });
@@ -646,10 +606,8 @@ function closePhoto() {
     document.getElementById("photoViewer").style.display =
         "none";
 
-
     document.getElementById("largePhoto").src =
         "";
-
 }
 
 
@@ -673,7 +631,6 @@ document.querySelectorAll("nav a").forEach(
 
                     });
 
-
                 this.classList.add(
                     "active"
                 );
@@ -694,12 +651,10 @@ const sections =
         "main section"
     );
 
-
 const navLinks =
     document.querySelectorAll(
         "nav a"
     );
-
 
 window.addEventListener(
     "scroll",
@@ -707,13 +662,11 @@ window.addEventListener(
 
         let currentSection = "";
 
-
         sections.forEach(
             function(section) {
 
                 const sectionTop =
                     section.offsetTop;
-
 
                 if (
                     window.scrollY >=
@@ -724,12 +677,10 @@ window.addEventListener(
                         section.getAttribute(
                             "id"
                         );
-
                 }
 
             }
         );
-
 
         navLinks.forEach(
             function(link) {
@@ -737,7 +688,6 @@ window.addEventListener(
                 link.classList.remove(
                     "active"
                 );
-
 
                 if (
                     link.getAttribute("href") ===
@@ -747,7 +697,6 @@ window.addEventListener(
                     link.classList.add(
                         "active"
                     );
-
                 }
 
             }
@@ -761,15 +710,12 @@ window.addEventListener(
    INTERACTIVE PHOTO GALLERY
    ================================ */
 
-let currentPhotoIndex =
-    0;
-
+let currentPhotoIndex = 0;
 
 const galleryImages =
     document.querySelectorAll(
         ".gallery-container img"
     );
-
 
 document.querySelectorAll(
     ".gallery-container img"
@@ -783,9 +729,7 @@ document.querySelectorAll(
                 currentPhotoIndex =
                     index;
 
-
                 showCurrentPhoto();
-
 
                 document.getElementById(
                     "photoViewer"
@@ -806,9 +750,7 @@ function showCurrentPhoto() {
     ) {
 
         return;
-
     }
-
 
     document.getElementById(
         "largePhoto"
@@ -816,7 +758,6 @@ function showCurrentPhoto() {
         galleryImages[
             currentPhotoIndex
         ].src;
-
 }
 
 
@@ -824,26 +765,21 @@ function previousPhoto() {
 
     currentPhotoIndex--;
 
-
     if (
         currentPhotoIndex < 0
     ) {
 
         currentPhotoIndex =
             galleryImages.length - 1;
-
     }
 
-
     showCurrentPhoto();
-
 }
 
 
 function nextPhoto() {
 
     currentPhotoIndex++;
-
 
     if (
         currentPhotoIndex >=
@@ -852,12 +788,9 @@ function nextPhoto() {
 
         currentPhotoIndex =
             0;
-
     }
 
-
     showCurrentPhoto();
-
 }
 
 
@@ -874,7 +807,6 @@ document.addEventListener(
                 "photoViewer"
             );
 
-
         if (
             viewer.style.display === "flex"
         ) {
@@ -884,25 +816,20 @@ document.addEventListener(
             ) {
 
                 previousPhoto();
-
             }
-
 
             if (
                 event.key === "ArrowRight"
             ) {
 
                 nextPhoto();
-
             }
-
 
             if (
                 event.key === "Escape"
             ) {
 
                 closePhoto();
-
             }
 
         }
@@ -919,7 +846,6 @@ const backToTop =
     document.getElementById(
         "backToTop"
     );
-
 
 window.addEventListener(
     "scroll",
@@ -962,3 +888,4 @@ function scrollToTop() {
 </body>
 
 </html>
+```
