@@ -2082,7 +2082,7 @@ section {
     }
 }
 /* =========================
-   📱 MOBILE HANUMAN BACKGROUND
+   📱 MOBILE HANUMAN BACKGROUND FIX
    ========================= */
 
 @media (max-width: 768px) {
@@ -2095,10 +2095,10 @@ section {
             ),
             url("hanuman.jfif");
 
-        background-size: auto 100%;
-        background-position: center top;
+        background-size: 100% 100%;
+        background-position: center center;
         background-repeat: no-repeat;
-        background-attachment: scroll;
+        background-attachment: fixed;
 
         background-color: #000;
     }
