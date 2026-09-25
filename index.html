@@ -359,6 +359,7 @@
         <div class="info-card">
 
             <p id="historyText">
+
                 ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ, ಇಂದು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ
                 ಎಂದು ಕರೆಯಲ್ಪಡುವ ಈ ಭೂಮಿ ದಟ್ಟವಾದ ಅರಣ್ಯವಾಗಿತ್ತು.
                 ಆಗ ಇಲ್ಲಿ ಯಾವುದೇ ಗ್ರಾಮ, ವಸತಿ ಅಥವಾ ದೇವಸ್ಥಾನ ಇರಲಿಲ್ಲ.
@@ -445,6 +446,7 @@
                 <br><br>
 
                 <strong>ಜೈ ಶ್ರೀ ಆಂಜನೇಯ 🙏</strong>
+
             </p>
 
         </div>
@@ -755,7 +757,8 @@
 
         <div
             class="info-card upcoming-festival-card"
-            id="upcomingFestivalCard">
+            id="upcomingFestivalCard"
+            style="display: none;">
 
             <h3 id="upcomingFestivalTitle">
                 🔔 ಮುಂಬರುವ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ
@@ -1086,38 +1089,108 @@
 
 <script>
 
-
 /* =========================================
-   BRAHMA MAHOTSAVAM DATE
+   FESTIVAL CONFIGURATION
    ========================================= */
 
 /*
-   2027 Rama Navami:
-   15 April 2027
+   IMPORTANT:
 
-   Next Pournami:
+   Enter the confirmed Pournami date for each year.
+
+   For the 2027 festival, the date currently used
+   is the date already present in your original code:
+
    20 April 2027
 
-   Therefore:
+   The website automatically creates:
 
-   18 April 2027 = Sri Rama Kote Day 1
-   19 April 2027 = Sri Rama Kote Day 2
-   20 April 2027 = Brahma Mahotsavam Day 1
-   21 April 2027 = Brahma Mahotsavam Day 2
-   22 April 2027 = Brahma Mahotsavam Day 3
-   23 April 2027 = Brahma Mahotsavam Day 4
-   24 April 2027 = Brahma Mahotsavam Day 5
+   Day 1  → Sri Rama Kote
+   Day 2  → Sri Rama Kote
+   Day 3  → Brahma Mahotsavam Day 1
+   Day 4  → Brahma Mahotsavam Day 2
+   Day 5  → Brahma Mahotsavam Day 3
+   Day 6  → Brahma Mahotsavam Day 4
+   Day 7  → Brahma Mahotsavam Day 5
 
-   The temple can change this single date
-   when the next year's Pournami is confirmed.
+   When a future year's confirmed Pournami date is known,
+   add it here.
 */
 
-const festivalPournamiDate =
-    new Date(2027, 3, 20);
+const FESTIVAL_DATES = {
+
+    2027: "2027-04-20"
+
+};
 
 
 /* =========================================
-   FESTIVAL DATE FORMAT
+   GET FESTIVAL DATE
+   ========================================= */
+
+function getFestivalDate() {
+
+    const currentYear =
+        new Date().getFullYear();
+
+
+    const availableYears =
+        Object.keys(FESTIVAL_DATES)
+            .map(Number)
+            .sort(function(a, b) {
+                return a - b;
+            });
+
+
+    let selectedYear = null;
+
+
+    for (
+        let i = 0;
+        i < availableYears.length;
+        i++
+    ) {
+
+        if (
+            availableYears[i] >= currentYear
+        ) {
+
+            selectedYear =
+                availableYears[i];
+
+            break;
+        }
+
+    }
+
+
+    if (
+        selectedYear === null
+    ) {
+
+        selectedYear =
+            availableYears[
+                availableYears.length - 1
+            ];
+    }
+
+
+    const parts =
+        FESTIVAL_DATES[
+            selectedYear
+        ].split("-");
+
+
+    return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+    );
+}
+
+
+/* =========================================
+   FORMAT FESTIVAL DATE
    ========================================= */
 
 function formatFestivalDate(
@@ -1126,17 +1199,24 @@ function formatFestivalDate(
 ) {
 
     const options = {
+
         day: "numeric",
+
         month: "long",
+
         year: "numeric"
+
     };
 
 
     return date.toLocaleDateString(
+
         language === "kn"
             ? "kn-IN"
             : "en-IN",
+
         options
+
     );
 }
 
@@ -1148,7 +1228,7 @@ function formatFestivalDate(
 function updateFestival(language) {
 
     const pournami =
-        new Date(festivalPournamiDate);
+        getFestivalDate();
 
 
     pournami.setHours(
@@ -1163,6 +1243,8 @@ function updateFestival(language) {
 
 
     /*
+       Seven days:
+
        -2 = Sri Rama Kote Day 1
        -1 = Sri Rama Kote Day 2
         0 = Brahma Mahotsavam Day 1
@@ -1197,33 +1279,45 @@ function updateFestival(language) {
         let special;
 
 
-        if (dayNumber === 1) {
+        if (
+            dayNumber === 1
+        ) {
 
             event =
                 language === "kn"
+
                     ? "ಶ್ರೀ ರಾಮ ಕೋಟೆ"
+
                     : "Sri Rama Kote";
 
 
             special =
                 language === "kn"
+
                     ? "ಮೊದಲ ದಿನ"
+
                     : "First day";
 
         }
 
 
-        else if (dayNumber === 2) {
+        else if (
+            dayNumber === 2
+        ) {
 
             event =
                 language === "kn"
+
                     ? "ಶ್ರೀ ರಾಮ ಕೋಟೆ"
+
                     : "Sri Rama Kote";
 
 
             special =
                 language === "kn"
+
                     ? "ಎರಡನೇ ದಿನ"
+
                     : "Second day";
 
         }
@@ -1237,27 +1331,37 @@ function updateFestival(language) {
 
             event =
                 language === "kn"
+
                     ? "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ದಿನ " +
                       brahmaDay
+
                     : "Brahma Mahotsavam – Day " +
                       brahmaDay;
 
 
-            if (dayNumber === 3) {
+            if (
+                dayNumber === 3
+            ) {
 
                 special =
                     language === "kn"
+
                         ? "ಪೌರ್ಣಿಮೆಯಂದು ಪ್ರಾರಂಭ"
+
                         : "Starts on Pournami";
 
             }
 
 
-            else if (dayNumber === 7) {
+            else if (
+                dayNumber === 7
+            ) {
 
                 special =
                     language === "kn"
+
                         ? "ಅಂತಿಮ ದಿನ"
+
                         : "Final day";
 
             }
@@ -1267,18 +1371,26 @@ function updateFestival(language) {
 
                 special =
                     language === "kn"
+
                         ? "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವದ ಕಾರ್ಯಕ್ರಮ"
+
                         : "Festival programme";
+
             }
 
         }
 
 
         schedule.push({
+
             day: dayNumber,
+
             date: date,
+
             event: event,
+
             special: special
+
         });
 
     }
@@ -1288,6 +1400,13 @@ function updateFestival(language) {
         document.getElementById(
             "festivalScheduleBody"
         );
+
+
+    if (
+        !tableBody
+    ) {
+        return;
+    }
 
 
     tableBody.innerHTML = "";
@@ -1305,22 +1424,30 @@ function updateFestival(language) {
             row.innerHTML =
 
                 "<td>" +
+
                 item.day +
+
                 "</td>" +
 
                 "<td>" +
+
                 formatFestivalDate(
                     item.date,
                     language
                 ) +
+
                 "</td>" +
 
                 "<td>" +
+
                 item.event +
+
                 "</td>" +
 
                 "<td>" +
+
                 item.special +
+
                 "</td>";
 
 
@@ -1340,7 +1467,7 @@ function updateFestival(language) {
 
 
 /* =========================================
-   UPCOMING FESTIVAL
+   UPCOMING FESTIVAL NOTICE
    ========================================= */
 
 function updateUpcomingFestival(
@@ -1369,29 +1496,73 @@ function updateUpcomingFestival(
     );
 
 
+    const festivalEnd =
+        new Date(pournami);
+
+
+    festivalEnd.setDate(
+        festivalEnd.getDate() + 4
+    );
+
+
+    festivalEnd.setHours(
+        23,
+        59,
+        59,
+        999
+    );
+
+
+    const upcomingCard =
+        document.getElementById(
+            "upcomingFestivalCard"
+        );
+
+
     const upcomingDate =
         document.getElementById(
             "upcomingFestivalDate"
         );
 
 
+    if (
+        !upcomingCard ||
+        !upcomingDate
+    ) {
+        return;
+    }
+
+
     /*
-       The notice becomes highlighted
-       during the month before the festival.
+       The upcoming notice is hidden normally.
+
+       It automatically appears:
+       one month before Pournami
+       until the final day of Brahma Mahotsavam.
     */
+
+    const showNotice =
+        today >= oneMonthBefore &&
+        today <= festivalEnd;
 
 
     if (
-        today >= oneMonthBefore &&
-        today <= pournami
+        showNotice
     ) {
 
-        if (language === "kn") {
+        upcomingCard.style.display =
+            "block";
+
+
+        if (
+            language === "kn"
+        ) {
 
             upcomingDate.innerHTML =
 
-                "🔔 ಇನ್ನೂ ಒಂದು ತಿಂಗಳೊಳಗೆ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ " +
-                "ಪ್ರಾರಂಭವಾಗಲಿದೆ.<br><br>" +
+                "🔔 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಸಮೀಪಿಸುತ್ತಿದೆ." +
+
+                "<br><br>" +
 
                 "🌕 ಪ್ರಾರಂಭ ದಿನಾಂಕ: <strong>" +
 
@@ -1400,16 +1571,40 @@ function updateUpcomingFestival(
                     "kn"
                 ) +
 
-                "</strong>";
+                "</strong>" +
+
+                "<br><br>" +
+
+                "📅 7 ದಿನಗಳ ಕಾರ್ಯಕ್ರಮವು " +
+
+                formatFestivalDate(
+                    new Date(
+                        pournami.getFullYear(),
+                        pournami.getMonth(),
+                        pournami.getDate() - 2
+                    ),
+                    "kn"
+                ) +
+
+                " ರಿಂದ " +
+
+                formatFestivalDate(
+                    festivalEnd,
+                    "kn"
+                ) +
+
+                " ರವರೆಗೆ ನಡೆಯಲಿದೆ.";
 
         }
+
 
         else {
 
             upcomingDate.innerHTML =
 
-                "🔔 Brahma Mahotsavam is coming " +
-                "within one month.<br><br>" +
+                "🔔 Brahma Mahotsavam is approaching." +
+
+                "<br><br>" +
 
                 "🌕 Starting Date: <strong>" +
 
@@ -1418,45 +1613,39 @@ function updateUpcomingFestival(
                     "en"
                 ) +
 
-                "</strong>";
+                "</strong>" +
+
+                "<br><br>" +
+
+                "📅 The 7-day programme will be held from " +
+
+                formatFestivalDate(
+                    new Date(
+                        pournami.getFullYear(),
+                        pournami.getMonth(),
+                        pournami.getDate() - 2
+                    ),
+                    "en"
+                ) +
+
+                " to " +
+
+                formatFestivalDate(
+                    festivalEnd,
+                    "en"
+                ) +
+
+                ".";
 
         }
 
     }
 
+
     else {
 
-        if (language === "kn") {
-
-            upcomingDate.innerHTML =
-
-                "🌕 ಈ ವರ್ಷದ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ " +
-                "ಪ್ರಾರಂಭ: <strong>" +
-
-                formatFestivalDate(
-                    pournami,
-                    "kn"
-                ) +
-
-                "</strong>";
-
-        }
-
-        else {
-
-            upcomingDate.innerHTML =
-
-                "🌕 This year's Brahma Mahotsavam " +
-                "starts on: <strong>" +
-
-                formatFestivalDate(
-                    pournami,
-                    "en"
-                ) +
-
-                "</strong>";
-
-        }
+        upcomingCard.style.display =
+            "none";
 
     }
 
@@ -1522,7 +1711,7 @@ function updateWeeklyPandit(language) {
             "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
 
         englishName =
-            "Purushottama Chari";
+            "Purushothama Chari";
 
         phone =
             "9844028935";
@@ -1535,10 +1724,11 @@ function updateWeeklyPandit(language) {
             "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
 
         englishName =
-            "Sarvottama Chari";
+            "Sarvothama Chari";
 
         phone =
             "9880655949";
+
     }
 
 
@@ -1562,9 +1752,13 @@ function updateWeeklyPandit(language) {
 
 
     const options = {
+
         day: "numeric",
+
         month: "short",
+
         year: "numeric"
+
     };
 
 
@@ -1664,6 +1858,7 @@ function updateWeeklyPandit(language) {
             "</div>";
 
     }
+
 }
 
 
@@ -2145,6 +2340,7 @@ function showKannada() {
     updateWeeklyPandit("kn");
 
     updateFestival("kn");
+
 }
 
 
@@ -2554,7 +2750,7 @@ function showEnglish() {
     document.getElementById(
         "upcomingFestivalNotice"
     ).innerText =
-        "📌 This notice automatically highlights the festival when it is one month away.";
+        "📌 This notice automatically appears one month before the festival.";
 
 
     document.getElementById(
@@ -2626,6 +2822,7 @@ function showEnglish() {
     updateWeeklyPandit("en");
 
     updateFestival("en");
+
 }
 
 
@@ -2636,7 +2833,9 @@ function showEnglish() {
 function showGallery(event) {
 
     if (event) {
+
         event.preventDefault();
+
     }
 
 
@@ -2659,8 +2858,11 @@ function showGallery(event) {
             function() {
 
                 gallery.scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
 
             },
@@ -2678,11 +2880,15 @@ function showGallery(event) {
         document.getElementById(
             "home"
         ).scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
         });
 
     }
+
 }
 
 
@@ -2738,7 +2944,9 @@ function showCurrentPhoto() {
     if (
         galleryImages.length === 0
     ) {
+
         return;
+
     }
 
 
@@ -2758,6 +2966,7 @@ function showCurrentPhoto() {
         galleryImages[
             currentPhotoIndex
         ].alt;
+
 }
 
 
@@ -2776,10 +2985,12 @@ function previousPhoto() {
 
         currentPhotoIndex =
             galleryImages.length - 1;
+
     }
 
 
     showCurrentPhoto();
+
 }
 
 
@@ -2798,10 +3009,12 @@ function nextPhoto() {
     ) {
 
         currentPhotoIndex = 0;
+
     }
 
 
     showCurrentPhoto();
+
 }
 
 
@@ -2825,6 +3038,7 @@ function closePhoto() {
 
     document.body.style.overflow =
         "";
+
 }
 
 
@@ -2839,11 +3053,11 @@ document.getElementById(
     function(event) {
 
         if (
-            event.target ===
-            this
+            event.target === this
         ) {
 
             closePhoto();
+
         }
 
     }
@@ -2875,6 +3089,7 @@ document.addEventListener(
             ) {
 
                 previousPhoto();
+
             }
 
 
@@ -2884,6 +3099,7 @@ document.addEventListener(
             ) {
 
                 nextPhoto();
+
             }
 
 
@@ -2893,6 +3109,7 @@ document.addEventListener(
             ) {
 
                 closePhoto();
+
             }
 
         }
@@ -2968,7 +3185,9 @@ window.addEventListener(
                     section.style.display ===
                     "none"
                 ) {
+
                     return;
+
                 }
 
 
@@ -2985,6 +3204,7 @@ window.addEventListener(
                         section.getAttribute(
                             "id"
                         );
+
                 }
 
             }
@@ -3009,6 +3229,7 @@ window.addEventListener(
                     link.classList.add(
                         "active"
                     );
+
                 }
 
             }
@@ -3057,8 +3278,11 @@ window.addEventListener(
 function scrollToTop() {
 
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
