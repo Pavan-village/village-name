@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="kn">
 
@@ -9,6 +8,39 @@
     <title>Sri Aranya Anjaneya Swamy Temple</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .temple-timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 28px;
+        }
+
+        .temple-timetable th,
+        .temple-timetable td {
+            padding: 12px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .temple-timetable th {
+            font-weight: 700;
+        }
+
+        @media (max-width: 700px) {
+            .temple-timetable {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .temple-timetable th,
+            .temple-timetable td {
+                min-width: 135px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body onload="showKannada()">
@@ -74,6 +106,14 @@
 
     <a href="#history" id="navHistory">
         ಇತಿಹಾಸ
+    </a>
+
+    <a href="#timings" id="navTimings">
+        ಸಮಯ
+    </a>
+
+    <a href="#pooja" id="navPooja">
+        ಪೂಜೆ
     </a>
 
     <a
@@ -189,14 +229,274 @@
         </div>
 
         <h2 id="historyTitle">
-            ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ
+            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ
         </h2>
 
         <div class="info-card">
 
             <p id="historyText">
-                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು
-                ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.
+                ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ, ಇಂದು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ
+                ಎಂದು ಕರೆಯಲ್ಪಡುವ ಈ ಭೂಮಿ ದಟ್ಟವಾದ ಅರಣ್ಯವಾಗಿತ್ತು.
+                ಆಗ ಇಲ್ಲಿ ಯಾವುದೇ ಗ್ರಾಮ, ವಸತಿ ಅಥವಾ ದೇವಸ್ಥಾನ ಇರಲಿಲ್ಲ.
+
+                <br><br>
+
+                ಒಂದು ಸಂದರ್ಭದಲ್ಲಿ ಕೆಲವರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ
+                ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ತಮ್ಮ ಊರಿಗೆ ತೆಗೆದುಕೊಂಡು ಹೋಗುತ್ತಿದ್ದರು.
+                ಮಾರ್ಗಮಧ್ಯೆ ಈ ಸ್ಥಳದಲ್ಲಿ ವಿಗ್ರಹವು ಕೆಳಗೆ ಬಿದ್ದು,
+                ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಅದನ್ನು ಅಲ್ಲಿಂದ ಸ್ಥಳಾಂತರಿಸಲು
+                ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.
+
+                <br><br>
+
+                ಇದನ್ನು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ
+                ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ,
+                ಅಲ್ಲಿಯೇ ಒಂದು ಸಣ್ಣ ಗುಡಿಯನ್ನು ನಿರ್ಮಿಸಿ ಪೂಜೆ
+                ಪ್ರಾರಂಭಿಸಲಾಯಿತು.
+
+                <br><br>
+
+                ಆ ಕಾಲದಲ್ಲಿ ಈ ಸ್ಥಳಕ್ಕೆ ಬರುತ್ತಿದ್ದ ಪ್ರಯಾಣಿಕರು
+                ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ದರ್ಶನ ಪಡೆದು, ಪ್ರಾರ್ಥನೆ
+                ಸಲ್ಲಿಸಿ ವಿಶ್ರಾಂತಿ ಪಡೆಯುತ್ತಿದ್ದರು. ಕ್ರಮೇಣ ಈ ಸ್ಥಳಕ್ಕೆ
+                ಹೆಚ್ಚಿನ ಜನರು ಬರಲು ಪ್ರಾರಂಭಿಸಿದರು.
+
+                <br><br>
+
+                ಒಬ್ಬರು ಬಂದರು, ನಂತರ ಮತ್ತೊಬ್ಬರು, ನಂತರ ಹಲವರು.
+                ಜನರು ದೇವಸ್ಥಾನದ ಸುತ್ತಮುತ್ತ ನೆಲೆಸಲು ಪ್ರಾರಂಭಿಸಿದರು.
+                ಹೀಗೆ ಈ ಪ್ರದೇಶವು ನಿಧಾನವಾಗಿ ಒಂದು ವಸತಿಯಾಗಿ ಬೆಳೆಯಿತು.
+                ತಲೆತಲಾಂತರಗಳಿಂದ ಬಂದಿರುವ ಸ್ಥಳೀಯ ಪರಂಪರೆಯ ಪ್ರಕಾರ,
+                ಈ ಪ್ರದೇಶವು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಟ್ಟಿತು.
+
+                <br><br>
+
+                <strong>ದೇವಸ್ಥಾನದ ಬೆಳವಣಿಗೆ</strong>
+
+                <br><br>
+
+                ಭಕ್ತರ ಸೇವೆ, ನಂಬಿಕೆ ಮತ್ತು ನಿರಂತರ ಪೂಜೆಯೊಂದಿಗೆ
+                ಸಣ್ಣ ಗುಡಿಯು ಕ್ರಮೇಣ ಅಭಿವೃದ್ಧಿ ಹೊಂದಿತು. ದೇವಸ್ಥಾನದಲ್ಲಿ
+                ಸಾಂಪ್ರದಾಯಿಕ ಕಲ್ಲಿನ ವಾಸ್ತುಶಿಲ್ಪ, ಶಿಲ್ಪಗಳು,
+                ದೇವರ ವಿಗ್ರಹಗಳು ಮತ್ತು ಧಾರ್ಮಿಕ ಕಲಾತ್ಮಕ ವಿನ್ಯಾಸಗಳು
+                ರೂಪುಗೊಂಡವು.
+
+                <br><br>
+
+                ಇವು ನಮ್ಮ ಊರಿನ ಸಂಸ್ಕೃತಿ, ಸ್ಥಳೀಯ ಪರಂಪರೆ ಮತ್ತು
+                ಆಧ್ಯಾತ್ಮಿಕತೆಯನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತವೆ. ಶಿಲ್ಪಿಗಳು
+                ಮತ್ತು ವಿನ್ಯಾಸಕಾರರು ದೇವಸ್ಥಾನಕ್ಕೆ ವಿಶಿಷ್ಟವಾದ
+                ಗುರುತನ್ನು ನೀಡಿದರು. ಹೀಗೆ ದೇವಸ್ಥಾನವು ಒಂದು
+                ಆಧ್ಯಾತ್ಮಿಕ ಕೇಂದ್ರವಾಗಿ ಬೆಳೆಯಿತು.
+
+                <br><br>
+
+                <strong>ಮುಂದುವರಿಯುತ್ತಿರುವ ಪರಂಪರೆ</strong>
+
+                <br><br>
+
+                ಇಂದು ಈ ದೇವಸ್ಥಾನವು ಕೇವಲ ಪೂಜೆಯ ಸ್ಥಳವಾಗಿರದೆ,
+                ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ ಆರಂಭವಾಯಿತು ಎಂದು ನಂಬಲಾಗುವ
+                ಪರಂಪರೆಯ ಜೀವಂತ ನೆನಪಾಗಿ ಉಳಿದಿದೆ.
+
+                <br><br>
+
+                ಕಾಲ ಬದಲಾದರೂ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ
+                ಮತ್ತು ನಂಬಿಕೆ ಮುಂದುವರಿದಿದೆ. ಪ್ರಾಚೀನ ಪರಂಪರೆ,
+                ಆಧ್ಯಾತ್ಮಿಕ ಮಹತ್ವ ಮತ್ತು ದೇವಸ್ಥಾನದ ಪವಿತ್ರ
+                ಗುರುತನ್ನು ಉಳಿಸಿಕೊಂಡು ಮುಂದಿನ ದಿನಗಳಲ್ಲಿ
+                ದೇವಸ್ಥಾನವನ್ನು ಇನ್ನಷ್ಟು ಅಭಿವೃದ್ಧಿಪಡಿಸುವ
+                ಆಶಯವಿದೆ.
+
+                <br><br>
+
+                ಈ ಪವಿತ್ರ ಸಾನ್ನಿಧ್ಯವೇ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಮೂಲ,
+                ನಂಬಿಕೆಯೇ ಅದರ ಶಕ್ತಿ ಮತ್ತು ಭಕ್ತಿಯೇ ಅದರ ಆತ್ಮ.
+
+                <br><br>
+
+                ತಲೆಮಾರುಗಳು ಬದಲಾಗಬಹುದು, ಆದರೆ ಶ್ರೀ ಆಂಜನೇಯ
+                ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಎಂದಿಗೂ ಮುಂದುವರಿಯುತ್ತದೆ.
+
+                <br><br>
+
+                <strong>ಜೈ ಶ್ರೀ ಆಂಜನೇಯ 🙏</strong>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TIMETABLE
+         ===================================== -->
+
+    <section
+        id="timings"
+        class="info-section">
+
+        <div class="info-icon">
+            🕰️
+        </div>
+
+        <h2 id="timingsTitle">
+            ದೇವಸ್ಥಾನದ ಸಮಯ ಪಟ್ಟಿ
+        </h2>
+
+        <div class="info-card">
+
+            <table class="temple-timetable">
+
+                <thead>
+                    <tr>
+                        <th id="dayHeader">
+                            ದಿನ
+                        </th>
+
+                        <th id="openingHeader">
+                            ದೇವಸ್ಥಾನ ತೆರೆಯುವ ಸಮಯ
+                        </th>
+
+                        <th id="worshipHeader">
+                            ದೈನಂದಿನ ಪೂಜೆ
+                        </th>
+
+                        <th id="foodHeader">
+                            ಅನ್ನದಾನ / ಪ್ರಸಾದ
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td id="mondayFridayDay">
+                            ಸೋಮವಾರ – ಶುಕ್ರವಾರ
+                        </td>
+
+                        <td>
+                            7:30 AM
+                        </td>
+
+                        <td id="mondayFridayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="mondayFridayFood">
+                            ಇಲ್ಲ
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="saturdayDay">
+                            ಶನಿವಾರ
+                        </td>
+
+                        <td>
+                            7:00 AM
+                        </td>
+
+                        <td id="saturdayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="saturdayFood">
+                            ಬೆಳಿಗ್ಗೆ 9:00 – ಮಧ್ಯಾಹ್ನ 1:00
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="sundayDay">
+                            ಭಾನುವಾರ
+                        </td>
+
+                        <td>
+                            7:30 AM
+                        </td>
+
+                        <td id="sundayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="sundayFood">
+                            ಇಲ್ಲ
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+            <h3 id="annadanaTitle">
+                🍚 ಶನಿವಾರ ಅನ್ನದಾನ
+            </h3>
+
+            <p id="annadanaText">
+                ಪ್ರತಿ ಶನಿವಾರ ಬೆಳಿಗ್ಗೆ 9:00 ರಿಂದ ಮಧ್ಯಾಹ್ನ 1:00
+                ರವರೆಗೆ ಭಕ್ತರಿಗೆ ಅನ್ನದಾನ / ಪ್ರಸಾದವನ್ನು ನೀಡಲಾಗುತ್ತದೆ.
+                ಭಕ್ತರು ಈ ಸಮಯದಲ್ಲಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಭೇಟಿ ನೀಡಿ
+                ಪ್ರಸಾದವನ್ನು ಸ್ವೀಕರಿಸಬಹುದು.
+            </p>
+
+
+            <h3 id="closingTitle">
+                🕉️ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ
+            </h3>
+
+            <p id="closingText">
+                ಭಕ್ತರ ಸಂಖ್ಯೆಯನ್ನು ಅವಲಂಬಿಸಿ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ
+                ಬದಲಾಗಬಹುದು. ಹೆಚ್ಚಿನ ಭಕ್ತರು ಇದ್ದಲ್ಲಿ, ದರ್ಶನ ಮತ್ತು
+                ಪ್ರಾರ್ಥನೆಗೆ ಅವಕಾಶ ನೀಡಲು ದೇವಸ್ಥಾನವನ್ನು ಹೆಚ್ಚಿನ
+                ಸಮಯ ತೆರೆದಿಡಬಹುದು.
+            </p>
+
+
+            <p id="timingsBlessing">
+                🙏 ಜೈ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿ
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TYPES OF POOJA
+         ===================================== -->
+
+    <section
+        id="pooja"
+        class="info-section">
+
+        <div class="info-icon">
+            🌸
+        </div>
+
+        <h2 id="poojaTitle">
+            ಪೂಜೆಯ ವಿಧಗಳು
+        </h2>
+
+        <div class="info-card">
+
+            <h3 id="abhishekamTitle">
+                1. ಅಭಿಷೇಕ
+            </h3>
+
+            <p id="abhishekamText">
+                ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಗೆ ಪ್ರತಿದಿನ ಅಭಿಷೇಕವನ್ನು
+                ನೆರವೇರಿಸಲಾಗುತ್ತದೆ.
+            </p>
+
+
+            <h3 id="flowerTitle">
+                2. ಹೂವು ಕೇಳುವುದು
+            </h3>
+
+            <p id="flowerText">
+                ಭಕ್ತರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಆಶೀರ್ವಾದದ
+                ಸಂಕೇತವಾಗಿ ಹೂವನ್ನು ಕೇಳಬಹುದು.
             </p>
 
         </div>
@@ -621,6 +921,7 @@ function updateWeeklyPandit(language) {
             "</a>" +
 
             "</div>";
+
     }
 }
 
@@ -651,6 +952,12 @@ function showKannada() {
     document.getElementById("navHistory").innerText =
         "ಇತಿಹಾಸ";
 
+    document.getElementById("navTimings").innerText =
+        "ಸಮಯ";
+
+    document.getElementById("navPooja").innerText =
+        "ಪೂಜೆ";
+
     document.getElementById("navGallery").innerText =
         "ಚಿತ್ರಗಳು";
 
@@ -671,7 +978,7 @@ function showKannada() {
 
 
     document.getElementById("scrollText").innerText =
-        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ";
+        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ";
 
 
     document.getElementById("templeTitle").innerText =
@@ -683,11 +990,150 @@ function showKannada() {
 
 
     document.getElementById("historyTitle").innerText =
-        "ನಮ್ಮ ಊರಿನ ಇತಿಹಾಸ";
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ";
 
 
-    document.getElementById("historyText").innerText =
-        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಇತಿಹಾಸ, ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ವಿಶೇಷತೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದು.";
+    document.getElementById("historyText").innerHTML =
+        "ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ, ಇಂದು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಈ ಭೂಮಿ ದಟ್ಟವಾದ ಅರಣ್ಯವಾಗಿತ್ತು. ಆಗ ಇಲ್ಲಿ ಯಾವುದೇ ಗ್ರಾಮ, ವಸತಿ ಅಥವಾ ದೇವಸ್ಥಾನ ಇರಲಿಲ್ಲ." +
+
+        "<br><br>" +
+
+        "ಒಂದು ಸಂದರ್ಭದಲ್ಲಿ ಕೆಲವರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ತಮ್ಮ ಊರಿಗೆ ತೆಗೆದುಕೊಂಡು ಹೋಗುತ್ತಿದ್ದರು. ಮಾರ್ಗಮಧ್ಯೆ ಈ ಸ್ಥಳದಲ್ಲಿ ವಿಗ್ರಹವು ಕೆಳಗೆ ಬಿದ್ದು, ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಅದನ್ನು ಅಲ್ಲಿಂದ ಸ್ಥಳಾಂತರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ." +
+
+        "<br><br>" +
+
+        "ಇದನ್ನು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ, ಅಲ್ಲಿಯೇ ಒಂದು ಸಣ್ಣ ಗುಡಿಯನ್ನು ನಿರ್ಮಿಸಿ ಪೂಜೆ ಪ್ರಾರಂಭಿಸಲಾಯಿತು." +
+
+        "<br><br>" +
+
+        "ಆ ಕಾಲದಲ್ಲಿ ಈ ಸ್ಥಳಕ್ಕೆ ಬರುತ್ತಿದ್ದ ಪ್ರಯಾಣಿಕರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ದರ್ಶನ ಪಡೆದು, ಪ್ರಾರ್ಥನೆ ಸಲ್ಲಿಸಿ ವಿಶ್ರಾಂತಿ ಪಡೆಯುತ್ತಿದ್ದರು. ಕ್ರಮೇಣ ಈ ಸ್ಥಳಕ್ಕೆ ಹೆಚ್ಚಿನ ಜನರು ಬರಲು ಪ್ರಾರಂಭಿಸಿದರು." +
+
+        "<br><br>" +
+
+        "ಒಬ್ಬರು ಬಂದರು, ನಂತರ ಮತ್ತೊಬ್ಬರು, ನಂತರ ಹಲವರು. ಜನರು ದೇವಸ್ಥಾನದ ಸುತ್ತಮುತ್ತ ನೆಲೆಸಲು ಪ್ರಾರಂಭಿಸಿದರು. ಹೀಗೆ ಈ ಪ್ರದೇಶವು ನಿಧಾನವಾಗಿ ಒಂದು ವಸತಿಯಾಗಿ ಬೆಳೆಯಿತು. ತಲೆತಲಾಂತರಗಳಿಂದ ಬಂದಿರುವ ಸ್ಥಳೀಯ ಪರಂಪರೆಯ ಪ್ರಕಾರ, ಈ ಪ್ರದೇಶವು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಟ್ಟಿತು." +
+
+        "<br><br>" +
+
+        "<strong>ದೇವಸ್ಥಾನದ ಬೆಳವಣಿಗೆ</strong>" +
+
+        "<br><br>" +
+
+        "ಭಕ್ತರ ಸೇವೆ, ನಂಬಿಕೆ ಮತ್ತು ನಿರಂತರ ಪೂಜೆಯೊಂದಿಗೆ ಸಣ್ಣ ಗುಡಿಯು ಕ್ರಮೇಣ ಅಭಿವೃದ್ಧಿ ಹೊಂದಿತು. ದೇವಸ್ಥಾನದಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಕಲ್ಲಿನ ವಾಸ್ತುಶಿಲ್ಪ, ಶಿಲ್ಪಗಳು, ದೇವರ ವಿಗ್ರಹಗಳು ಮತ್ತು ಧಾರ್ಮಿಕ ಕಲಾತ್ಮಕ ವಿನ್ಯಾಸಗಳು ರೂಪುಗೊಂಡವು." +
+
+        "<br><br>" +
+
+        "ಇವು ನಮ್ಮ ಊರಿನ ಸಂಸ್ಕೃತಿ, ಸ್ಥಳೀಯ ಪರಂಪರೆ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕತೆಯನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತವೆ. ಶಿಲ್ಪಿಗಳು ಮತ್ತು ವಿನ್ಯಾಸಕಾರರು ದೇವಸ್ಥಾನಕ್ಕೆ ವಿಶಿಷ್ಟವಾದ ಗುರುತನ್ನು ನೀಡಿದರು. ಹೀಗೆ ದೇವಸ್ಥಾನವು ಒಂದು ಆಧ್ಯಾತ್ಮಿಕ ಕೇಂದ್ರವಾಗಿ ಬೆಳೆಯಿತು." +
+
+        "<br><br>" +
+
+        "<strong>ಮುಂದುವರಿಯುತ್ತಿರುವ ಪರಂಪರೆ</strong>" +
+
+        "<br><br>" +
+
+        "ಇಂದು ಈ ದೇವಸ್ಥಾನವು ಕೇವಲ ಪೂಜೆಯ ಸ್ಥಳವಾಗಿರದೆ, ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ ಆರಂಭವಾಯಿತು ಎಂದು ನಂಬಲಾಗುವ ಪರಂಪರೆಯ ಜೀವಂತ ನೆನಪಾಗಿ ಉಳಿದಿದೆ." +
+
+        "<br><br>" +
+
+        "ಕಾಲ ಬದಲಾದರೂ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಮತ್ತು ನಂಬಿಕೆ ಮುಂದುವರಿದಿದೆ. ಪ್ರಾಚೀನ ಪರಂಪರೆ, ಆಧ್ಯಾತ್ಮಿಕ ಮಹತ್ವ ಮತ್ತು ದೇವಸ್ಥಾನದ ಪವಿತ್ರ ಗುರುತನ್ನು ಉಳಿಸಿಕೊಂಡು ಮುಂದಿನ ದಿನಗಳಲ್ಲಿ ದೇವಸ್ಥಾನವನ್ನು ಇನ್ನಷ್ಟು ಅಭಿವೃದ್ಧಿಪಡಿಸುವ ಆಶಯವಿದೆ." +
+
+        "<br><br>" +
+
+        "ಈ ಪವಿತ್ರ ಸಾನ್ನಿಧ್ಯವೇ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಮೂಲ, ನಂಬಿಕೆಯೇ ಅದರ ಶಕ್ತಿ ಮತ್ತು ಭಕ್ತಿಯೇ ಅದರ ಆತ್ಮ." +
+
+        "<br><br>" +
+
+        "ತಲೆಮಾರುಗಳು ಬದಲಾಗಬಹುದು, ಆದರೆ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಎಂದಿಗೂ ಮುಂದುವರಿಯುತ್ತದೆ." +
+
+        "<br><br>" +
+
+        "<strong>ಜೈ ಶ್ರೀ ಆಂಜನೇಯ 🙏</strong>";
+
+
+    document.getElementById("timingsTitle").innerText =
+        "ದೇವಸ್ಥಾನದ ಸಮಯ ಪಟ್ಟಿ";
+
+
+    document.getElementById("dayHeader").innerText =
+        "ದಿನ";
+
+    document.getElementById("openingHeader").innerText =
+        "ದೇವಸ್ಥಾನ ತೆರೆಯುವ ಸಮಯ";
+
+    document.getElementById("worshipHeader").innerText =
+        "ದೈನಂದಿನ ಪೂಜೆ";
+
+    document.getElementById("foodHeader").innerText =
+        "ಅನ್ನದಾನ / ಪ್ರಸಾದ";
+
+
+    document.getElementById("mondayFridayDay").innerText =
+        "ಸೋಮವಾರ – ಶುಕ್ರವಾರ";
+
+    document.getElementById("mondayFridayWorship").innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+    document.getElementById("mondayFridayFood").innerText =
+        "ಇಲ್ಲ";
+
+
+    document.getElementById("saturdayDay").innerText =
+        "ಶನಿವಾರ";
+
+    document.getElementById("saturdayWorship").innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+    document.getElementById("saturdayFood").innerText =
+        "ಬೆಳಿಗ್ಗೆ 9:00 – ಮಧ್ಯಾಹ್ನ 1:00";
+
+
+    document.getElementById("sundayDay").innerText =
+        "ಭಾನುವಾರ";
+
+    document.getElementById("sundayWorship").innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+    document.getElementById("sundayFood").innerText =
+        "ಇಲ್ಲ";
+
+
+    document.getElementById("annadanaTitle").innerText =
+        "🍚 ಶನಿವಾರ ಅನ್ನದಾನ";
+
+
+    document.getElementById("annadanaText").innerText =
+        "ಪ್ರತಿ ಶನಿವಾರ ಬೆಳಿಗ್ಗೆ 9:00 ರಿಂದ ಮಧ್ಯಾಹ್ನ 1:00 ರವರೆಗೆ ಭಕ್ತರಿಗೆ ಅನ್ನದಾನ / ಪ್ರಸಾದವನ್ನು ನೀಡಲಾಗುತ್ತದೆ. ಭಕ್ತರು ಈ ಸಮಯದಲ್ಲಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಭೇಟಿ ನೀಡಿ ಪ್ರಸಾದವನ್ನು ಸ್ವೀಕರಿಸಬಹುದು.";
+
+
+    document.getElementById("closingTitle").innerText =
+        "🕉️ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ";
+
+
+    document.getElementById("closingText").innerText =
+        "ಭಕ್ತರ ಸಂಖ್ಯೆಯನ್ನು ಅವಲಂಬಿಸಿ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ ಬದಲಾಗಬಹುದು. ಹೆಚ್ಚಿನ ಭಕ್ತರು ಇದ್ದಲ್ಲಿ, ದರ್ಶನ ಮತ್ತು ಪ್ರಾರ್ಥನೆಗೆ ಅವಕಾಶ ನೀಡಲು ದೇವಸ್ಥಾನವನ್ನು ಹೆಚ್ಚಿನ ಸಮಯ ತೆರೆದಿಡಬಹುದು.";
+
+
+    document.getElementById("timingsBlessing").innerText =
+        "🙏 ಜೈ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿ";
+
+
+    document.getElementById("poojaTitle").innerText =
+        "ಪೂಜೆಯ ವಿಧಗಳು";
+
+
+    document.getElementById("abhishekamTitle").innerText =
+        "1. ಅಭಿಷೇಕ";
+
+
+    document.getElementById("abhishekamText").innerText =
+        "ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಗೆ ಪ್ರತಿದಿನ ಅಭಿಷೇಕವನ್ನು ನೆರವೇರಿಸಲಾಗುತ್ತದೆ.";
+
+
+    document.getElementById("flowerTitle").innerText =
+        "2. ಹೂವು ಕೇಳುವುದು";
+
+
+    document.getElementById("flowerText").innerText =
+        "ಭಕ್ತರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಆಶೀರ್ವಾದದ ಸಂಕೇತವಾಗಿ ಹೂವನ್ನು ಕೇಳಬಹುದು.";
 
 
     document.getElementById("galleryTitle").innerText =
@@ -744,6 +1190,12 @@ function showEnglish() {
     document.getElementById("navHistory").innerText =
         "History";
 
+    document.getElementById("navTimings").innerText =
+        "Timings";
+
+    document.getElementById("navPooja").innerText =
+        "Pooja";
+
     document.getElementById("navGallery").innerText =
         "Gallery";
 
@@ -776,11 +1228,150 @@ function showEnglish() {
 
 
     document.getElementById("historyTitle").innerText =
-        "Village History";
+        "History of Sri Aranya Anjaneya Swamy Temple";
 
 
-    document.getElementById("historyText").innerText =
-        "The history, traditions and special features of Hanumantharayana Dinne will be added here.";
+    document.getElementById("historyText").innerHTML =
+        "Around 800 years ago, the land that is now known as Hanumantharayana Dinne was covered by a dense forest. At that time, there was no village, settlement or temple here." +
+
+        "<br><br>" +
+
+        "According to the local tradition, a group of people were carrying a stone idol of Lord Hanuman to their village to establish the idol and build a place of worship. On the way, the idol fell at this place and, despite their efforts, they could not move it from there." +
+
+        "<br><br>" +
+
+        "They believed that Lord Hanuman had chosen this place as His abode. Therefore, they built a small shrine at the same place and began worshipping the deity." +
+
+        "<br><br>" +
+
+        "In those early days, travelers who passed through this place would pray to Lord Hanuman and rest here. Gradually, more people began visiting the place." +
+
+        "<br><br>" +
+
+        "One person came, then another, and then many more. People began settling around the shrine and the settlement slowly grew. According to the tradition passed down through generations, this place came to be known as Hanumantharayana Dinne." +
+
+        "<br><br>" +
+
+        "<strong>Development of the Temple</strong>" +
+
+        "<br><br>" +
+
+        "Through devotion, service and faith, the small shrine gradually developed. Traditional stone architecture, sculptures, deity idols and religious artistic elements became part of the temple." +
+
+        "<br><br>" +
+
+        "These features reflect the culture of the village, local traditions and spiritual character. Sculptors and designers gave the temple a distinctive identity. Over time, the temple developed into a spiritual place for devotees." +
+
+        "<br><br>" +
+
+        "<strong>A Living Tradition</strong>" +
+
+        "<br><br>" +
+
+        "Today, the temple is more than a place of worship. It remains a living reminder of a tradition believed to have begun around 800 years ago." +
+
+        "<br><br>" +
+
+        "Although times have changed, devotion and faith in Lord Anjaneya Swamy continue. There is a vision to develop the temple while preserving its ancient traditions, spiritual significance and sacred identity." +
+
+        "<br><br>" +
+
+        "That sacred presence is the origin of the temple, faith is its strength, and devotion is its soul." +
+
+        "<br><br>" +
+
+        "Generations may change, but devotion to Sri Anjaneya Swamy continues forever." +
+
+        "<br><br>" +
+
+        "<strong>Jai Sri Anjaneya 🙏</strong>";
+
+
+    document.getElementById("timingsTitle").innerText =
+        "Temple Timetable";
+
+
+    document.getElementById("dayHeader").innerText =
+        "Day";
+
+    document.getElementById("openingHeader").innerText =
+        "Temple Opening Time";
+
+    document.getElementById("worshipHeader").innerText =
+        "Daily Worship";
+
+    document.getElementById("foodHeader").innerText =
+        "Annadana / Food Prasada";
+
+
+    document.getElementById("mondayFridayDay").innerText =
+        "Monday – Friday";
+
+    document.getElementById("mondayFridayWorship").innerText =
+        "Abhishekam and regular worship";
+
+    document.getElementById("mondayFridayFood").innerText =
+        "None";
+
+
+    document.getElementById("saturdayDay").innerText =
+        "Saturday";
+
+    document.getElementById("saturdayWorship").innerText =
+        "Abhishekam and regular worship";
+
+    document.getElementById("saturdayFood").innerText =
+        "9:00 AM – 1:00 PM";
+
+
+    document.getElementById("sundayDay").innerText =
+        "Sunday";
+
+    document.getElementById("sundayWorship").innerText =
+        "Abhishekam and regular worship";
+
+    document.getElementById("sundayFood").innerText =
+        "None";
+
+
+    document.getElementById("annadanaTitle").innerText =
+        "🍚 Saturday Annadana";
+
+
+    document.getElementById("annadanaText").innerText =
+        "Every Saturday, Annadana / Food Prasada is served to devotees from 9:00 AM to 1:00 PM. Devotees can visit the temple during this time and receive the prasada.";
+
+
+    document.getElementById("closingTitle").innerText =
+        "🕉️ Temple Closing Time";
+
+
+    document.getElementById("closingText").innerText =
+        "The temple closing time may vary depending on the number of devotees visiting the temple. When many devotees are present, the temple may remain open longer to allow them to have darshan and offer prayers.";
+
+
+    document.getElementById("timingsBlessing").innerText =
+        "🙏 Jai Sri Anjaneya Swamy";
+
+
+    document.getElementById("poojaTitle").innerText =
+        "Types of Pooja";
+
+
+    document.getElementById("abhishekamTitle").innerText =
+        "1. Abhishekam";
+
+
+    document.getElementById("abhishekamText").innerText =
+        "Abhishekam is performed every day for Sri Anjaneya Swamy.";
+
+
+    document.getElementById("flowerTitle").innerText =
+        "2. Asking for a Flower";
+
+
+    document.getElementById("flowerText").innerText =
+        "Devotees can ask Sri Anjaneya Swamy for a flower as a sign of His blessing.";
 
 
     document.getElementById("galleryTitle").innerText =
@@ -847,6 +1438,7 @@ function showGallery(event) {
                 behavior: "smooth",
                 block: "start"
             });
+
     }
 }
 
@@ -1215,4 +1807,3 @@ function scrollToTop() {
 </body>
 
 </html>
-```
