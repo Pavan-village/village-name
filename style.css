@@ -2574,3 +2574,378 @@ section {
             0.01ms !important;
     }
 }
+/* =========================================================
+   HISTORY • TIMETABLE • TYPES OF POOJA
+   NEW TEMPLE SECTION DESIGN
+   ========================================================= */
+
+/* =========================
+   HISTORY SECTION
+   ========================= */
+
+#history {
+    text-align: center;
+}
+
+#history .info-card {
+    max-width: 900px;
+    margin: 25px auto 0;
+    padding: 30px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(255, 209, 102, 0.38);
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(255, 209, 102, 0.04);
+}
+
+#history .info-card h3 {
+    color: #ffd166;
+    font-size: 24px;
+    margin: 25px 0 10px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#history .info-card h3:first-child {
+    margin-top: 0;
+}
+
+#history .info-card p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+#history .info-card strong {
+    color: #ffd166;
+}
+
+#history .info-card hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 209, 102, 0.25);
+    margin: 25px 0;
+}
+
+
+/* =========================
+   TIMETABLE SECTION
+   ========================= */
+
+#timings {
+    text-align: center;
+}
+
+#timings .info-card {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(255, 209, 102, 0.38);
+    border-radius: 20px;
+    overflow-x: auto;
+}
+
+#timings table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    background: rgba(0, 0, 0, 0.28);
+}
+
+#timings th {
+    padding: 15px 12px;
+    background: rgba(255, 209, 102, 0.18);
+    color: #ffd166;
+    font-size: 17px;
+    border-bottom: 1px solid rgba(255, 209, 102, 0.35);
+    text-shadow: 2px 2px 3px black;
+}
+
+#timings td {
+    padding: 15px 12px;
+    color: white;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-shadow: 1px 1px 3px black;
+}
+
+#timings tr:last-child td {
+    border-bottom: none;
+}
+
+#timings tbody tr {
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+#timings tbody tr:hover {
+    background: rgba(255, 209, 102, 0.10);
+}
+
+#timings tbody tr:nth-child(2) {
+    background: rgba(255, 209, 102, 0.06);
+}
+
+/* Saturday highlight */
+
+#timings tbody tr:nth-child(2) td:first-child {
+    color: #ffd166;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SATURDAY ANNADANA
+   ========================= */
+
+#timings .annadana-card {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 209, 102, 0.12),
+            rgba(0, 0, 0, 0.48)
+        );
+    border: 1px solid rgba(255, 209, 102, 0.4);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+#timings .annadana-card h3 {
+    color: #ffd166;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+#timings .annadana-card p {
+    line-height: 1.8;
+}
+
+
+/* =========================
+   DAILY RELIGIOUS PRACTICES
+   ========================= */
+
+#timings .practice-card {
+    max-width: 850px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+#timings .practice-item {
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(255, 209, 102, 0.3);
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#timings .practice-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.58);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+#timings .practice-item h3 {
+    color: #ffd166;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+#timings .practice-item p {
+    line-height: 1.75;
+}
+
+
+/* =========================
+   TEMPLE CLOSING TIME
+   ========================= */
+
+#timings .closing-card {
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 22px;
+    text-align: center;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.42);
+    border-left: 4px solid #ffd166;
+    border-right: 4px solid #ffd166;
+}
+
+#timings .closing-card h3 {
+    color: #ffd166;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   TYPES OF POOJA
+   ========================= */
+
+#pooja {
+    text-align: center;
+}
+
+#pooja .pooja-container {
+    max-width: 850px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+#pooja .pooja-card,
+#pooja .pooja-item {
+    position: relative;
+    padding: 30px 22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 209, 102, 0.10),
+            rgba(0, 0, 0, 0.48)
+        );
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+#pooja .pooja-card:hover,
+#pooja .pooja-item:hover {
+    transform: translateY(-7px);
+    border-color: #ffd166;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(255, 209, 102, 0.15);
+}
+
+#pooja .pooja-card h3,
+#pooja .pooja-item h3 {
+    color: #ffd166;
+    font-size: 23px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#pooja .pooja-card p,
+#pooja .pooja-item p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+#pooja .pooja-card::before,
+#pooja .pooja-item::before {
+    content: "🌸";
+    display: block;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   MOBILE DESIGN
+   ========================= */
+
+@media (max-width: 700px) {
+
+    #history .info-card {
+        padding: 22px 17px;
+    }
+
+    #history .info-card p {
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    #history .info-card h3 {
+        font-size: 21px;
+    }
+
+    #timings .info-card {
+        padding: 15px 10px;
+    }
+
+    #timings table {
+        min-width: 650px;
+    }
+
+    #timings th,
+    #timings td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    #timings .practice-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #timings .annadana-card,
+    #timings .closing-card {
+        padding: 20px 16px;
+    }
+
+    #pooja .pooja-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #pooja .pooja-card,
+    #pooja .pooja-item {
+        padding: 25px 18px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 450px) {
+
+    #history .info-card h3 {
+        font-size: 20px;
+    }
+
+    #history .info-card p {
+        font-size: 15px;
+    }
+
+    #timings th,
+    #timings td {
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+
+    #timings .annadana-card h3,
+    #timings .practice-item h3,
+    #timings .closing-card h3 {
+        font-size: 20px;
+    }
+
+    #pooja .pooja-card h3,
+    #pooja .pooja-item h3 {
+        font-size: 21px;
+    }
+}
