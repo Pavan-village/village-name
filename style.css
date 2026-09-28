@@ -29,7 +29,7 @@ body {
             rgba(0, 0, 0, 0.55),
             rgba(0, 0, 0, 0.55)
         ),
-        url("Hanuman.jfif");
+        url("./Hanuman.jfif");
 
     background-size: cover;
     background-position: center;
@@ -2047,7 +2047,7 @@ section {
                 rgba(0, 0, 0, 0.55),
                 rgba(0, 0, 0, 0.55)
             ),
-            url("Hanuman.jfif");
+            url("./Hanuman.jfif");
 
         background-size:
             100% 100%;
@@ -3701,3 +3701,30 @@ footer p {
         will-change: auto;
     }
 }
+
+/* =========================================================
+   BACKGROUND IMAGE VISIBILITY FIX
+   ========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),
+        url("./Hanuman.jfif"),
+        url("./hanuman.jfif") !important;
+    background-repeat: no-repeat, no-repeat, no-repeat !important;
+    background-position: center, center, center !important;
+    background-size: cover, cover, cover !important;
+    background-attachment: scroll, scroll, scroll !important;
+    background-color: #17100a !important;
+}
+
+main,
+section {
+    background-color: transparent;
+}
+
