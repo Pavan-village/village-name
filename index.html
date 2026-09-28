@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sri Aranya Anjaneya Swamy Temple, Hanumantharayana Dinne — temple history, timings, pooja, Brahma Mahotsavam, gallery and contact information.">
+    <meta name="theme-color" content="#120b06">
 
     <title>Sri Aranya Anjaneya Swamy Temple</title>
 
@@ -597,11 +599,525 @@
     }
     #history .info-icon { animation: none !important; }
 }
+
+/* =========================================================
+   FINAL WHOLE-WEBSITE POLISH
+   This layer improves the complete site without changing
+   the temple's existing content or functionality.
+   ========================================================= */
+
+:root {
+    --temple-gold: #ffd166;
+    --temple-gold-soft: rgba(255, 209, 102, .16);
+    --temple-dark: #120b06;
+    --temple-dark-2: #1b1009;
+    --temple-cream: #fff8e8;
+    --temple-muted: rgba(255,255,255,.78);
+    --temple-border: rgba(255,209,102,.22);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 78px;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% -10%, rgba(255,185,75,.12), transparent 34%),
+        linear-gradient(180deg, #100904 0%, #170d07 42%, #0d0704 100%);
+}
+
+.skip-link {
+    position: fixed;
+    left: 14px;
+    top: -60px;
+    z-index: 100001;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--temple-gold);
+    color: #211207;
+    font-weight: 800;
+    text-decoration: none;
+    transition: top .2s ease;
+}
+
+.skip-link:focus { top: 14px; }
+
+header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--temple-border);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.16), transparent 42%),
+        linear-gradient(180deg, rgba(35,18,8,.98), rgba(16,8,4,.96));
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+header::before {
+    width: 180px;
+    height: 180px;
+    left: -90px;
+    top: -80px;
+    background: rgba(255,209,102,.07);
+    filter: blur(10px);
+}
+
+header::after {
+    width: 240px;
+    height: 240px;
+    right: -120px;
+    bottom: -150px;
+    background: rgba(255,140,45,.06);
+    filter: blur(14px);
+}
+
+#title {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 3px 20px rgba(0,0,0,.45);
+}
+
+#tagline {
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+}
+
+.language-buttons button {
+    min-width: 88px;
+    min-height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,209,102,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.language-buttons button:hover,
+.language-buttons button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.24);
+    outline: none;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(18,11,6,.88) !important;
+    border-bottom: 1px solid var(--temple-border);
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
+}
+
+nav a {
+    position: relative;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--temple-gold);
+    transform: scaleX(0);
+    transition: transform .2s ease;
+}
+
+nav a:hover::after,
+nav a.active::after { transform: scaleX(1); }
+
+main section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+main section:not(#home) {
+    border-top: 1px solid rgba(255,209,102,.08);
+}
+
+main section h2 {
+    text-shadow: 0 3px 18px rgba(0,0,0,.3);
+}
+
+/* Temple / History / generic information cards */
+#temple .info-card,
+#history .info-card {
+    border: 1px solid var(--temple-border);
+    background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,209,102,.025));
+    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+#temple .info-card:hover,
+#history .info-card:hover {
+    border-color: rgba(255,209,102,.34);
+    box-shadow: 0 22px 60px rgba(0,0,0,.28);
+}
+
+#temple .info-icon,
+#history .info-icon {
+    filter: drop-shadow(0 7px 16px rgba(0,0,0,.35));
+}
+
+/* History readability */
+#historyText {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(1rem, 1.7vw, 1.08rem);
+    line-height: 2;
+}
+
+#historyText strong {
+    color: var(--temple-gold);
+}
+
+/* Timings */
+#timings {
+    background:
+        radial-gradient(circle at 15% 30%, rgba(255,209,102,.06), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(255,150,60,.05), transparent 30%);
+}
+
+.temple-timetable,
+.festival-table-container {
+    border: 1px solid var(--temple-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(0,0,0,.22);
+    background: rgba(255,255,255,.025);
+}
+
+.temple-timetable table,
+.festival-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.temple-timetable th,
+.temple-timetable td,
+.festival-table th,
+.festival-table td {
+    padding: 14px 13px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.temple-timetable tr:last-child td,
+.festival-table tr:last-child td { border-bottom: 0; }
+
+.temple-timetable tbody tr,
+.festival-table tbody tr {
+    transition: background .2s ease;
+}
+
+.temple-timetable tbody tr:hover,
+.festival-table tbody tr:hover {
+    background: rgba(255,209,102,.055);
+}
+
+/* Pooja */
+#pooja {
+    background: radial-gradient(circle at 50% 30%, rgba(255,209,102,.055), transparent 42%);
+}
+
+#pooja .pooja-card,
+#pooja .pooja-item {
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+#pooja .pooja-card:hover,
+#pooja .pooja-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,209,102,.35);
+    box-shadow: 0 16px 38px rgba(0,0,0,.2);
+}
+
+/* Festival */
+#festival {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.08), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+
+.festival-card,
+.upcoming-festival-card,
+.festival-rule {
+    border-color: var(--temple-border) !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.2);
+}
+
+.upcoming-festival-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.upcoming-festival-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd166, #ff9d4d);
+}
+
+/* Gallery */
+#gallery {
+    min-height: 60vh;
+    padding-bottom: 70px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.08), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,.015), transparent);
+}
+
+#galleryTitle {
+    margin-bottom: 28px;
+}
+
+.gallery-container {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gallery-container img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(255,209,102,.17);
+    background: #1b1009;
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    cursor: zoom-in;
+    transition: transform .3s ease, filter .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.gallery-container img:hover,
+.gallery-container img:focus-visible {
+    transform: translateY(-5px) scale(1.015);
+    filter: brightness(1.08) saturate(1.05);
+    border-color: rgba(255,209,102,.52);
+    box-shadow: 0 20px 38px rgba(0,0,0,.32);
+    outline: none;
+}
+
+/* Contact */
+#contact {
+    background:
+        radial-gradient(circle at 50% 15%, rgba(255,209,102,.07), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+
+#contact > p,
+#weeklyPandit,
+#mapsButton {
+    position: relative;
+}
+
+.maintenance-name,
+#panditTitle {
+    color: var(--temple-gold);
+}
+
+.call-button,
+#mapsButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 10px 18px;
+    margin-top: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--temple-border);
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.call-button:hover,
+.call-button:focus-visible,
+#mapsButton:hover,
+#mapsButton:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(255,209,102,.09);
+    border-color: rgba(255,209,102,.48);
+    box-shadow: 0 10px 28px rgba(0,0,0,.2);
+    outline: none;
+}
+
+#weeklyPandit {
+    width: min(620px, calc(100% - 28px));
+    margin: 16px auto 24px;
+    padding: 20px;
+    border: 1px solid var(--temple-border);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,209,102,.025));
+    box-shadow: 0 16px 42px rgba(0,0,0,.2);
+}
+
+/* Photo viewer */
+.photo-viewer {
+    background: rgba(5,3,2,.96) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100000 !important;
+}
+
+.photo-viewer #largePhoto {
+    max-width: min(88vw, 1100px);
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 30px 90px rgba(0,0,0,.55);
+    transition: opacity .18s ease, transform .18s ease;
+}
+
+.photo-viewer-topbar {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 14px;
+    border: 1px solid rgba(255,209,102,.24);
+    border-radius: 999px;
+    background: rgba(18,11,6,.72);
+    color: #fff4d5;
+    font-size: .9rem;
+    z-index: 2;
+}
+
+.photo-nav,
+.close-button {
+    min-width: 48px;
+    min-height: 48px;
+    border: 1px solid rgba(255,209,102,.25) !important;
+    background: rgba(18,11,6,.72) !important;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.photo-nav:hover,
+.photo-nav:focus-visible,
+.close-button:hover,
+.close-button:focus-visible {
+    transform: scale(1.06);
+    background: rgba(255,209,102,.14) !important;
+    border-color: rgba(255,209,102,.55) !important;
+    outline: none;
+}
+
+footer {
+    border-top: 1px solid var(--temple-border);
+    background: #0a0503;
+}
+
+#backToTop {
+    z-index: 9500;
+    border: 1px solid rgba(255,209,102,.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+/* Consistent focus state for keyboard and accessibility. */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--temple-gold);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1000px) {
+    .gallery-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+    html { scroll-padding-top: 64px; }
+
+    nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex: 0 0 auto; }
+
+    .gallery-container {
+        width: min(100% - 20px, 680px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-container img { border-radius: 12px; }
+
+    .temple-timetable,
+    .festival-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .temple-timetable table,
+    .festival-table {
+        min-width: 620px;
+    }
+
+    #historyText { line-height: 1.85; }
+
+    .photo-viewer #largePhoto {
+        max-width: 94vw;
+        max-height: 76vh;
+    }
+
+    .photo-nav {
+        position: absolute;
+        bottom: 28px;
+        top: auto;
+    }
+
+    .prev-photo { left: 22%; }
+    .next-photo { right: 22%; }
+
+    .close-button {
+        top: 16px !important;
+        right: 16px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .gallery-container { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .gallery-container img { aspect-ratio: 1 / 1; }
+    .prev-photo { left: 17%; }
+    .next-photo { right: 17%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
 </style>
 </head>
 
 
 <body onload="showKannada()">
+
+<a class="skip-link" href="#home">Skip to main content</a>
 
 <!-- =========================================
      TEMPLE OPENING SPLASH
@@ -1514,6 +2030,10 @@
         aria-label="Previous photo">
         &#10094;
     </button>
+
+    <div class="photo-viewer-topbar">
+        <span id="photoCounter" aria-live="polite">1 / 23</span>
+    </div>
 
     <img
         id="largePhoto"
@@ -3370,6 +3890,12 @@ const galleryImages =
     );
 
 
+galleryImages.forEach(function(image) {
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("role", "button");
+});
+
+
 galleryImages.forEach(
     function(image, index) {
 
@@ -3431,6 +3957,14 @@ function showCurrentPhoto() {
         galleryImages[
             currentPhotoIndex
         ].alt;
+
+    const photoCounter =
+        document.getElementById("photoCounter");
+
+    if (photoCounter) {
+        photoCounter.textContent =
+            (currentPhotoIndex + 1) + " / " + galleryImages.length;
+    }
 
 }
 
@@ -3553,6 +4087,7 @@ document.addEventListener(
                 "ArrowLeft"
             ) {
 
+                event.preventDefault();
                 previousPhoto();
 
             }
@@ -3563,6 +4098,7 @@ document.addEventListener(
                 "ArrowRight"
             ) {
 
+                event.preventDefault();
                 nextPhoto();
 
             }
@@ -3738,6 +4274,14 @@ window.addEventListener(
 
     }
 );
+
+
+/* Keep the footer year current automatically. */
+const footerText = document.getElementById("footerText");
+if (footerText) {
+    const footerPrefix = footerText.textContent.replace(/©\s*\d{4}/, "").trim();
+    footerText.textContent = "© " + new Date().getFullYear() + " " + footerPrefix;
+}
 
 
 function scrollToTop() {
