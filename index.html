@@ -10,6 +10,113 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* =========================================
+           BEAUTIFUL TEMPLE OPENING ANIMATION
+           ========================================= */
+
+        #templeSplash {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(255, 194, 92, 0.16) 0%, rgba(45, 22, 8, 0.96) 38%, #090604 100%);
+            color: #fff;
+            text-align: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #templeSplash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        .splash-glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 196, 92, 0.13);
+            filter: blur(35px);
+            animation: splashGlow 2.8s ease-in-out infinite;
+        }
+
+        .splash-om {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(70px, 12vw, 125px);
+            line-height: 1;
+            color: #ffd166;
+            text-shadow: 0 0 12px rgba(255, 209, 102, 0.75), 0 0 35px rgba(255, 170, 60, 0.35);
+            opacity: 0;
+            animation: omReveal 1.15s cubic-bezier(.22,.61,.36,1) .15s forwards, omFloat 3.5s ease-in-out 1.4s infinite;
+        }
+
+        .splash-line {
+            position: relative;
+            z-index: 2;
+            width: 0;
+            height: 1px;
+            margin: 22px 0 20px;
+            background: linear-gradient(90deg, transparent, #ffd166, transparent);
+            animation: lineReveal 1s ease-out .9s forwards;
+        }
+
+        .splash-title {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            margin: 0;
+            font-size: clamp(22px, 4vw, 42px);
+            font-weight: 700;
+            letter-spacing: .5px;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: textReveal 1s ease-out 1.05s forwards;
+        }
+
+        .splash-subtitle {
+            position: relative;
+            z-index: 2;
+            margin: 10px 0 0;
+            font-size: clamp(14px, 2vw, 20px);
+            letter-spacing: 1.5px;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: textReveal 1s ease-out 1.25s forwards;
+        }
+
+        .splash-tagline {
+            position: relative;
+            z-index: 2;
+            margin: 18px 0 0;
+            color: #ffd166;
+            font-size: clamp(13px, 2vw, 17px);
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: textReveal 1s ease-out 1.45s forwards;
+        }
+
+        @keyframes splashGlow { 0%,100% { transform: scale(.9); opacity:.55; } 50% { transform: scale(1.12); opacity:.95; } }
+        @keyframes omReveal { 0% { opacity:0; transform:scale(.45); } 65% { opacity:1; transform:scale(1.08); } 100% { opacity:1; transform:scale(1); } }
+        @keyframes omFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+        @keyframes lineReveal { from { width:0; opacity:0; } to { width:min(320px,55vw); opacity:1; } }
+        @keyframes textReveal { to { opacity:1; transform:translateY(0); } }
+
+        @media (max-width: 700px) {
+            #templeSplash { padding:25px; }
+            .splash-title { line-height:1.45; }
+            .splash-tagline { letter-spacing:1px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #templeSplash, .splash-glow, .splash-om, .splash-line, .splash-title, .splash-subtitle, .splash-tagline { animation:none !important; }
+            .splash-om, .splash-title, .splash-subtitle, .splash-tagline { opacity:1 !important; transform:none !important; }
+            .splash-line { width:min(320px,55vw) !important; opacity:1 !important; }
+        }
+
         /* =========================================
            TEMPLE TIMETABLE
            ========================================= */
@@ -163,6 +270,19 @@
 
 
 <body onload="showKannada()">
+
+<!-- =========================================
+     TEMPLE OPENING SPLASH
+     ========================================= -->
+<div id="templeSplash" aria-label="Sri Aranya Anjaneya Swamy Temple opening">
+    <div class="splash-glow"></div>
+    <div class="splash-om">ॐ</div>
+    <div class="splash-line"></div>
+    <h1 class="splash-title">ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+    <p class="splash-subtitle">Sri Aranya Anjaneya Swamy Temple</p>
+    <p class="splash-tagline">ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ</p>
+</div>
+
 
 
 <!-- =========================================
@@ -1089,6 +1209,17 @@
 
 <script>
 
+        // Hide the opening screen after the animation finishes.
+        window.addEventListener("load", function () {
+            const splash = document.getElementById("templeSplash");
+            if (!splash) return;
+            setTimeout(function () {
+                splash.classList.add("hide");
+                setTimeout(function () { splash.remove(); }, 1100);
+            }, 3000);
+        });
+
+
 /* =========================================
    FESTIVAL CONFIGURATION
    ========================================= */
@@ -1564,7 +1695,7 @@ function updateUpcomingFestival(
 
                 "<br><br>" +
 
-                "🌕 ಪ್ರಾರಂಭ ದಿನಾಂಕ: <strong>" +
+                "🌕 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭ: <strong>" +
 
                 formatFestivalDate(
                     pournami,
@@ -1593,7 +1724,8 @@ function updateUpcomingFestival(
                     "kn"
                 ) +
 
-                " ರವರೆಗೆ ನಡೆಯಲಿದೆ.";
+                " ರವರೆಗೆ ನಡೆಯಲಿದೆ.<br>" +
+                "ಶ್ರೀ ರಾಮ ಕೋಟೆ: ಪೌರ್ಣಿಮೆಗೆ ಮುನ್ನದ 2 ದಿನಗಳು.";
 
         }
 
@@ -1606,7 +1738,7 @@ function updateUpcomingFestival(
 
                 "<br><br>" +
 
-                "🌕 Starting Date: <strong>" +
+                "🌕 Brahma Mahotsavam starts on: <strong>" +
 
                 formatFestivalDate(
                     pournami,
@@ -1635,7 +1767,8 @@ function updateUpcomingFestival(
                     "en"
                 ) +
 
-                ".";
+                ".<br>" +
+                "Sri Rama Kote: the 2 days before Pournami.";
 
         }
 
