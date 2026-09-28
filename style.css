@@ -3728,3 +3728,55 @@ section {
     background-color: transparent;
 }
 
+
+
+/* =========================================================
+   FINAL PHONE BACKGROUND FIX
+   Keep Hanuman image visible without mobile zoom/cropping
+   ========================================================= */
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.38),
+            rgba(0, 0, 0, 0.38)
+        ),
+        url("./Hanuman.jfif") !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+/* Phone: show the complete width of the image instead of zooming it */
+@media (max-width: 700px) {
+    body {
+        background-size: 100% auto !important;
+        background-position: center top !important;
+        background-repeat: repeat-y !important;
+        background-attachment: scroll !important;
+        background-color: #17100b !important;
+    }
+
+    /* Keep the page itself transparent so the image remains visible */
+    header,
+    main,
+    footer {
+        background-color: transparent !important;
+    }
+
+    main section {
+        background: rgba(0, 0, 0, 0.20) !important;
+    }
+}
+
+@media (max-width: 450px) {
+    body {
+        background-size: 100% auto !important;
+    }
+}
