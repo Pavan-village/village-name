@@ -1,466 +1,3203 @@
-
 <!DOCTYPE html>
 <html lang="kn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#321306">
-<meta name="description" content="Sri Aranya Anjaneya Swamy Temple — history, pooja timings, Hindu Panchang and festivals.">
-<title>Sri Aranya Anjaneya Swamy Temple</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-<header class="hero" id="home">
-  <div class="hero-content">
-    <p class="om">ॐ</p>
-    <h1 data-kn="ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ"
-        data-en="Sri Aranya Anjaneya Swamy Temple">
-      ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sri Aranya Anjaneya Swamy Temple, Hanumantharayana Dinne — temple history, timings, pooja, Brahma Mahotsavam, gallery and contact information.">
+    <meta name="theme-color" content="#120b06">
+
+    <title>Sri Aranya Anjaneya Swamy Temple</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+</head>
+
+
+<body onload="showKannada()">
+
+<a class="skip-link" href="#home">Skip to main content</a>
+
+<!-- =========================================
+     TEMPLE OPENING SPLASH
+     ========================================= -->
+<div id="templeSplash" aria-label="Sri Aranya Anjaneya Swamy Temple opening">
+    <div class="splash-glow"></div>
+    <div class="splash-om">ॐ</div>
+    <div class="splash-line"></div>
+    <h1 class="splash-title">ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</h1>
+    <p class="splash-subtitle">Sri Aranya Anjaneya Swamy Temple</p>
+    <p class="splash-tagline">ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ</p>
+</div>
+
+
+
+<!-- =========================================
+     BACK TO TOP
+     ========================================= -->
+
+<button
+    id="backToTop"
+    onclick="scrollToTop()"
+    aria-label="Back to top">
+    ↑
+</button>
+
+
+<!-- =========================================
+     HEADER
+     ========================================= -->
+
+<header>
+
+    <h1 id="title">
+        ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ
     </h1>
-    <p class="subtitle">ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ</p>
-    <p>Sri Aranya Anjaneya Swamy Temple</p>
-    <button id="languageButton" type="button">English</button>
-  </div>
+
+    <p id="tagline">
+        ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ
+    </p>
+
+    <div class="language-buttons">
+
+        <button
+            type="button"
+            onclick="showKannada()">
+            ಕನ್ನಡ
+        </button>
+
+        <button
+            type="button"
+            onclick="showEnglish()">
+            English
+        </button>
+
+    </div>
+
 </header>
 
-<nav aria-label="Main navigation">
-  <a href="#home" data-kn="ಮುಖಪುಟ" data-en="Home">ಮುಖಪುಟ</a>
-  <a href="#history" data-kn="ಇತಿಹಾಸ" data-en="History">ಇತಿಹಾಸ</a>
-  <a href="#timings" data-kn="ಸಮಯ" data-en="Timings">ಸಮಯ</a>
-  <a href="#panchang" data-kn="ಹಿಂದೂ ಪಂಚಾಂಗ" data-en="Hindu Calendar">ಹಿಂದೂ ಪಂಚಾಂಗ</a>
-  <a href="#contact" data-kn="ಸಂಪರ್ಕ" data-en="Contact">ಸಂಪರ್ಕ</a>
+
+<!-- =========================================
+     NAVIGATION
+     ========================================= -->
+
+<nav>
+
+    <a href="#home" id="navHome">
+        ಮುಖಪುಟ
+    </a>
+
+    <a href="#temple" id="navTemple">
+        ದೇವಸ್ಥಾನ
+    </a>
+
+    <a href="#history" id="navHistory">
+        ಇತಿಹಾಸ
+    </a>
+
+    <a href="#timings" id="navTimings">
+        ಸಮಯ
+    </a>
+
+    <a href="#pooja" id="navPooja">
+        ಪೂಜೆ
+    </a>
+
+    <a href="#festival" id="navFestival">
+        ಹಬ್ಬ
+    </a>
+
+    <a
+        href="#gallery"
+        id="navGallery"
+        onclick="showGallery(event)">
+        ಚಿತ್ರಗಳು
+    </a>
+
+    <a href="#contact" id="navContact">
+        ಸಂಪರ್ಕ
+    </a>
+
 </nav>
 
+
+<!-- =========================================
+     MAIN CONTENT
+     ========================================= -->
+
 <main>
-  <section class="welcome section">
-    <p class="eyebrow">🙏 JAI SRI RAM 🙏</p>
-    <h2 data-kn="ಆಂಜನೇಯ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಸನ್ನಿಧಿಗೆ ಸ್ವಾಗತ"
-        data-en="Welcome to the Divine Presence of Lord Hanuman">
-      ಆಂಜನೇಯ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಸನ್ನಿಧಿಗೆ ಸ್ವಾಗತ
-    </h2>
-    <p data-kn="ಭಕ್ತಿ, ನಂಬಿಕೆ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಸಾರುವ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಅಧಿಕೃತ ಮಾಹಿತಿ ತಾಣ."
-       data-en="A temple website sharing devotion, faith, tradition and temple information.">
-      ಭಕ್ತಿ, ನಂಬಿಕೆ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಸಾರುವ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಅಧಿಕೃತ ಮಾಹಿತಿ ತಾಣ.
-    </p>
-  </section>
 
-  <section class="section" id="history">
-    <h2 data-kn="ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ" data-en="Temple History">ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ</h2>
-    <p data-kn="ಸ್ಥಳೀಯ ನಂಬಿಕೆಯ ಪ್ರಕಾರ, ಶ್ರೀ ಆஞ்சನೇಯ ಸ್ವಾಮಿಯವರ ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ಬೇರೆಡೆಗೆ ಕೊಂಡೊಯ್ಯುವ ಸಂದರ್ಭದಲ್ಲಿ ಅದು ಈ ಸ್ಥಳದಲ್ಲಿ ಕೆಳಗೆ ಬಿದ್ದು, ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಸ್ಥಳಾಂತರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ ಇಲ್ಲಿ ಪೂಜೆ ಪ್ರಾರಂಭವಾಯಿತು."
-       data-en="According to local belief, a stone idol of Lord Anjaneya fell at this place while being transported elsewhere. Despite attempts, it could not be moved. Devotees believe the Lord chose this place as his abode, and worship began here.">
-      ಸ್ಥಳೀಯ ನಂಬಿಕೆಯ ಪ್ರಕಾರ, ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ಬೇರೆಡೆಗೆ ಕೊಂಡೊಯ್ಯುವ ಸಂದರ್ಭದಲ್ಲಿ ಅದು ಈ ಸ್ಥಳದಲ್ಲಿ ಕೆಳಗೆ ಬಿದ್ದು, ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಸ್ಥಳಾಂತರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ ಇಲ್ಲಿ ಪೂಜೆ ಪ್ರಾರಂಭವಾಯಿತು.
-    </p>
-    <p data-kn="ಈ ಪರಂಪರೆ ನಮ್ಮ ಊರಿನ ಭಕ್ತಿ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಪ್ರಮುಖ ಭಾಗವಾಗಿದೆ."
-       data-en="This tradition remains an important part of our village's faith and culture.">
-      ಈ ಪರಂಪರೆ ನಮ್ಮ ಊರಿನ ಭಕ್ತಿ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಪ್ರಮುಖ ಭಾಗವಾಗಿದೆ.
-    </p>
-  </section>
 
-  <section class="section" id="timings">
-    <h2 data-kn="ದೇವಸ್ಥಾನದ ಸಮಯ" data-en="Temple Timings">ದೇವಸ್ಥಾನದ ಸಮಯ</h2>
-    <div class="info-grid">
-      <article class="info-card">
-        <h3 data-kn="ದೈನಂದಿನ ದರ್ಶನ" data-en="Daily Darshan">ದೈನಂದಿನ ದರ್ಶನ</h3>
-        <p data-kn="ಬೆಳಿಗ್ಗೆ 7:30ರಿಂದ" data-en="From 7:30 AM">ಬೆಳಿಗ್ಗೆ 7:30ರಿಂದ</p>
-        <small data-kn="ಹಬ್ಬದ ದಿನಗಳಲ್ಲಿ ಸಮಯ ಬದಲಾಗಬಹುದು."
-               data-en="Timings may vary on festival days.">ಹಬ್ಬದ ದಿನಗಳಲ್ಲಿ ಸಮಯ ಬದಲಾಗಬಹುದು.</small>
-      </article>
-      <article class="info-card">
-        <h3 data-kn="ಶನಿವಾರದ ಅನ್ನದಾನ" data-en="Saturday Annadana">ಶನಿವಾರದ ಅನ್ನದಾನ</h3>
-        <p data-kn="ಬೆಳಿಗ್ಗೆ 9ರಿಂದ ಮಧ್ಯಾಹ್ನ 1ರವರೆಗೆ"
-           data-en="9 AM to 1 PM">ಬೆಳಿಗ್ಗೆ 9ರಿಂದ ಮಧ್ಯಾಹ್ನ 1ರವರೆಗೆ</p>
-      </article>
-    </div>
-  </section>
+    <!-- =====================================
+         HOME
+         ===================================== -->
 
-  <section class="section" id="panchang">
-    <p class="eyebrow">🪔 PANCHANGA • ಪಂಚಾಂಗ</p>
-    <h2 data-kn="ಹಿಂದೂ ಪಂಚಾಂಗ ಮತ್ತು ವಿಶೇಷ ದಿನಗಳು"
-        data-en="Hindu Panchang & Special Days">
-      ಹಿಂದೂ ಪಂಚಾಂಗ ಮತ್ತು ವಿಶೇಷ ದಿನಗಳು
-    </h2>
-    <p data-kn="ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ ಲಭ್ಯವಿರುವ ಪಂಚಾಂಗದ ವಿವರಗಳನ್ನು ನೋಡಿ."
-       data-en="Select a date to view available Panchang details.">
-      ದಿನಾಂಕ ಆಯ್ಕೆ ಮಾಡಿ ಲಭ್ಯವಿರುವ ಪಂಚಾಂಗದ ವಿವರಗಳನ್ನು ನೋಡಿ.
-    </p>
+    <section
+        id="home"
+        class="hero-section">
 
-    <div class="calendar-panel">
-      <div class="calendar-controls">
-        <button id="previousMonth" type="button" aria-label="Previous month">‹</button>
-        <h3 id="monthTitle" aria-live="polite">ಪಂಚಾಂಗ</h3>
-        <button id="nextMonth" type="button" aria-label="Next month">›</button>
-      </div>
+        <div class="hero-content">
 
-      <label for="selectedDate" data-kn="ದಿನಾಂಕ ಆಯ್ಕೆ" data-en="Choose date">
-        ದಿನಾಂಕ ಆಯ್ಕೆ
-      </label>
-      <div class="date-controls">
-        <input id="selectedDate" type="date">
-        <button id="todayButton" type="button"
-                data-kn="ಇಂದು" data-en="Today">ಇಂದು</button>
-      </div>
+            <div class="hero-symbol">
+                🕉️
+            </div>
 
-      <div class="calendar-grid" id="calendarGrid" aria-label="Calendar"></div>
+            <h2 id="homeTitle">
+                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ
+            </h2>
 
-      <div class="panchang-card" aria-live="polite">
-        <h3 id="panchangDate">ಪಂಚಾಂಗ ವಿವರಗಳು</h3>
-        <p id="panchangStatus">ಪಂಚಾಂಗದ ಮಾಹಿತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…</p>
-        <div class="detail-grid" id="panchangDetails">
-          <div><span data-kn="ತಿಥಿ" data-en="Tithi">ತಿಥಿ</span><strong>—</strong></div>
-          <div><span data-kn="ನಕ್ಷತ್ರ" data-en="Nakshatra">ನಕ್ಷತ್ರ</span><strong>—</strong></div>
-          <div><span data-kn="ಯೋಗ" data-en="Yoga">ಯೋಗ</span><strong>—</strong></div>
-          <div><span data-kn="ಕರಣ" data-en="Karana">ಕರಣ</span><strong>—</strong></div>
-          <div><span data-kn="ಸೂರ್ಯೋದಯ" data-en="Sunrise">ಸೂರ್ಯೋದಯ</span><strong>—</strong></div>
-          <div><span data-kn="ಸೂರ್ಯಾಸ್ತ" data-en="Sunset">ಸೂರ್ಯಾಸ್ತ</span><strong>—</strong></div>
+            <p id="homeText">
+                ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ
+                ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ
+                ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು
+                ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.
+            </p>
+
+            <a
+                href="#temple"
+                class="explore-button"
+                id="exploreButton">
+                ✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ
+            </a>
+
+            <div class="scroll-indicator">
+
+                <span>
+                    ↓
+                </span>
+
+                <small id="scrollText">
+                    ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ
+                </small>
+
+            </div>
+
         </div>
-        <h4 data-kn="ವಿಶೇಷ ದಿನದ ಮಾಹಿತಿ" data-en="Observance information">
-          ವಿಶೇಷ ದಿನದ ಮಾಹಿತಿ
-        </h4>
-        <p id="specialDay">—</p>
-      </div>
 
-      <div class="reminder-panel">
-        <h3 data-kn="ಹಬ್ಬದ ನೆನಪಿನ ಸೂಚನೆಗಳು"
-            data-en="Festival Reminders">ಹಬ್ಬದ ನೆನಪಿನ ಸೂಚನೆಗಳು</h3>
-        <p data-kn="ಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಿ ಮತ್ತು ಆಯ್ದ ದಿನಕ್ಕೆ ನೆನಪನ್ನು ಉಳಿಸಿ."
-           data-en="Allow notifications and save a reminder for your selected date.">
-          ಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಿ ಮತ್ತು ಆಯ್ದ ದಿನಕ್ಕೆ ನೆನಪನ್ನು ಉಳಿಸಿ.
+    </section>
+
+
+    <!-- =====================================
+         TEMPLE
+         ===================================== -->
+
+    <section
+        id="temple"
+        class="info-section">
+
+        <div class="info-icon">
+            🛕
+        </div>
+
+        <h2 id="templeTitle">
+            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ
+        </h2>
+
+        <div class="info-card">
+
+            <p id="templeText">
+                ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ
+                ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ,
+                ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ
+                ನೋಡಬಹುದು.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         HISTORY
+         ===================================== -->
+
+    <section
+        id="history"
+        class="info-section">
+
+        <div class="info-icon history-icon">
+            📖
+        </div>
+
+        <h2 id="historyTitle">
+            ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ
+        </h2>
+
+        <div class="info-card">
+
+            <p id="historyText">
+
+                ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ, ಇಂದು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ
+                ಎಂದು ಕರೆಯಲ್ಪಡುವ ಈ ಭೂಮಿ ದಟ್ಟವಾದ ಅರಣ್ಯವಾಗಿತ್ತು.
+                ಆಗ ಇಲ್ಲಿ ಯಾವುದೇ ಗ್ರಾಮ, ವಸತಿ ಅಥವಾ ದೇವಸ್ಥಾನ ಇರಲಿಲ್ಲ.
+
+                <br><br>
+
+                ಒಂದು ಸಂದರ್ಭದಲ್ಲಿ ಕೆಲವರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ
+                ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ತಮ್ಮ ಊರಿಗೆ ತೆಗೆದುಕೊಂಡು ಹೋಗುತ್ತಿದ್ದರು.
+                ಮಾರ್ಗಮಧ್ಯೆ ಈ ಸ್ಥಳದಲ್ಲಿ ವಿಗ್ರಹವು ಕೆಳಗೆ ಬಿದ್ದು,
+                ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಅದನ್ನು ಅಲ್ಲಿಂದ ಸ್ಥಳಾಂತರಿಸಲು
+                ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.
+
+                <br><br>
+
+                ಇದನ್ನು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ
+                ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ,
+                ಅಲ್ಲಿಯೇ ಒಂದು ಸಣ್ಣ ಗುಡಿಯನ್ನು ನಿರ್ಮಿಸಿ ಪೂಜೆ
+                ಪ್ರಾರಂಭಿಸಲಾಯಿತು.
+
+                <br><br>
+
+                ಆ ಕಾಲದಲ್ಲಿ ಈ ಸ್ಥಳಕ್ಕೆ ಬರುತ್ತಿದ್ದ ಪ್ರಯಾಣಿಕರು
+                ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ದರ್ಶನ ಪಡೆದು, ಪ್ರಾರ್ಥನೆ
+                ಸಲ್ಲಿಸಿ ವಿಶ್ರಾಂತಿ ಪಡೆಯುತ್ತಿದ್ದರು. ಕ್ರಮೇಣ ಈ ಸ್ಥಳಕ್ಕೆ
+                ಹೆಚ್ಚಿನ ಜನರು ಬರಲು ಪ್ರಾರಂಭಿಸಿದರು.
+
+                <br><br>
+
+                ಒಬ್ಬರು ಬಂದರು, ನಂತರ ಮತ್ತೊಬ್ಬರು, ನಂತರ ಹಲವರು.
+                ಜನರು ದೇವಸ್ಥಾನದ ಸುತ್ತಮುತ್ತ ನೆಲೆಸಲು ಪ್ರಾರಂಭಿಸಿದರು.
+                ಹೀಗೆ ಈ ಪ್ರದೇಶವು ನಿಧಾನವಾಗಿ ಒಂದು ವಸತಿಯಾಗಿ ಬೆಳೆಯಿತು.
+                ತಲೆತಲಾಂತರಗಳಿಂದ ಬಂದಿರುವ ಸ್ಥಳೀಯ ಪರಂಪರೆಯ ಪ್ರಕಾರ,
+                ಈ ಪ್ರದೇಶವು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಟ್ಟಿತು.
+
+                <br><br>
+
+                <strong>ದೇವಸ್ಥಾನದ ಬೆಳವಣಿಗೆ</strong>
+
+                <br><br>
+
+                ಭಕ್ತರ ಸೇವೆ, ನಂಬಿಕೆ ಮತ್ತು ನಿರಂತರ ಪೂಜೆಯೊಂದಿಗೆ
+                ಸಣ್ಣ ಗುಡಿಯು ಕ್ರಮೇಣ ಅಭಿವೃದ್ಧಿ ಹೊಂದಿತು. ದೇವಸ್ಥಾನದಲ್ಲಿ
+                ಸಾಂಪ್ರದಾಯಿಕ ಕಲ್ಲಿನ ವಾಸ್ತುಶಿಲ್ಪ, ಶಿಲ್ಪಗಳು,
+                ದೇವರ ವಿಗ್ರಹಗಳು ಮತ್ತು ಧಾರ್ಮಿಕ ಕಲಾತ್ಮಕ ವಿನ್ಯಾಸಗಳು
+                ರೂಪುಗೊಂಡವು.
+
+                <br><br>
+
+                ಇವು ನಮ್ಮ ಊರಿನ ಸಂಸ್ಕೃತಿ, ಸ್ಥಳೀಯ ಪರಂಪರೆ ಮತ್ತು
+                ಆಧ್ಯಾತ್ಮಿಕತೆಯನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತವೆ. ಶಿಲ್ಪಿಗಳು
+                ಮತ್ತು ವಿನ್ಯಾಸಕಾರರು ದೇವಸ್ಥಾನಕ್ಕೆ ವಿಶಿಷ್ಟವಾದ
+                ಗುರುತನ್ನು ನೀಡಿದರು. ಹೀಗೆ ದೇವಸ್ಥಾನವು ಒಂದು
+                ಆಧ್ಯಾತ್ಮಿಕ ಕೇಂದ್ರವಾಗಿ ಬೆಳೆಯಿತು.
+
+                <br><br>
+
+                <strong>ಮುಂದುವರಿಯುತ್ತಿರುವ ಪರಂಪರೆ</strong>
+
+                <br><br>
+
+                ಇಂದು ಈ ದೇವಸ್ಥಾನವು ಕೇವಲ ಪೂಜೆಯ ಸ್ಥಳವಾಗಿರದೆ,
+                ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ ಆರಂಭವಾಯಿತು ಎಂದು ನಂಬಲಾಗುವ
+                ಪರಂಪರೆಯ ಜೀವಂತ ನೆನಪಾಗಿ ಉಳಿದಿದೆ.
+
+                <br><br>
+
+                ಕಾಲ ಬದಲಾದರೂ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ
+                ಮತ್ತು ನಂಬಿಕೆ ಮುಂದುವರಿದಿದೆ. ಪ್ರಾಚೀನ ಪರಂಪರೆ,
+                ಆಧ್ಯಾತ್ಮಿಕ ಮಹತ್ವ ಮತ್ತು ದೇವಸ್ಥಾನದ ಪವಿತ್ರ
+                ಗುರುತನ್ನು ಉಳಿಸಿಕೊಂಡು ಮುಂದಿನ ದಿನಗಳಲ್ಲಿ
+                ದೇವಸ್ಥಾನವನ್ನು ಇನ್ನಷ್ಟು ಅಭಿವೃದ್ಧಿಪಡಿಸುವ
+                ಆಶಯವಿದೆ.
+
+                <br><br>
+
+                ಈ ಪವಿತ್ರ ಸಾನ್ನಿಧ್ಯವೇ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಮೂಲ,
+                ನಂಬಿಕೆಯೇ ಅದರ ಶಕ್ತಿ ಮತ್ತು ಭಕ್ತಿಯೇ ಅದರ ಆತ್ಮ.
+
+                <br><br>
+
+                ತಲೆಮಾರುಗಳು ಬದಲಾಗಬಹುದು, ಆದರೆ ಶ್ರೀ ಆಂಜನೇಯ
+                ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಎಂದಿಗೂ ಮುಂದುವರಿಯುತ್ತದೆ.
+
+                <br><br>
+
+                <strong>ಜೈ ಶ್ರೀ ಆಂಜನೇಯ 🙏</strong>
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TIMETABLE
+         ===================================== -->
+
+    <section
+        id="timings"
+        class="info-section">
+
+        <div class="info-icon">
+            🕰️
+        </div>
+
+        <h2 id="timingsTitle">
+            ದೇವಸ್ಥಾನದ ಸಮಯ ಪಟ್ಟಿ
+        </h2>
+
+        <div class="info-card">
+
+            <table class="temple-timetable">
+
+                <thead>
+
+                    <tr>
+
+                        <th id="dayHeader">
+                            ದಿನ
+                        </th>
+
+                        <th id="openingHeader">
+                            ದೇವಸ್ಥಾನ ತೆರೆಯುವ ಸಮಯ
+                        </th>
+
+                        <th id="worshipHeader">
+                            ದೈನಂದಿನ ಪೂಜೆ
+                        </th>
+
+                        <th id="foodHeader">
+                            ಅನ್ನದಾನ / ಪ್ರಸಾದ
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td id="mondayFridayDay">
+                            ಸೋಮವಾರ – ಶುಕ್ರವಾರ
+                        </td>
+
+                        <td>
+                            7:30 AM
+                        </td>
+
+                        <td id="mondayFridayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="mondayFridayFood">
+                            ಇಲ್ಲ
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td id="saturdayDay">
+                            ಶನಿವಾರ
+                        </td>
+
+                        <td>
+                            7:00 AM
+                        </td>
+
+                        <td id="saturdayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="saturdayFood">
+                            ಬೆಳಿಗ್ಗೆ 9:00 – ಮಧ್ಯಾಹ್ನ 1:00
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td id="sundayDay">
+                            ಭಾನುವಾರ
+                        </td>
+
+                        <td>
+                            7:30 AM
+                        </td>
+
+                        <td id="sundayWorship">
+                            ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ
+                        </td>
+
+                        <td id="sundayFood">
+                            ಇಲ್ಲ
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+            <h3 id="annadanaTitle">
+                🍚 ಶನಿವಾರ ಅನ್ನದಾನ
+            </h3>
+
+            <p id="annadanaText">
+                ಪ್ರತಿ ಶನಿವಾರ ಬೆಳಿಗ್ಗೆ 9:00 ರಿಂದ ಮಧ್ಯಾಹ್ನ 1:00
+                ರವರೆಗೆ ಭಕ್ತರಿಗೆ ಅನ್ನದಾನ / ಪ್ರಸಾದವನ್ನು ನೀಡಲಾಗುತ್ತದೆ.
+                ಭಕ್ತರು ಈ ಸಮಯದಲ್ಲಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಭೇಟಿ ನೀಡಿ
+                ಪ್ರಸಾದವನ್ನು ಸ್ವೀಕರಿಸಬಹುದು.
+            </p>
+
+
+            <h3 id="closingTitle">
+                🕉️ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ
+            </h3>
+
+            <p id="closingText">
+                ಭಕ್ತರ ಸಂಖ್ಯೆಯನ್ನು ಅವಲಂಬಿಸಿ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ
+                ಬದಲಾಗಬಹುದು. ಹೆಚ್ಚಿನ ಭಕ್ತರು ಇದ್ದಲ್ಲಿ, ದರ್ಶನ ಮತ್ತು
+                ಪ್ರಾರ್ಥನೆಗೆ ಅವಕಾಶ ನೀಡಲು ದೇವಸ್ಥಾನವನ್ನು ಹೆಚ್ಚಿನ
+                ಸಮಯ ತೆರೆದಿಡಬಹುದು.
+            </p>
+
+
+            <p id="timingsBlessing">
+                🙏 ಜೈ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿ
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TYPES OF POOJA
+         ===================================== -->
+
+    <section
+        id="pooja"
+        class="info-section">
+
+        <div class="info-icon">
+            🌸
+        </div>
+
+        <h2 id="poojaTitle">
+            ಪೂಜೆಯ ವಿಧಗಳು
+        </h2>
+
+        <div class="info-card">
+
+            <h3 id="abhishekamTitle">
+                1. ಅಭಿಷೇಕ
+            </h3>
+
+            <p id="abhishekamText">
+                ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಗೆ ಪ್ರತಿದಿನ ಅಭಿಷೇಕವನ್ನು
+                ನೆರವೇರಿಸಲಾಗುತ್ತದೆ.
+            </p>
+
+
+            <h3 id="flowerTitle">
+                2. ಹೂವು ಕೇಳುವುದು
+            </h3>
+
+            <p id="flowerText">
+                ಭಕ್ತರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಆಶೀರ್ವಾದದ
+                ಸಂಕೇತವಾಗಿ ಹೂವನ್ನು ಕೇಳಬಹುದು.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         FESTIVAL ZONE
+         ===================================== -->
+
+    <section
+        id="festival"
+        class="info-section">
+
+        <div class="info-icon">
+            🎉
+        </div>
+
+        <h2 id="festivalTitle">
+            ಹಬ್ಬದ ವಲಯ
+        </h2>
+
+
+        <!-- BRAHMA MAHOTSAVAM -->
+
+        <div class="info-card festival-card">
+
+            <h3 id="brahmaTitle">
+                🌕 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ
+            </h3>
+
+            <p id="brahmaText">
+                ಪ್ರತಿ ವರ್ಷ ರಾಮ ನವಮಿಯ ನಂತರ ಬರುವ ಮುಂದಿನ ಪೌರ್ಣಿಮೆಯಂದು
+                ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.
+            </p>
+
+            <p id="festivalRuleText">
+                ಪೌರ್ಣಿಮೆಗೆ ಮುನ್ನದ ಎರಡು ದಿನಗಳನ್ನು ಶ್ರೀ ರಾಮ ಕೋಟೆಯಾಗಿ
+                ಆಚರಿಸಲಾಗುತ್ತದೆ. ಪೌರ್ಣಿಮೆಯ ದಿನ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ
+                ಪ್ರಾರಂಭವಾಗಿ ಒಟ್ಟು ಏಳು ದಿನಗಳ ಕಾರ್ಯಕ್ರಮ ನಡೆಯುತ್ತದೆ.
+            </p>
+
+
+            <div class="festival-rule-grid">
+
+                <div class="festival-rule">
+
+                    <span>
+                        1
+                    </span>
+
+                    <h4 id="festivalRule1Title">
+                        ಶ್ರೀ ರಾಮ ಕೋಟೆ – ದಿನ 1
+                    </h4>
+
+                    <p id="festivalRule1Text">
+                        ಪೌರ್ಣಿಮೆಗೆ ಎರಡು ದಿನ ಮುನ್ನ.
+                    </p>
+
+                </div>
+
+
+                <div class="festival-rule">
+
+                    <span>
+                        2
+                    </span>
+
+                    <h4 id="festivalRule2Title">
+                        ಶ್ರೀ ರಾಮ ಕೋಟೆ – ದಿನ 2
+                    </h4>
+
+                    <p id="festivalRule2Text">
+                        ಪೌರ್ಣಿಮೆಗೆ ಒಂದು ದಿನ ಮುನ್ನ.
+                    </p>
+
+                </div>
+
+
+                <div class="festival-rule">
+
+                    <span>
+                        3
+                    </span>
+
+                    <h4 id="festivalRule3Title">
+                        ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ದಿನ 1
+                    </h4>
+
+                    <p id="festivalRule3Text">
+                        ಪೌರ್ಣಿಮೆಯ ದಿನ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭ.
+                    </p>
+
+                </div>
+
+
+                <div class="festival-rule">
+
+                    <span>
+                        7
+                    </span>
+
+                    <h4 id="festivalRule7Title">
+                        ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ಅಂತಿಮ ದಿನ
+                    </h4>
+
+                    <p id="festivalRule7Text">
+                        ಏಳು ದಿನಗಳ ಕಾರ್ಯಕ್ರಮದ ಅಂತಿಮ ದಿನ.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- UPCOMING FESTIVAL -->
+
+        <div
+            class="info-card upcoming-festival-card"
+            id="upcomingFestivalCard"
+            style="display: none;">
+
+            <h3 id="upcomingFestivalTitle">
+                🔔 ಮುಂಬರುವ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ
+            </h3>
+
+            <p id="upcomingFestivalText">
+                ಈ ವರ್ಷದ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವದ ವಿವರಗಳು:
+            </p>
+
+            <div
+                id="upcomingFestivalDate"
+                class="festival-date">
+            </div>
+
+            <p id="upcomingFestivalNotice">
+                📌 ಹಬ್ಬಕ್ಕೆ ಒಂದು ತಿಂಗಳು ಮುನ್ನ ಈ ಸೂಚನೆ
+                ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.
+            </p>
+
+        </div>
+
+
+        <!-- 7 DAY SCHEDULE -->
+
+        <div class="info-card">
+
+            <h3 id="festivalScheduleTitle">
+                📅 7 ದಿನಗಳ ಕಾರ್ಯಕ್ರಮ
+            </h3>
+
+            <div class="festival-table-container">
+
+                <table class="temple-timetable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th id="festivalDayHeader">
+                                ದಿನ
+                            </th>
+
+                            <th id="festivalDateHeader">
+                                ದಿನಾಂಕ
+                            </th>
+
+                            <th id="festivalEventHeader">
+                                ಕಾರ್ಯಕ್ರಮ
+                            </th>
+
+                            <th id="festivalSpecialHeader">
+                                ವಿಶೇಷ
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="festivalScheduleBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         GALLERY
+         ===================================== -->
+
+    <section
+        id="gallery"
+        style="display: none;">
+
+        <h2 id="galleryTitle">
+            ಚಿತ್ರಗಳ ಸಂಗ್ರಹ
+        </h2>
+
+        <div class="gallery-container">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.10.58 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.11.55 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.23 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.24 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.12.24 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.01 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.13.02 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.41 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.41 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.42 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (2).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM (3).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.43 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.44 PM (1).jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.44 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+            <img
+                src="WhatsApp Image 2026-09-02 at 5.14.45 PM.jpeg"
+                alt="Aranya Anjaneya Swamy Temple"
+                loading="lazy">
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         CONTACT
+         ===================================== -->
+
+    <section id="contact">
+
+        <h2 id="contactTitle">
+            ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ
+        </h2>
+
+
+        <!-- MAINTENANCE -->
+
+        <h3
+            class="maintenance-name"
+            id="maintenanceTitleKn">
+            ನಿರ್ವಹಣೆ
+        </h3>
+
+        <p>
+
+            <strong>
+                ಕೃಷ್ಣ ಮೂರ್ತಿ / Krishna Murthi
+            </strong>
+
+            <br>
+
+            <a
+                class="call-button"
+                href="tel:9964056335"
+                id="maintenanceCall">
+                📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ
+            </a>
+
         </p>
-        <div class="reminder-buttons">
-          <button id="enableNotifications" type="button"
-                  data-kn="ಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಿ"
-                  data-en="Enable notifications">ಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಿ</button>
-          <button id="saveReminder" type="button"
-                  data-kn="ಈ ದಿನಕ್ಕೆ ನೆನಪಿಸಿ"
-                  data-en="Remind me on this date">ಈ ದಿನಕ್ಕೆ ನೆನಪಿಸಿ</button>
+
+
+        <!-- WEEKLY PANDIT -->
+
+        <h3 id="panditTitle">
+            🕉️ ಈ ವಾರದ ಪಂಡಿತರು
+        </h3>
+
+        <p
+            id="panditScheduleHint"
+            class="pandit-schedule-hint">
+            📅 ಪ್ರತಿ ಭಾನುವಾರ ಪಂಡಿತರ ಬದಲಾವಣೆ
+        </p>
+
+        <div id="weeklyPandit">
         </div>
-        <p id="notificationStatus" role="status" aria-live="polite"></p>
-      </div>
 
-      <p class="disclaimer"
-         data-kn="ಸೂಚನೆ: ಹಬ್ಬಗಳ ಆಚರಣೆ ಮತ್ತು ಪಂಚಾಂಗದ ಸಮಯ ಸ್ಥಳೀಯ ಸಂಪ್ರದಾಯ ಹಾಗೂ ಸ್ಥಳದ ಪ್ರಕಾರ ಬದಲಾಗಬಹುದು. ದೇವಸ್ಥಾನದ ಕಾರ್ಯಕ್ರಮದ ದಿನಾಂಕವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
-         data-en="Note: Festival observances and Panchang timings vary by location and tradition. Confirm temple event dates locally.">
-        ಸೂಚನೆ: ಹಬ್ಬಗಳ ಆಚರಣೆ ಮತ್ತು ಪಂಚಾಂಗದ ಸಮಯ ಸ್ಥಳೀಯ ಸಂಪ್ರದಾಯ ಹಾಗೂ ಸ್ಥಳದ ಪ್ರಕಾರ ಬದಲಾಗಬಹುದು. ದೇವಸ್ಥಾನದ ಕಾರ್ಯಕ್ರಮದ ದಿನಾಂಕವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.
-      </p>
-    </div>
-  </section>
 
-  <section class="section" id="contact">
-    <h2 data-kn="ದೇವಸ್ಥಾನದ ಸ್ಥಳ" data-en="Temple Location">ದೇವಸ್ಥಾನದ ಸ್ಥಳ</h2>
-    <p data-kn="ಹನುಮಂತರಾಯನ ದಿನ್ನೆ" data-en="Hanumantharayana Dinne">
-      ಹನುಮಂತರಾಯನ ದಿನ್ನೆ
-    </p>
-    <a class="map-button"
-       href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
-       target="_blank" rel="noopener noreferrer"
-       data-kn="Google Maps ನಲ್ಲಿ ನೋಡಿ" data-en="View on Google Maps">
-      Google Maps ನಲ್ಲಿ ನೋಡಿ
-    </a>
-  </section>
+        <!-- GOOGLE MAPS -->
+
+        <a
+            id="mapsButton"
+            href="https://maps.app.goo.gl/gcdkQkQVDRVu7wXj9"
+            target="_blank"
+            rel="noopener noreferrer">
+            📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ
+        </a>
+
+    </section>
+
 </main>
 
+
+<!-- =========================================
+     FOOTER
+     ========================================= -->
+
 <footer>
-  <p>ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ</p>
-  <p>ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ</p>
-  <small>© <span id="copyrightYear"></span> Sri Aranya Anjaneya Swamy Temple</small>
+
+    <p id="footerText">
+        © 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ
+    </p>
+
 </footer>
 
+
+<!-- =========================================
+     PHOTO VIEWER
+     ========================================= -->
+
+<div
+    id="photoViewer"
+    class="photo-viewer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Temple photo viewer">
+
+    <button
+        type="button"
+        class="photo-nav prev-photo"
+        onclick="previousPhoto()"
+        aria-label="Previous photo">
+        &#10094;
+    </button>
+
+    <div class="photo-viewer-topbar">
+        <span id="photoCounter" aria-live="polite">1 / 23</span>
+    </div>
+
+    <img
+        id="largePhoto"
+        src=""
+        alt="Temple Photo">
+
+    <button
+        type="button"
+        class="photo-nav next-photo"
+        onclick="nextPhoto()"
+        aria-label="Next photo">
+        &#10095;
+    </button>
+
+    <button
+        type="button"
+        class="close-button"
+        onclick="closePhoto()"
+        aria-label="Close photo viewer">
+        &times;
+    </button>
+
+</div>
+
+
 <script>
-"use strict";
 
-let language = "kn";
-let viewDate = new Date();
-let chosenDate = localDate(new Date());
-let panchangCache = {};
-let savedReminders = [];
+        // Hide the opening screen after the animation finishes.
+        window.addEventListener("load", function () {
+            const splash = document.getElementById("templeSplash");
+            if (!splash) return;
+            setTimeout(function () {
+                splash.classList.add("hide");
+                setTimeout(function () { splash.remove(); }, 1100);
+            }, 3000);
+        });
 
-const city = "bangalore";
-const api = "https://nityapanchangam.com/api/panchangam.php";
 
-function localDate(date) {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
+/* =========================================
+   FESTIVAL CONFIGURATION
+   ========================================= */
 
-function say(kn, en) {
-  return language === "kn" ? kn : en;
-}
+/*
+   IMPORTANT:
 
-function changeLanguage() {
-  language = language === "kn" ? "en" : "kn";
-  document.documentElement.lang = language;
-  document.querySelectorAll("[data-kn][data-en]").forEach(el => {
-    el.textContent = el.getAttribute(`data-${language}`);
-  });
-  document.getElementById("languageButton").textContent =
-    language === "kn" ? "English" : "ಕನ್ನಡ";
-  renderCalendar();
-  loadPanchang(chosenDate);
-}
+   Enter the confirmed Pournami date for each year.
 
-function monthLabel(date) {
-  return new Intl.DateTimeFormat(language === "kn" ? "kn-IN" : "en-IN", {
-    month: "long", year: "numeric"
-  }).format(date);
-}
+   For the 2027 festival, the date currently used
+   is the date already present in your original code:
 
-function fullDate(dateString) {
-  const [y, m, d] = dateString.split("-").map(Number);
-  return new Intl.DateTimeFormat(language === "kn" ? "kn-IN" : "en-IN", {
-    weekday: "long", day: "numeric", month: "long", year: "numeric"
-  }).format(new Date(y, m - 1, d));
-}
+   20 April 2027
 
-function renderCalendar() {
-  const grid = document.getElementById("calendarGrid");
-  grid.replaceChildren();
-  document.getElementById("monthTitle").textContent = monthLabel(viewDate);
+   The website automatically creates:
 
-  const weekdays = language === "kn"
-    ? ["ಭಾನು", "ಸೋಮ", "ಮಂಗಳ", "ಬುಧ", "ಗುರು", "ಶುಕ್ರ", "ಶನಿ"]
-    : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+   Day 1  → Sri Rama Kote
+   Day 2  → Sri Rama Kote
+   Day 3  → Brahma Mahotsavam Day 1
+   Day 4  → Brahma Mahotsavam Day 2
+   Day 5  → Brahma Mahotsavam Day 3
+   Day 6  → Brahma Mahotsavam Day 4
+   Day 7  → Brahma Mahotsavam Day 5
 
-  weekdays.forEach(day => {
-    const el = document.createElement("div");
-    el.className = "weekday";
-    el.textContent = day;
-    grid.appendChild(el);
-  });
+   When a future year's confirmed Pournami date is known,
+   add it here.
+*/
 
-  const year = viewDate.getFullYear();
-  const month = viewDate.getMonth();
-  const firstDay = new Date(year, month, 1).getDay();
-  const totalDays = new Date(year, month + 1, 0).getDate();
+const FESTIVAL_DATES = {
 
-  for (let i = 0; i < firstDay; i++) {
-    const blank = document.createElement("div");
-    blank.className = "calendar-empty";
-    grid.appendChild(blank);
-  }
+    2027: "2027-04-20"
 
-  for (let day = 1; day <= totalDays; day++) {
-    const date = localDate(new Date(year, month, day));
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "calendar-day";
-    button.textContent = day;
-    button.setAttribute("aria-label", fullDate(date));
+};
 
-    if (date === chosenDate) button.classList.add("selected");
-    if (date === localDate(new Date())) button.classList.add("today");
 
-    button.addEventListener("click", () => selectDate(date));
-    grid.appendChild(button);
-  }
-}
+/* =========================================
+   GET FESTIVAL DATE
+   ========================================= */
 
-function selectDate(date) {
-  chosenDate = date;
-  document.getElementById("selectedDate").value = date;
-  viewDate = new Date(
-    Number(date.slice(0, 4)),
-    Number(date.slice(5, 7)) - 1,
-    1
-  );
-  renderCalendar();
-  loadPanchang(date);
-}
+function getFestivalDate() {
 
-async function loadPanchang(date) {
-  document.getElementById("panchangDate").textContent = fullDate(date);
-  document.getElementById("panchangStatus").textContent =
-    say("ಪಂಚಾಂಗದ ಮಾಹಿತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…", "Loading Panchang data…");
+    const currentYear =
+        new Date().getFullYear();
 
-  if (panchangCache[date]) {
-    showPanchang(panchangCache[date]);
-    return;
-  }
 
-  try {
-    const url = `${api}?date=${encodeURIComponent(date)}&city=${city}`;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Panchang service unavailable");
+    const availableYears =
+        Object.keys(FESTIVAL_DATES)
+            .map(Number)
+            .sort(function(a, b) {
+                return a - b;
+            });
 
-    const data = await response.json();
-    if (!data || !data.tithi) throw new Error("Panchang data missing");
 
-    panchangCache[date] = data;
-    showPanchang(data);
-    checkReminder(date, data);
-  } catch (error) {
-    document.getElementById("panchangStatus").textContent =
-      say("ಪಂಚಾಂಗದ ಮಾಹಿತಿ ಸಿಗಲಿಲ್ಲ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಅಥವಾ ಸೇವೆಯನ್ನು ಪರಿಶೀಲಿಸಿ.",
-          "Panchang data could not be loaded. Check your internet connection or the data service.");
-    document.getElementById("specialDay").textContent = "—";
-    console.error(error);
-  }
-}
+    let selectedYear = null;
 
-function fieldValue(value) {
-  if (value === null || value === undefined) return "—";
-  if (typeof value === "object") return value.name || value.time || "—";
-  return String(value);
-}
 
-function showPanchang(data) {
-  document.getElementById("panchangStatus").textContent =
-    say("ಪಂಚಾಂಗದ ಮಾಹಿತಿ ಲಭ್ಯವಿದೆ", "Panchang data loaded");
+    for (
+        let i = 0;
+        i < availableYears.length;
+        i++
+    ) {
 
-  const fields = [
-    ["ತಿಥಿ", "Tithi", data.tithi],
-    ["ನಕ್ಷತ್ರ", "Nakshatra", data.nakshatra],
-    ["ಯೋಗ", "Yoga", data.yoga],
-    ["ಕರಣ", "Karana", data.karana],
-    ["ಸೂರ್ಯೋದಯ", "Sunrise", data.sunrise],
-    ["ಸೂರ್ಯಾಸ್ತ", "Sunset", data.sunset]
-  ];
+        if (
+            availableYears[i] >= currentYear
+        ) {
 
-  const container = document.getElementById("panchangDetails");
-  container.replaceChildren();
+            selectedYear =
+                availableYears[i];
 
-  fields.forEach(([kn, en, value]) => {
-    const item = document.createElement("div");
-    const label = document.createElement("span");
-    const result = document.createElement("strong");
-    label.textContent = say(kn, en);
-    result.textContent = fieldValue(value);
-    item.append(label, result);
-    container.appendChild(item);
-  });
+            break;
+        }
 
-  const tithi = fieldValue(data.tithi);
-  document.getElementById("specialDay").textContent =
-    findObservance(tithi);
-}
+    }
 
-function findObservance(tithi) {
-  const t = tithi.toLowerCase();
 
-  if (t.includes("purnima") || t.includes("pournami"))
-    return say("ಪೌರ್ಣಮಿ ತಿಥಿ. ಸ್ಥಳೀಯ ಸಂಪ್ರದಾಯದಂತೆ ಪೂಜೆ ಅಥವಾ ವ್ರತ ಇರಬಹುದು.",
-               "Purnima (Full Moon). Worship or fasting may be observed according to local tradition.");
+    if (
+        selectedYear === null
+    ) {
 
-  if (t.includes("amavasya"))
-    return say("ಅಮಾವಾಸ್ಯೆ ತಿಥಿ. ಸ್ಥಳೀಯ ಸಂಪ್ರದಾಯದಂತೆ ಆಚರಣೆಗಳು ಇರಬಹುದು.",
-               "Amavasya (New Moon). Observances may vary by local tradition.");
+        selectedYear =
+            availableYears[
+                availableYears.length - 1
+            ];
+    }
 
-  if (t.includes("ekadashi"))
-    return say("ಏಕಾದಶಿ ತಿಥಿ. ಕೆಲವು ಸಂಪ್ರದಾಯಗಳಲ್ಲಿ ಉಪವಾಸ ಆಚರಿಸಲಾಗುತ್ತದೆ.",
-               "Ekadashi. Fasting is observed in some traditions.");
 
-  if (t.includes("chaturthi"))
-    return say("ಚತುರ್ಥಿ ತಿಥಿ. ಆಚರಣೆಯು ಸಂಪ್ರದಾಯದ ಪ್ರಕಾರ ಬದಲಾಗುತ್ತದೆ.",
-               "Chaturthi tithi. Observances depend on local tradition.");
+    const parts =
+        FESTIVAL_DATES[
+            selectedYear
+        ].split("-");
 
-  if (t.includes("ashtami"))
-    return say("ಅಷ್ಟಮಿ ತಿಥಿ. ಸ್ಥಳೀಯ ಪಂಚಾಂಗವನ್ನು ಪರಿಶೀಲಿಸಿ.",
-               "Ashtami tithi. Check the local Panchang for observances.");
 
-  if (t.includes("trayodashi"))
-    return say("ತ್ರಯೋದಶಿ ತಿಥಿ. ಕೆಲವು ಸಂಪ್ರದಾಯಗಳಲ್ಲಿ ಪ್ರದೋಷ ಪೂಜೆ ನಡೆಯುತ್ತದೆ.",
-               "Trayodashi. Pradosha worship is observed in some traditions.");
-
-  return say("ಈ ದಿನದ ವಿಶೇಷ ಹಬ್ಬದ ಮಾಹಿತಿ ಲಭ್ಯವಿದೆಯೇ ಎಂಬುದನ್ನು ಸ್ಥಳೀಯ ಪಂಚಾಂಗದಿಂದ ದೃಢೀಕರಿಸಿ.",
-             "Check a trusted local Panchang to confirm festivals or observances for this date.");
-}
-
-function status(message) {
-  document.getElementById("notificationStatus").textContent = message;
-}
-
-async function enableNotifications() {
-  if (!("Notification" in window)) {
-    status(say("ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸೂಚನೆಗಳು ಲಭ್ಯವಿಲ್ಲ.",
-               "Notifications are not supported in this browser."));
-    return;
-  }
-
-  if (!window.isSecureContext) {
-    status(say("GitHub Pages HTTPS ವಿಳಾಸದಲ್ಲಿ ತೆರೆಯಿರಿ.",
-               "Open the website through its HTTPS GitHub Pages address."));
-    return;
-  }
-
-  const permission = await Notification.requestPermission();
-  status(permission === "granted"
-    ? say("ಸೂಚನೆಗಳಿಗೆ ಅನುಮತಿ ನೀಡಲಾಗಿದೆ.", "Notification permission granted.")
-    : say("ಬ್ರೌಸರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಸೂಚನೆಗಳನ್ನು ಅನುಮತಿಸಿ.",
-          "Allow notifications in your browser settings."));
-}
-
-function saveReminder() {
-  try {
-    savedReminders = JSON.parse(
-      localStorage.getItem("templeReminders") || "[]"
+    return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
     );
-    if (!savedReminders.includes(chosenDate)) {
-      savedReminders.push(chosenDate);
-    }
-    localStorage.setItem("templeReminders", JSON.stringify(savedReminders));
-    status(say(
-      `ನೆನಪನ್ನು ಉಳಿಸಲಾಗಿದೆ: ${chosenDate}. ಸೂಚನೆಗಾಗಿ ಆ ದಿನ ವೆಬ್‌ಸೈಟ್ ತೆರೆಯಿರಬೇಕು.`,
-      `Reminder saved for ${chosenDate}. Keep the website open that day for an alert.`
-    ));
-    checkReminder(chosenDate, panchangCache[chosenDate]);
-  } catch (error) {
-    status(say("ನೆನಪನ್ನು ಉಳಿಸಲಾಗಲಿಲ್ಲ.", "Could not save the reminder."));
-  }
 }
 
-function checkReminder(date, data) {
-  if (date !== localDate(new Date()) || !data) return;
-  if (!("Notification" in window) || Notification.permission !== "granted") return;
 
-  const key = "templeReminderShown";
-  if (localStorage.getItem(key) === date) return;
+/* =========================================
+   FORMAT FESTIVAL DATE
+   ========================================= */
 
-  let reminders = [];
-  try {
-    reminders = JSON.parse(localStorage.getItem("templeReminders") || "[]");
-  } catch (_) {}
+function formatFestivalDate(
+    date,
+    language
+) {
 
-  if (reminders.includes(date)) {
-    const title = "Sri Aranya Anjaneya Swamy Temple";
-    const body = say("ನೀವು ಉಳಿಸಿದ ದಿನದ ನೆನಪಿನ ಸೂಚನೆ.", "Your saved temple reminder.");
-    if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
-      navigator.serviceWorker.ready.then(reg => reg.showNotification(title, {body}));
-    } else {
-      new Notification(title, {body});
-    }
-    localStorage.setItem(key, date);
-  }
+    const options = {
+
+        day: "numeric",
+
+        month: "long",
+
+        year: "numeric"
+
+    };
+
+
+    return date.toLocaleDateString(
+
+        language === "kn"
+            ? "kn-IN"
+            : "en-IN",
+
+        options
+
+    );
 }
 
-document.getElementById("languageButton").addEventListener("click", changeLanguage);
 
-document.getElementById("previousMonth").addEventListener("click", () => {
-  viewDate.setMonth(viewDate.getMonth() - 1);
-  renderCalendar();
+/* =========================================
+   FESTIVAL SCHEDULE
+   ========================================= */
+
+function updateFestival(language) {
+
+    const pournami =
+        getFestivalDate();
+
+
+    pournami.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    const schedule = [];
+
+
+    /*
+       Seven days:
+
+       -2 = Sri Rama Kote Day 1
+       -1 = Sri Rama Kote Day 2
+        0 = Brahma Mahotsavam Day 1
+       +1 = Brahma Mahotsavam Day 2
+       +2 = Brahma Mahotsavam Day 3
+       +3 = Brahma Mahotsavam Day 4
+       +4 = Brahma Mahotsavam Day 5
+    */
+
+
+    for (
+        let offset = -2;
+        offset <= 4;
+        offset++
+    ) {
+
+        const date =
+            new Date(pournami);
+
+
+        date.setDate(
+            pournami.getDate() +
+            offset
+        );
+
+
+        const dayNumber =
+            offset + 3;
+
+
+        let event;
+        let special;
+
+
+        if (
+            dayNumber === 1
+        ) {
+
+            event =
+                language === "kn"
+
+                    ? "ಶ್ರೀ ರಾಮ ಕೋಟೆ"
+
+                    : "Sri Rama Kote";
+
+
+            special =
+                language === "kn"
+
+                    ? "ಮೊದಲ ದಿನ"
+
+                    : "First day";
+
+        }
+
+
+        else if (
+            dayNumber === 2
+        ) {
+
+            event =
+                language === "kn"
+
+                    ? "ಶ್ರೀ ರಾಮ ಕೋಟೆ"
+
+                    : "Sri Rama Kote";
+
+
+            special =
+                language === "kn"
+
+                    ? "ಎರಡನೇ ದಿನ"
+
+                    : "Second day";
+
+        }
+
+
+        else {
+
+            const brahmaDay =
+                dayNumber - 2;
+
+
+            event =
+                language === "kn"
+
+                    ? "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ದಿನ " +
+                      brahmaDay
+
+                    : "Brahma Mahotsavam – Day " +
+                      brahmaDay;
+
+
+            if (
+                dayNumber === 3
+            ) {
+
+                special =
+                    language === "kn"
+
+                        ? "ಪೌರ್ಣಿಮೆಯಂದು ಪ್ರಾರಂಭ"
+
+                        : "Starts on Pournami";
+
+            }
+
+
+            else if (
+                dayNumber === 7
+            ) {
+
+                special =
+                    language === "kn"
+
+                        ? "ಅಂತಿಮ ದಿನ"
+
+                        : "Final day";
+
+            }
+
+
+            else {
+
+                special =
+                    language === "kn"
+
+                        ? "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವದ ಕಾರ್ಯಕ್ರಮ"
+
+                        : "Festival programme";
+
+            }
+
+        }
+
+
+        schedule.push({
+
+            day: dayNumber,
+
+            date: date,
+
+            event: event,
+
+            special: special
+
+        });
+
+    }
+
+
+    const tableBody =
+        document.getElementById(
+            "festivalScheduleBody"
+        );
+
+
+    if (
+        !tableBody
+    ) {
+        return;
+    }
+
+
+    tableBody.innerHTML = "";
+
+
+    schedule.forEach(
+        function(item) {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            row.innerHTML =
+
+                "<td>" +
+
+                item.day +
+
+                "</td>" +
+
+                "<td>" +
+
+                formatFestivalDate(
+                    item.date,
+                    language
+                ) +
+
+                "</td>" +
+
+                "<td>" +
+
+                item.event +
+
+                "</td>" +
+
+                "<td>" +
+
+                item.special +
+
+                "</td>";
+
+
+            tableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    updateUpcomingFestival(
+        language,
+        pournami
+    );
+}
+
+
+/* =========================================
+   UPCOMING FESTIVAL NOTICE
+   ========================================= */
+
+function updateUpcomingFestival(
+    language,
+    pournami
+) {
+
+    const today =
+        new Date();
+
+
+    today.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    const oneMonthBefore =
+        new Date(pournami);
+
+
+    oneMonthBefore.setMonth(
+        oneMonthBefore.getMonth() - 1
+    );
+
+
+    const festivalEnd =
+        new Date(pournami);
+
+
+    festivalEnd.setDate(
+        festivalEnd.getDate() + 4
+    );
+
+
+    festivalEnd.setHours(
+        23,
+        59,
+        59,
+        999
+    );
+
+
+    const upcomingCard =
+        document.getElementById(
+            "upcomingFestivalCard"
+        );
+
+
+    const upcomingDate =
+        document.getElementById(
+            "upcomingFestivalDate"
+        );
+
+
+    if (
+        !upcomingCard ||
+        !upcomingDate
+    ) {
+        return;
+    }
+
+
+    /*
+       The upcoming notice is hidden normally.
+
+       It automatically appears:
+       one month before Pournami
+       until the final day of Brahma Mahotsavam.
+    */
+
+    const showNotice =
+        today >= oneMonthBefore &&
+        today <= festivalEnd;
+
+
+    if (
+        showNotice
+    ) {
+
+        upcomingCard.style.display =
+            "block";
+
+
+        if (
+            language === "kn"
+        ) {
+
+            upcomingDate.innerHTML =
+
+                "🔔 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಸಮೀಪಿಸುತ್ತಿದೆ." +
+
+                "<br><br>" +
+
+                "🌕 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭ: <strong>" +
+
+                formatFestivalDate(
+                    pournami,
+                    "kn"
+                ) +
+
+                "</strong>" +
+
+                "<br><br>" +
+
+                "📅 7 ದಿನಗಳ ಕಾರ್ಯಕ್ರಮವು " +
+
+                formatFestivalDate(
+                    new Date(
+                        pournami.getFullYear(),
+                        pournami.getMonth(),
+                        pournami.getDate() - 2
+                    ),
+                    "kn"
+                ) +
+
+                " ರಿಂದ " +
+
+                formatFestivalDate(
+                    festivalEnd,
+                    "kn"
+                ) +
+
+                " ರವರೆಗೆ ನಡೆಯಲಿದೆ.<br>" +
+                "ಶ್ರೀ ರಾಮ ಕೋಟೆ: ಪೌರ್ಣಿಮೆಗೆ ಮುನ್ನದ 2 ದಿನಗಳು.";
+
+        }
+
+
+        else {
+
+            upcomingDate.innerHTML =
+
+                "🔔 Brahma Mahotsavam is approaching." +
+
+                "<br><br>" +
+
+                "🌕 Brahma Mahotsavam starts on: <strong>" +
+
+                formatFestivalDate(
+                    pournami,
+                    "en"
+                ) +
+
+                "</strong>" +
+
+                "<br><br>" +
+
+                "📅 The 7-day programme will be held from " +
+
+                formatFestivalDate(
+                    new Date(
+                        pournami.getFullYear(),
+                        pournami.getMonth(),
+                        pournami.getDate() - 2
+                    ),
+                    "en"
+                ) +
+
+                " to " +
+
+                formatFestivalDate(
+                    festivalEnd,
+                    "en"
+                ) +
+
+                ".<br>" +
+                "Sri Rama Kote: the 2 days before Pournami.";
+
+        }
+
+    }
+
+
+    else {
+
+        upcomingCard.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================
+   WEEKLY PANDIT SCHEDULE
+   ========================================= */
+
+function updateWeeklyPandit(language) {
+
+    const startDate =
+        new Date(2026, 8, 6);
+
+    const today =
+        new Date();
+
+
+    startDate.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    today.setHours(
+        0,
+        0,
+        0,
+        0
+    );
+
+
+    const difference =
+        Math.floor(
+            (today - startDate) /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const weekNumber =
+        Math.floor(
+            difference / 7
+        );
+
+
+    const panditNumber =
+        ((weekNumber % 2) + 2) % 2;
+
+
+    let panditName;
+    let englishName;
+    let phone;
+
+
+    if (
+        panditNumber === 0
+    ) {
+
+        panditName =
+            "ಪುರುಷೋತ್ತಮ ಚಾರಿ";
+
+        englishName =
+            "Purushothama Chari";
+
+        phone =
+            "9844028935";
+
+    }
+
+    else {
+
+        panditName =
+            "ಸರ್ವೋತ್ತಮ ಚಾರಿ";
+
+        englishName =
+            "Sarvothama Chari";
+
+        phone =
+            "9880655949";
+
+    }
+
+
+    const currentSunday =
+        new Date(startDate);
+
+
+    currentSunday.setDate(
+        startDate.getDate() +
+        (weekNumber * 7)
+    );
+
+
+    const nextSunday =
+        new Date(currentSunday);
+
+
+    nextSunday.setDate(
+        currentSunday.getDate() + 7
+    );
+
+
+    const options = {
+
+        day: "numeric",
+
+        month: "short",
+
+        year: "numeric"
+
+    };
+
+
+    const currentDate =
+        currentSunday.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+
+    const nextDate =
+        nextSunday.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+
+    if (
+        language === "kn"
+    ) {
+
+        document.getElementById(
+            "panditTitle"
+        ).innerText =
+            "🕉️ ಈ ವಾರದ ಪಂಡಿತರು";
+
+
+        document.getElementById(
+            "panditScheduleHint"
+        ).innerText =
+            "📅 ಪ್ರತಿ ಭಾನುವಾರ ಪಂಡಿತರ ಬದಲಾವಣೆ";
+
+
+        document.getElementById(
+            "weeklyPandit"
+        ).innerHTML =
+
+            "<div class='pandit-card'>" +
+
+            "<strong>" +
+            panditName +
+            "</strong><br><br>" +
+
+            "📅 " +
+            currentDate +
+            " → " +
+            nextDate +
+            "<br><br>" +
+
+            "📞 <a href='tel:" +
+            phone +
+            "'>" +
+            phone +
+            "</a>" +
+
+            "</div>";
+
+    }
+
+
+    else {
+
+        document.getElementById(
+            "panditTitle"
+        ).innerText =
+            "🕉️ This Week's Pandit";
+
+
+        document.getElementById(
+            "panditScheduleHint"
+        ).innerText =
+            "📅 Pandit changes every Sunday";
+
+
+        document.getElementById(
+            "weeklyPandit"
+        ).innerHTML =
+
+            "<div class='pandit-card'>" +
+
+            "<strong>" +
+            englishName +
+            "</strong><br><br>" +
+
+            "📅 " +
+            currentDate +
+            " → " +
+            nextDate +
+            "<br><br>" +
+
+            "📞 <a href='tel:" +
+            phone +
+            "'>" +
+            phone +
+            "</a>" +
+
+            "</div>";
+
+    }
+
+}
+
+
+/* =========================================
+   KANNADA
+   ========================================= */
+
+function showKannada() {
+
+    document.documentElement.lang =
+        "kn";
+
+
+    document.getElementById(
+        "title"
+    ).innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+
+
+    document.getElementById(
+        "tagline"
+    ).innerText =
+        "ಭಕ್ತಿ • ನಂಬಿಕೆ • ಪರಂಪರೆ";
+
+
+    document.getElementById(
+        "navHome"
+    ).innerText =
+        "ಮುಖಪುಟ";
+
+
+    document.getElementById(
+        "navTemple"
+    ).innerText =
+        "ದೇವಸ್ಥಾನ";
+
+
+    document.getElementById(
+        "navHistory"
+    ).innerText =
+        "ಇತಿಹಾಸ";
+
+
+    document.getElementById(
+        "navTimings"
+    ).innerText =
+        "ಸಮಯ";
+
+
+    document.getElementById(
+        "navPooja"
+    ).innerText =
+        "ಪೂಜೆ";
+
+
+    document.getElementById(
+        "navFestival"
+    ).innerText =
+        "ಹಬ್ಬ";
+
+
+    document.getElementById(
+        "navGallery"
+    ).innerText =
+        "ಚಿತ್ರಗಳು";
+
+
+    document.getElementById(
+        "navContact"
+    ).innerText =
+        "ಸಂಪರ್ಕ";
+
+
+    document.getElementById(
+        "homeTitle"
+    ).innerText =
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಗೆ ಸ್ವಾಗತ";
+
+
+    document.getElementById(
+        "homeText"
+    ).innerText =
+        "ಹನುಮಂತರಾಯನ ದಿನ್ನೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗೆ ನಿಮಗೆ ಹೃತ್ಪೂರ್ವಕ ಸ್ವಾಗತ. ನಮ್ಮ ಊರು, ಸಂಸ್ಕೃತಿ, ಪರಂಪರೆ ಮತ್ತು ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಕುರಿತು ಇಲ್ಲಿ ತಿಳಿದುಕೊಳ್ಳಬಹುದು.";
+
+
+    document.getElementById(
+        "exploreButton"
+    ).innerText =
+        "✨ ದೇವಸ್ಥಾನವನ್ನು ಅನ್ವೇಷಿಸಿ";
+
+
+    document.getElementById(
+        "scrollText"
+    ).innerText =
+        "ಅನ್ವೇಷಿಸಲು ಕೆಳಗೆ ಸ್ಕ್ರೋಲ್ ಮಾಡಿ";
+
+
+    document.getElementById(
+        "templeTitle"
+    ).innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ";
+
+
+    document.getElementById(
+        "templeText"
+    ).innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನವು ನಮ್ಮ ಊರಿನ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಸ್ಥಳವಾಗಿದೆ. ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ, ವಿಶೇಷತೆಗಳು ಮತ್ತು ಆಚರಣೆಗಳ ಮಾಹಿತಿಯನ್ನು ಇಲ್ಲಿ ನೋಡಬಹುದು.";
+
+
+    document.getElementById(
+        "historyTitle"
+    ).innerText =
+        "ಶ್ರೀ ಅರಣ್ಯ ಆಂಜನೇಯ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನದ ಇತಿಹಾಸ";
+
+
+    document.getElementById(
+        "historyText"
+    ).innerHTML =
+
+        "ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ, ಇಂದು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಡುವ ಈ ಭೂಮಿ ದಟ್ಟವಾದ ಅರಣ್ಯವಾಗಿತ್ತು. ಆಗ ಇಲ್ಲಿ ಯಾವುದೇ ಗ್ರಾಮ, ವಸತಿ ಅಥವಾ ದೇವಸ್ಥಾನ ಇರಲಿಲ್ಲ." +
+
+        "<br><br>" +
+
+        "ಒಂದು ಸಂದರ್ಭದಲ್ಲಿ ಕೆಲವರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಕಲ್ಲಿನ ವಿಗ್ರಹವನ್ನು ತಮ್ಮ ಊರಿಗೆ ತೆಗೆದುಕೊಂಡು ಹೋಗುತ್ತಿದ್ದರು. ಮಾರ್ಗಮಧ್ಯೆ ಈ ಸ್ಥಳದಲ್ಲಿ ವಿಗ್ರಹವು ಕೆಳಗೆ ಬಿದ್ದು, ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಅದನ್ನು ಅಲ್ಲಿಂದ ಸ್ಥಳಾಂತರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ." +
+
+        "<br><br>" +
+
+        "ಇದನ್ನು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರು ಈ ಸ್ಥಳವನ್ನೇ ತಮ್ಮ ನೆಲೆಯಾಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡಿದ್ದಾರೆ ಎಂಬ ನಂಬಿಕೆಯಿಂದ, ಅಲ್ಲಿಯೇ ಒಂದು ಸಣ್ಣ ಗುಡಿಯನ್ನು ನಿರ್ಮಿಸಿ ಪೂಜೆ ಪ್ರಾರಂಭಿಸಲಾಯಿತು." +
+
+        "<br><br>" +
+
+        "ಆ ಕಾಲದಲ್ಲಿ ಈ ಸ್ಥಳಕ್ಕೆ ಬರುತ್ತಿದ್ದ ಪ್ರಯಾಣಿಕರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ದರ್ಶನ ಪಡೆದು, ಪ್ರಾರ್ಥನೆ ಸಲ್ಲಿಸಿ ವಿಶ್ರಾಂತಿ ಪಡೆಯುತ್ತಿದ್ದರು. ಕ್ರಮೇಣ ಈ ಸ್ಥಳಕ್ಕೆ ಹೆಚ್ಚಿನ ಜನರು ಬರಲು ಪ್ರಾರಂಭಿಸಿದರು." +
+
+        "<br><br>" +
+
+        "ಒಬ್ಬರು ಬಂದರು, ನಂತರ ಮತ್ತೊಬ್ಬರು, ನಂತರ ಹಲವರು. ಜನರು ದೇವಸ್ಥಾನದ ಸುತ್ತಮುತ್ತ ನೆಲೆಸಲು ಪ್ರಾರಂಭಿಸಿದರು. ಹೀಗೆ ಈ ಪ್ರದೇಶವು ನಿಧಾನವಾಗಿ ಒಂದು ವಸತಿಯಾಗಿ ಬೆಳೆಯಿತು. ತಲೆತಲಾಂತರಗಳಿಂದ ಬಂದಿರುವ ಸ್ಥಳೀಯ ಪರಂಪರೆಯ ಪ್ರಕಾರ, ಈ ಪ್ರದೇಶವು ಹನುಮಂತರಾಯನ ದಿನ್ನೆ ಎಂದು ಕರೆಯಲ್ಪಟ್ಟಿತು." +
+
+        "<br><br>" +
+
+        "<strong>ದೇವಸ್ಥಾನದ ಬೆಳವಣಿಗೆ</strong>" +
+
+        "<br><br>" +
+
+        "ಭಕ್ತರ ಸೇವೆ, ನಂಬಿಕೆ ಮತ್ತು ನಿರಂತರ ಪೂಜೆಯೊಂದಿಗೆ ಸಣ್ಣ ಗುಡಿಯು ಕ್ರಮೇಣ ಅಭಿವೃದ್ಧಿ ಹೊಂದಿತು. ದೇವಸ್ಥಾನದಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಕಲ್ಲಿನ ವಾಸ್ತುಶಿಲ್ಪ, ಶಿಲ್ಪಗಳು, ದೇವರ ವಿಗ್ರಹಗಳು ಮತ್ತು ಧಾರ್ಮಿಕ ಕಲಾತ್ಮಕ ವಿನ್ಯಾಸಗಳು ರೂಪುಗೊಂಡವು." +
+
+        "<br><br>" +
+
+        "ಇವು ನಮ್ಮ ಊರಿನ ಸಂಸ್ಕೃತಿ, ಸ್ಥಳೀಯ ಪರಂಪರೆ ಮತ್ತು ಆಧ್ಯಾತ್ಮಿಕತೆಯನ್ನು ಪ್ರತಿಬಿಂಬಿಸುತ್ತವೆ. ಶಿಲ್ಪಿಗಳು ಮತ್ತು ವಿನ್ಯಾಸಕಾರರು ದೇವಸ್ಥಾನಕ್ಕೆ ವಿಶಿಷ್ಟವಾದ ಗುರುತನ್ನು ನೀಡಿದರು. ಹೀಗೆ ದೇವಸ್ಥಾನವು ಒಂದು ಆಧ್ಯಾತ್ಮಿಕ ಕೇಂದ್ರವಾಗಿ ಬೆಳೆಯಿತು." +
+
+        "<br><br>" +
+
+        "<strong>ಮುಂದುವರಿಯುತ್ತಿರುವ ಪರಂಪರೆ</strong>" +
+
+        "<br><br>" +
+
+        "ಇಂದು ಈ ದೇವಸ್ಥಾನವು ಕೇವಲ ಪೂಜೆಯ ಸ್ಥಳವಾಗಿರದೆ, ಸುಮಾರು 800 ವರ್ಷಗಳ ಹಿಂದೆ ಆರಂಭವಾಯಿತು ಎಂದು ನಂಬಲಾಗುವ ಪರಂಪರೆಯ ಜೀವಂತ ನೆನಪಾಗಿ ಉಳಿದಿದೆ." +
+
+        "<br><br>" +
+
+        "ಕಾಲ ಬದಲಾದರೂ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಮತ್ತು ನಂಬಿಕೆ ಮುಂದುವರಿದಿದೆ. ಪ್ರಾಚೀನ ಪರಂಪರೆ, ಆಧ್ಯಾತ್ಮಿಕ ಮಹತ್ವ ಮತ್ತು ದೇವಸ್ಥಾನದ ಪವಿತ್ರ ಗುರುತನ್ನು ಉಳಿಸಿಕೊಂಡು ಮುಂದಿನ ದಿನಗಳಲ್ಲಿ ದೇವಸ್ಥಾನವನ್ನು ಇನ್ನಷ್ಟು ಅಭಿವೃದ್ಧಿಪಡಿಸುವ ಆಶಯವಿದೆ." +
+
+        "<br><br>" +
+
+        "ಈ ಪವಿತ್ರ ಸಾನ್ನಿಧ್ಯವೇ ನಮ್ಮ ದೇವಸ್ಥಾನದ ಮೂಲ, ನಂಬಿಕೆಯೇ ಅದರ ಶಕ್ತಿ ಮತ್ತು ಭಕ್ತಿಯೇ ಅದರ ಆತ್ಮ." +
+
+        "<br><br>" +
+
+        "ತಲೆಮಾರುಗಳು ಬದಲಾಗಬಹುದು, ಆದರೆ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಮೇಲಿನ ಭಕ್ತಿ ಎಂದಿಗೂ ಮುಂದುವರಿಯುತ್ತದೆ." +
+
+        "<br><br>" +
+
+        "<strong>ಜೈ ಶ್ರೀ ಆಂಜನೇಯ 🙏</strong>";
+
+
+    document.getElementById(
+        "timingsTitle"
+    ).innerText =
+        "ದೇವಸ್ಥಾನದ ಸಮಯ ಪಟ್ಟಿ";
+
+
+    document.getElementById(
+        "dayHeader"
+    ).innerText =
+        "ದಿನ";
+
+
+    document.getElementById(
+        "openingHeader"
+    ).innerText =
+        "ದೇವಸ್ಥಾನ ತೆರೆಯುವ ಸಮಯ";
+
+
+    document.getElementById(
+        "worshipHeader"
+    ).innerText =
+        "ದೈನಂದಿನ ಪೂಜೆ";
+
+
+    document.getElementById(
+        "foodHeader"
+    ).innerText =
+        "ಅನ್ನದಾನ / ಪ್ರಸಾದ";
+
+
+    document.getElementById(
+        "mondayFridayDay"
+    ).innerText =
+        "ಸೋಮವಾರ – ಶುಕ್ರವಾರ";
+
+
+    document.getElementById(
+        "mondayFridayWorship"
+    ).innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+
+    document.getElementById(
+        "mondayFridayFood"
+    ).innerText =
+        "ಇಲ್ಲ";
+
+
+    document.getElementById(
+        "saturdayDay"
+    ).innerText =
+        "ಶನಿವಾರ";
+
+
+    document.getElementById(
+        "saturdayWorship"
+    ).innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+
+    document.getElementById(
+        "saturdayFood"
+    ).innerText =
+        "ಬೆಳಿಗ್ಗೆ 9:00 – ಮಧ್ಯಾಹ್ನ 1:00";
+
+
+    document.getElementById(
+        "sundayDay"
+    ).innerText =
+        "ಭಾನುವಾರ";
+
+
+    document.getElementById(
+        "sundayWorship"
+    ).innerText =
+        "ಅಭಿಷೇಕ ಮತ್ತು ನಿಯಮಿತ ಪೂಜೆ";
+
+
+    document.getElementById(
+        "sundayFood"
+    ).innerText =
+        "ಇಲ್ಲ";
+
+
+    document.getElementById(
+        "annadanaTitle"
+    ).innerText =
+        "🍚 ಶನಿವಾರ ಅನ್ನದಾನ";
+
+
+    document.getElementById(
+        "annadanaText"
+    ).innerText =
+        "ಪ್ರತಿ ಶನಿವಾರ ಬೆಳಿಗ್ಗೆ 9:00 ರಿಂದ ಮಧ್ಯಾಹ್ನ 1:00 ರವರೆಗೆ ಭಕ್ತರಿಗೆ ಅನ್ನದಾನ / ಪ್ರಸಾದವನ್ನು ನೀಡಲಾಗುತ್ತದೆ. ಭಕ್ತರು ಈ ಸಮಯದಲ್ಲಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಭೇಟಿ ನೀಡಿ ಪ್ರಸಾದವನ್ನು ಸ್ವೀಕರಿಸಬಹುದು.";
+
+
+    document.getElementById(
+        "closingTitle"
+    ).innerText =
+        "🕉️ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ";
+
+
+    document.getElementById(
+        "closingText"
+    ).innerText =
+        "ಭಕ್ತರ ಸಂಖ್ಯೆಯನ್ನು ಅವಲಂಬಿಸಿ ದೇವಸ್ಥಾನ ಮುಚ್ಚುವ ಸಮಯ ಬದಲಾಗಬಹುದು. ಹೆಚ್ಚಿನ ಭಕ್ತರು ಇದ್ದಲ್ಲಿ, ದರ್ಶನ ಮತ್ತು ಪ್ರಾರ್ಥನೆಗೆ ಅವಕಾಶ ನೀಡಲು ದೇವಸ್ಥಾನವನ್ನು ಹೆಚ್ಚಿನ ಸಮಯ ತೆರೆದಿಡಬಹುದು.";
+
+
+    document.getElementById(
+        "timingsBlessing"
+    ).innerText =
+        "🙏 ಜೈ ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿ";
+
+
+    document.getElementById(
+        "poojaTitle"
+    ).innerText =
+        "ಪೂಜೆಯ ವಿಧಗಳು";
+
+
+    document.getElementById(
+        "abhishekamTitle"
+    ).innerText =
+        "1. ಅಭಿಷೇಕ";
+
+
+    document.getElementById(
+        "abhishekamText"
+    ).innerText =
+        "ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಗೆ ಪ್ರತಿದಿನ ಅಭಿಷೇಕವನ್ನು ನೆರವೇರಿಸಲಾಗುತ್ತದೆ.";
+
+
+    document.getElementById(
+        "flowerTitle"
+    ).innerText =
+        "2. ಹೂವು ಕೇಳುವುದು";
+
+
+    document.getElementById(
+        "flowerText"
+    ).innerText =
+        "ಭಕ್ತರು ಶ್ರೀ ಆಂಜನೇಯ ಸ್ವಾಮಿಯವರ ಆಶೀರ್ವಾದದ ಸಂಕೇತವಾಗಿ ಹೂವನ್ನು ಕೇಳಬಹುದು.";
+
+
+    /* =====================================
+       FESTIVAL KANNADA
+       ===================================== */
+
+    document.getElementById(
+        "festivalTitle"
+    ).innerText =
+        "ಹಬ್ಬದ ವಲಯ";
+
+
+    document.getElementById(
+        "brahmaTitle"
+    ).innerText =
+        "🌕 ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ";
+
+
+    document.getElementById(
+        "brahmaText"
+    ).innerText =
+        "ಪ್ರತಿ ವರ್ಷ ರಾಮ ನವಮಿಯ ನಂತರ ಬರುವ ಮುಂದಿನ ಪೌರ್ಣಿಮೆಯಂದು ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.";
+
+
+    document.getElementById(
+        "festivalRuleText"
+    ).innerText =
+        "ಪೌರ್ಣಿಮೆಗೆ ಮುನ್ನದ ಎರಡು ದಿನಗಳನ್ನು ಶ್ರೀ ರಾಮ ಕೋಟೆಯಾಗಿ ಆಚರಿಸಲಾಗುತ್ತದೆ. ಪೌರ್ಣಿಮೆಯ ದಿನ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭವಾಗಿ ಒಟ್ಟು ಏಳು ದಿನಗಳ ಕಾರ್ಯಕ್ರಮ ನಡೆಯುತ್ತದೆ.";
+
+
+    document.getElementById(
+        "festivalRule1Title"
+    ).innerText =
+        "ಶ್ರೀ ರಾಮ ಕೋಟೆ – ದಿನ 1";
+
+
+    document.getElementById(
+        "festivalRule1Text"
+    ).innerText =
+        "ಪೌರ್ಣಿಮೆಗೆ ಎರಡು ದಿನ ಮುನ್ನ.";
+
+
+    document.getElementById(
+        "festivalRule2Title"
+    ).innerText =
+        "ಶ್ರೀ ರಾಮ ಕೋಟೆ – ದಿನ 2";
+
+
+    document.getElementById(
+        "festivalRule2Text"
+    ).innerText =
+        "ಪೌರ್ಣಿಮೆಗೆ ಒಂದು ದಿನ ಮುನ್ನ.";
+
+
+    document.getElementById(
+        "festivalRule3Title"
+    ).innerText =
+        "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ದಿನ 1";
+
+
+    document.getElementById(
+        "festivalRule3Text"
+    ).innerText =
+        "ಪೌರ್ಣಿಮೆಯ ದಿನ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ ಪ್ರಾರಂಭ.";
+
+
+    document.getElementById(
+        "festivalRule7Title"
+    ).innerText =
+        "ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ – ಅಂತಿಮ ದಿನ";
+
+
+    document.getElementById(
+        "festivalRule7Text"
+    ).innerText =
+        "ಏಳು ದಿನಗಳ ಕಾರ್ಯಕ್ರಮದ ಅಂತಿಮ ದಿನ.";
+
+
+    document.getElementById(
+        "upcomingFestivalTitle"
+    ).innerText =
+        "🔔 ಮುಂಬರುವ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವ";
+
+
+    document.getElementById(
+        "upcomingFestivalText"
+    ).innerText =
+        "ಈ ವರ್ಷದ ಬ್ರಹ್ಮ ಮಹೋತ್ಸವದ ವಿವರಗಳು:";
+
+
+    document.getElementById(
+        "upcomingFestivalNotice"
+    ).innerText =
+        "📌 ಹಬ್ಬಕ್ಕೆ ಒಂದು ತಿಂಗಳು ಮುನ್ನ ಈ ಸೂಚನೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.";
+
+
+    document.getElementById(
+        "festivalScheduleTitle"
+    ).innerText =
+        "📅 7 ದಿನಗಳ ಕಾರ್ಯಕ್ರಮ";
+
+
+    document.getElementById(
+        "festivalDayHeader"
+    ).innerText =
+        "ದಿನ";
+
+
+    document.getElementById(
+        "festivalDateHeader"
+    ).innerText =
+        "ದಿನಾಂಕ";
+
+
+    document.getElementById(
+        "festivalEventHeader"
+    ).innerText =
+        "ಕಾರ್ಯಕ್ರಮ";
+
+
+    document.getElementById(
+        "festivalSpecialHeader"
+    ).innerText =
+        "ವಿಶೇಷ";
+
+
+    document.getElementById(
+        "galleryTitle"
+    ).innerText =
+        "ಚಿತ್ರಗಳ ಸಂಗ್ರಹ";
+
+
+    document.getElementById(
+        "contactTitle"
+    ).innerText =
+        "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
+
+    document.getElementById(
+        "maintenanceTitleKn"
+    ).innerText =
+        "ನಿರ್ವಹಣೆ";
+
+
+    document.getElementById(
+        "maintenanceCall"
+    ).innerText =
+        "📞 ನಿರ್ವಹಣೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ";
+
+
+    document.getElementById(
+        "mapsButton"
+    ).innerText =
+        "📍 ದೇವಸ್ಥಾನದ ಸ್ಥಳವನ್ನು Google Maps ನಲ್ಲಿ ನೋಡಿ";
+
+
+    document.getElementById(
+        "footerText"
+    ).innerText =
+        "© 2026 ಹನುಮಂತರಾಯನ ದಿನ್ನೆ";
+
+
+    updateWeeklyPandit("kn");
+
+    updateFestival("kn");
+
+}
+
+
+/* =========================================
+   ENGLISH
+   ========================================= */
+
+function showEnglish() {
+
+    document.documentElement.lang =
+        "en";
+
+
+    document.getElementById(
+        "title"
+    ).innerText =
+        "Sri Aranya Anjaneya Swamy Temple";
+
+
+    document.getElementById(
+        "tagline"
+    ).innerText =
+        "Devotion • Faith • Tradition";
+
+
+    document.getElementById(
+        "navHome"
+    ).innerText =
+        "Home";
+
+
+    document.getElementById(
+        "navTemple"
+    ).innerText =
+        "Temple";
+
+
+    document.getElementById(
+        "navHistory"
+    ).innerText =
+        "History";
+
+
+    document.getElementById(
+        "navTimings"
+    ).innerText =
+        "Timings";
+
+
+    document.getElementById(
+        "navPooja"
+    ).innerText =
+        "Pooja";
+
+
+    document.getElementById(
+        "navFestival"
+    ).innerText =
+        "Festival";
+
+
+    document.getElementById(
+        "navGallery"
+    ).innerText =
+        "Gallery";
+
+
+    document.getElementById(
+        "navContact"
+    ).innerText =
+        "Contact";
+
+
+    document.getElementById(
+        "homeTitle"
+    ).innerText =
+        "Welcome to Sri Aranya Anjaneya Swamy Temple";
+
+
+    document.getElementById(
+        "homeText"
+    ).innerText =
+        "Welcome to the official website of Hanumantharayana Dinne. Here you can learn about our village, culture, traditions and the Aranya Anjaneya Swamy Temple.";
+
+
+    document.getElementById(
+        "exploreButton"
+    ).innerText =
+        "✨ Explore Temple";
+
+
+    document.getElementById(
+        "scrollText"
+    ).innerText =
+        "Scroll to explore";
+
+
+    document.getElementById(
+        "templeTitle"
+    ).innerText =
+        "Sri Aranya Anjaneya Swamy Temple";
+
+
+    document.getElementById(
+        "templeText"
+    ).innerText =
+        "Sri Aranya Anjaneya Swamy Temple is an important spiritual place connected with our village and its traditions. Information about the temple, its history and celebrations will be added here.";
+
+
+    document.getElementById(
+        "historyTitle"
+    ).innerText =
+        "History of Sri Aranya Anjaneya Swamy Temple";
+
+
+    document.getElementById(
+        "historyText"
+    ).innerHTML =
+
+        "Around 800 years ago, the land that is now known as Hanumantharayana Dinne was covered by a dense forest. At that time, there was no village, settlement or temple here." +
+
+        "<br><br>" +
+
+        "According to the local tradition, a group of people were carrying a stone idol of Lord Hanuman to their village to establish the idol and build a place of worship. On the way, the idol fell at this place and, despite their efforts, they could not move it from there." +
+
+        "<br><br>" +
+
+        "They believed that Lord Hanuman had chosen this place as His abode. Therefore, they built a small shrine at the same place and began worshipping the deity." +
+
+        "<br><br>" +
+
+        "In those early days, travelers who passed through this place would pray to Lord Hanuman and rest here. Gradually, more people began visiting the place." +
+
+        "<br><br>" +
+
+        "One person came, then another, and then many more. People began settling around the shrine and the settlement slowly grew. According to the tradition passed down through generations, this place came to be known as Hanumantharayana Dinne." +
+
+        "<br><br>" +
+
+        "<strong>Development of the Temple</strong>" +
+
+        "<br><br>" +
+
+        "Through devotion, service and faith, the small shrine gradually developed. Traditional stone architecture, sculptures, deity idols and religious artistic elements became part of the temple." +
+
+        "<br><br>" +
+
+        "These features reflect the culture of the village, local traditions and spiritual character. Sculptors and designers gave the temple a distinctive identity. Over time, the temple developed into a spiritual place for devotees." +
+
+        "<br><br>" +
+
+        "<strong>A Living Tradition</strong>" +
+
+        "<br><br>" +
+
+        "Today, the temple is more than a place of worship. It remains a living reminder of a tradition believed to have begun around 800 years ago." +
+
+        "<br><br>" +
+
+        "Although times have changed, devotion and faith in Lord Anjaneya Swamy continue. There is a vision to develop the temple while preserving its ancient traditions, spiritual significance and sacred identity." +
+
+        "<br><br>" +
+
+        "That sacred presence is the origin of the temple, faith is its strength, and devotion is its soul." +
+
+        "<br><br>" +
+
+        "Generations may change, but devotion to Sri Anjaneya Swamy continues forever." +
+
+        "<br><br>" +
+
+        "<strong>Jai Sri Anjaneya 🙏</strong>";
+
+
+    document.getElementById(
+        "timingsTitle"
+    ).innerText =
+        "Temple Timetable";
+
+
+    document.getElementById(
+        "dayHeader"
+    ).innerText =
+        "Day";
+
+
+    document.getElementById(
+        "openingHeader"
+    ).innerText =
+        "Temple Opening Time";
+
+
+    document.getElementById(
+        "worshipHeader"
+    ).innerText =
+        "Daily Worship";
+
+
+    document.getElementById(
+        "foodHeader"
+    ).innerText =
+        "Annadana / Food Prasada";
+
+
+    document.getElementById(
+        "mondayFridayDay"
+    ).innerText =
+        "Monday – Friday";
+
+
+    document.getElementById(
+        "mondayFridayWorship"
+    ).innerText =
+        "Abhishekam and regular worship";
+
+
+    document.getElementById(
+        "mondayFridayFood"
+    ).innerText =
+        "None";
+
+
+    document.getElementById(
+        "saturdayDay"
+    ).innerText =
+        "Saturday";
+
+
+    document.getElementById(
+        "saturdayWorship"
+    ).innerText =
+        "Abhishekam and regular worship";
+
+
+    document.getElementById(
+        "saturdayFood"
+    ).innerText =
+        "9:00 AM – 1:00 PM";
+
+
+    document.getElementById(
+        "sundayDay"
+    ).innerText =
+        "Sunday";
+
+
+    document.getElementById(
+        "sundayWorship"
+    ).innerText =
+        "Abhishekam and regular worship";
+
+
+    document.getElementById(
+        "sundayFood"
+    ).innerText =
+        "None";
+
+
+    document.getElementById(
+        "annadanaTitle"
+    ).innerText =
+        "🍚 Saturday Annadana";
+
+
+    document.getElementById(
+        "annadanaText"
+    ).innerText =
+        "Every Saturday, Annadana / Food Prasada is served to devotees from 9:00 AM to 1:00 PM. Devotees can visit the temple during this time and receive the prasada.";
+
+
+    document.getElementById(
+        "closingTitle"
+    ).innerText =
+        "🕉️ Temple Closing Time";
+
+
+    document.getElementById(
+        "closingText"
+    ).innerText =
+        "The temple closing time may vary depending on the number of devotees visiting the temple. When many devotees are present, the temple may remain open longer to allow them to have darshan and offer prayers.";
+
+
+    document.getElementById(
+        "timingsBlessing"
+    ).innerText =
+        "🙏 Jai Sri Anjaneya Swamy";
+
+
+    document.getElementById(
+        "poojaTitle"
+    ).innerText =
+        "Types of Pooja";
+
+
+    document.getElementById(
+        "abhishekamTitle"
+    ).innerText =
+        "1. Abhishekam";
+
+
+    document.getElementById(
+        "abhishekamText"
+    ).innerText =
+        "Abhishekam is performed every day for Sri Anjaneya Swamy.";
+
+
+    document.getElementById(
+        "flowerTitle"
+    ).innerText =
+        "2. Asking for a Flower";
+
+
+    document.getElementById(
+        "flowerText"
+    ).innerText =
+        "Devotees can ask Sri Anjaneya Swamy for a flower as a sign of His blessing.";
+
+
+    /* =====================================
+       FESTIVAL ENGLISH
+       ===================================== */
+
+    document.getElementById(
+        "festivalTitle"
+    ).innerText =
+        "Festival Zone";
+
+
+    document.getElementById(
+        "brahmaTitle"
+    ).innerText =
+        "🌕 Brahma Mahotsavam";
+
+
+    document.getElementById(
+        "brahmaText"
+    ).innerText =
+        "Every year, Brahma Mahotsavam begins on the next Pournami (Full Moon) after Rama Navami.";
+
+
+    document.getElementById(
+        "festivalRuleText"
+    ).innerText =
+        "The two days before Pournami are observed as Sri Rama Kote. Brahma Mahotsavam begins on Pournami and the complete celebration continues for seven days.";
+
+
+    document.getElementById(
+        "festivalRule1Title"
+    ).innerText =
+        "Sri Rama Kote – Day 1";
+
+
+    document.getElementById(
+        "festivalRule1Text"
+    ).innerText =
+        "Two days before Pournami.";
+
+
+    document.getElementById(
+        "festivalRule2Title"
+    ).innerText =
+        "Sri Rama Kote – Day 2";
+
+
+    document.getElementById(
+        "festivalRule2Text"
+    ).innerText =
+        "One day before Pournami.";
+
+
+    document.getElementById(
+        "festivalRule3Title"
+    ).innerText =
+        "Brahma Mahotsavam – Day 1";
+
+
+    document.getElementById(
+        "festivalRule3Text"
+    ).innerText =
+        "Brahma Mahotsavam begins on Pournami.";
+
+
+    document.getElementById(
+        "festivalRule7Title"
+    ).innerText =
+        "Brahma Mahotsavam – Final Day";
+
+
+    document.getElementById(
+        "festivalRule7Text"
+    ).innerText =
+        "Final day of the seven-day celebration.";
+
+
+    document.getElementById(
+        "upcomingFestivalTitle"
+    ).innerText =
+        "🔔 Upcoming Brahma Mahotsavam";
+
+
+    document.getElementById(
+        "upcomingFestivalText"
+    ).innerText =
+        "Details of this year's Brahma Mahotsavam:";
+
+
+    document.getElementById(
+        "upcomingFestivalNotice"
+    ).innerText =
+        "📌 This notice automatically appears one month before the festival.";
+
+
+    document.getElementById(
+        "festivalScheduleTitle"
+    ).innerText =
+        "📅 7-Day Festival Schedule";
+
+
+    document.getElementById(
+        "festivalDayHeader"
+    ).innerText =
+        "Day";
+
+
+    document.getElementById(
+        "festivalDateHeader"
+    ).innerText =
+        "Date";
+
+
+    document.getElementById(
+        "festivalEventHeader"
+    ).innerText =
+        "Event";
+
+
+    document.getElementById(
+        "festivalSpecialHeader"
+    ).innerText =
+        "Special";
+
+
+    document.getElementById(
+        "galleryTitle"
+    ).innerText =
+        "Village Gallery";
+
+
+    document.getElementById(
+        "contactTitle"
+    ).innerText =
+        "Contact Us";
+
+
+    document.getElementById(
+        "maintenanceTitleKn"
+    ).innerText =
+        "Maintenance";
+
+
+    document.getElementById(
+        "maintenanceCall"
+    ).innerText =
+        "📞 Call Maintenance";
+
+
+    document.getElementById(
+        "mapsButton"
+    ).innerText =
+        "📍 View Temple Location on Google Maps";
+
+
+    document.getElementById(
+        "footerText"
+    ).innerText =
+        "© 2026 Hanumantharayana Dinne";
+
+
+    updateWeeklyPandit("en");
+
+    updateFestival("en");
+
+}
+
+
+/* =========================================
+   GALLERY SHOW / HIDE
+   ========================================= */
+
+function showGallery(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    const gallery =
+        document.getElementById(
+            "gallery"
+        );
+
+
+    if (
+        gallery.style.display ===
+        "none"
+    ) {
+
+        gallery.style.display =
+            "block";
+
+
+        setTimeout(
+            function() {
+
+                gallery.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            },
+            50
+        );
+
+    }
+
+    else {
+
+        gallery.style.display =
+            "none";
+
+
+        document.getElementById(
+            "home"
+        ).scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    }
+
+}
+
+
+/* =========================================
+   PHOTO GALLERY
+   ========================================= */
+
+let currentPhotoIndex = 0;
+
+
+const galleryImages =
+    document.querySelectorAll(
+        ".gallery-container img"
+    );
+
+
+galleryImages.forEach(function(image) {
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("role", "button");
 });
 
-document.getElementById("nextMonth").addEventListener("click", () => {
-  viewDate.setMonth(viewDate.getMonth() + 1);
-  renderCalendar();
-});
 
-document.getElementById("todayButton").addEventListener("click", () => {
-  selectDate(localDate(new Date()));
-});
+galleryImages.forEach(
+    function(image, index) {
 
-document.getElementById("selectedDate").addEventListener("change", event => {
-  if (event.target.value) selectDate(event.target.value);
-});
+        image.addEventListener(
+            "click",
+            function() {
 
-document.getElementById("enableNotifications").addEventListener("click", enableNotifications);
-document.getElementById("saveReminder").addEventListener("click", saveReminder);
+                currentPhotoIndex =
+                    index;
 
-document.getElementById("copyrightYear").textContent = new Date().getFullYear();
-document.getElementById("selectedDate").value = chosenDate;
-renderCalendar();
-loadPanchang(chosenDate);
+
+                showCurrentPhoto();
+
+
+                document.getElementById(
+                    "photoViewer"
+                ).style.display =
+                    "flex";
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   SHOW CURRENT PHOTO
+   ========================================= */
+
+function showCurrentPhoto() {
+
+    if (
+        galleryImages.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    const largePhoto =
+        document.getElementById(
+            "largePhoto"
+        );
+
+
+    largePhoto.src =
+        galleryImages[
+            currentPhotoIndex
+        ].src;
+
+
+    largePhoto.alt =
+        galleryImages[
+            currentPhotoIndex
+        ].alt;
+
+    const photoCounter =
+        document.getElementById("photoCounter");
+
+    if (photoCounter) {
+        photoCounter.textContent =
+            (currentPhotoIndex + 1) + " / " + galleryImages.length;
+    }
+
+}
+
+
+/* =========================================
+   PREVIOUS PHOTO
+   ========================================= */
+
+function previousPhoto() {
+
+    currentPhotoIndex--;
+
+
+    if (
+        currentPhotoIndex < 0
+    ) {
+
+        currentPhotoIndex =
+            galleryImages.length - 1;
+
+    }
+
+
+    showCurrentPhoto();
+
+}
+
+
+/* =========================================
+   NEXT PHOTO
+   ========================================= */
+
+function nextPhoto() {
+
+    currentPhotoIndex++;
+
+
+    if (
+        currentPhotoIndex >=
+        galleryImages.length
+    ) {
+
+        currentPhotoIndex = 0;
+
+    }
+
+
+    showCurrentPhoto();
+
+}
+
+
+/* =========================================
+   CLOSE PHOTO
+   ========================================= */
+
+function closePhoto() {
+
+    document.getElementById(
+        "photoViewer"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "largePhoto"
+    ).src =
+        "";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================================
+   CLOSE VIEWER BACKGROUND
+   ========================================= */
+
+document.getElementById(
+    "photoViewer"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === this
+        ) {
+
+            closePhoto();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   KEYBOARD PHOTO CONTROLS
+   ========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const viewer =
+            document.getElementById(
+                "photoViewer"
+            );
+
+
+        if (
+            viewer.style.display ===
+            "flex"
+        ) {
+
+            if (
+                event.key ===
+                "ArrowLeft"
+            ) {
+
+                event.preventDefault();
+                previousPhoto();
+
+            }
+
+
+            if (
+                event.key ===
+                "ArrowRight"
+            ) {
+
+                event.preventDefault();
+                nextPhoto();
+
+            }
+
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+
+                closePhoto();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   NAVIGATION CLICK
+   ========================================= */
+
+document.querySelectorAll(
+    "nav a"
+).forEach(
+    function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                document.querySelectorAll(
+                    "nav a"
+                ).forEach(
+                    function(item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                this.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   ACTIVE NAVIGATION ON SCROLL
+   ========================================= */
+
+const sections =
+    document.querySelectorAll(
+        "main section"
+    );
+
+
+const navLinks =
+    document.querySelectorAll(
+        "nav a"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        let currentSection = "";
+
+
+        sections.forEach(
+            function(section) {
+
+                if (
+                    section.style.display ===
+                    "none"
+                ) {
+
+                    return;
+
+                }
+
+
+                const sectionTop =
+                    section.offsetTop;
+
+
+                if (
+                    window.scrollY >=
+                    sectionTop - 180
+                ) {
+
+                    currentSection =
+                        section.getAttribute(
+                            "id"
+                        );
+
+                }
+
+            }
+        );
+
+
+        navLinks.forEach(
+            function(link) {
+
+                link.classList.remove(
+                    "active"
+                );
+
+
+                if (
+                    link.getAttribute(
+                        "href"
+                    ) ===
+                    "#" + currentSection
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   BACK TO TOP
+   ========================================= */
+
+const backToTop =
+    document.getElementById(
+        "backToTop"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        if (
+            window.scrollY > 400
+        ) {
+
+            backToTop.classList.add(
+                "show"
+            );
+
+        }
+
+        else {
+
+            backToTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* Keep the footer year current automatically. */
+const footerText = document.getElementById("footerText");
+if (footerText) {
+    const footerPrefix = footerText.textContent.replace(/©\s*\d{4}/, "").trim();
+    footerText.textContent = "© " + new Date().getFullYear() + " " + footerPrefix;
+}
+
+
+function scrollToTop() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
 </script>
+
 </body>
+
 </html>
