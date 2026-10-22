@@ -1,785 +1,4051 @@
-
 /* =========================================
-   SRI ARANYA ANJANEYA SWAMY TEMPLE
-   Responsive Temple Website Styles
-   ========================================= */
+           BEAUTIFUL TEMPLE OPENING ANIMATION
+           ========================================= */
 
-:root {
-  --saffron: #e87516;
-  --gold: #ffc857;
-  --dark: #321306;
-  --brown: #5b2610;
-  --cream: #fff7e8;
-  --light: #fffdf8;
-  --text: #382116;
-  --muted: #775d4b;
-  --border: #ead7bd;
-  --green: #386641;
-  --shadow: 0 8px 25px rgba(64, 30, 8, 0.12);
+        #templeSplash {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(255, 194, 92, 0.16) 0%, rgba(45, 22, 8, 0.96) 38%, #090604 100%);
+            color: #fff;
+            text-align: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #templeSplash.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+        .splash-glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: rgba(255, 196, 92, 0.13);
+            filter: blur(35px);
+            animation: splashGlow 2.8s ease-in-out infinite;
+        }
+
+        .splash-om {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(70px, 12vw, 125px);
+            line-height: 1;
+            color: #ffd166;
+            text-shadow: 0 0 12px rgba(255, 209, 102, 0.75), 0 0 35px rgba(255, 170, 60, 0.35);
+            opacity: 0;
+            animation: omReveal 1.15s cubic-bezier(.22,.61,.36,1) .15s forwards, omFloat 3.5s ease-in-out 1.4s infinite;
+        }
+
+        .splash-line {
+            position: relative;
+            z-index: 2;
+            width: 0;
+            height: 1px;
+            margin: 22px 0 20px;
+            background: linear-gradient(90deg, transparent, #ffd166, transparent);
+            animation: lineReveal 1s ease-out .9s forwards;
+        }
+
+        .splash-title {
+            position: relative;
+            z-index: 2;
+            max-width: 90%;
+            margin: 0;
+            font-size: clamp(22px, 4vw, 42px);
+            font-weight: 700;
+            letter-spacing: .5px;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: textReveal 1s ease-out 1.05s forwards;
+        }
+
+        .splash-subtitle {
+            position: relative;
+            z-index: 2;
+            margin: 10px 0 0;
+            font-size: clamp(14px, 2vw, 20px);
+            letter-spacing: 1.5px;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: textReveal 1s ease-out 1.25s forwards;
+        }
+
+        .splash-tagline {
+            position: relative;
+            z-index: 2;
+            margin: 18px 0 0;
+            color: #ffd166;
+            font-size: clamp(13px, 2vw, 17px);
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: textReveal 1s ease-out 1.45s forwards;
+        }
+
+        @keyframes splashGlow { 0%,100% { transform: scale(.9); opacity:.55; } 50% { transform: scale(1.12); opacity:.95; } }
+        @keyframes omReveal { 0% { opacity:0; transform:scale(.45); } 65% { opacity:1; transform:scale(1.08); } 100% { opacity:1; transform:scale(1); } }
+        @keyframes omFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-7px); } }
+        @keyframes lineReveal { from { width:0; opacity:0; } to { width:min(320px,55vw); opacity:1; } }
+        @keyframes textReveal { to { opacity:1; transform:translateY(0); } }
+
+        @media (max-width: 700px) {
+            #templeSplash { padding:25px; }
+            .splash-title { line-height:1.45; }
+            .splash-tagline { letter-spacing:1px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #templeSplash, .splash-glow, .splash-om, .splash-line, .splash-title, .splash-subtitle, .splash-tagline { animation:none !important; }
+            .splash-om, .splash-title, .splash-subtitle, .splash-tagline { opacity:1 !important; transform:none !important; }
+            .splash-line { width:min(320px,55vw) !important; opacity:1 !important; }
+        }
+
+        /* =========================================
+           TEMPLE TIMETABLE
+           ========================================= */
+
+        .temple-timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 28px;
+        }
+
+        .temple-timetable th,
+        .temple-timetable td {
+            padding: 12px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .temple-timetable th {
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           FESTIVAL ZONE
+           ========================================= */
+
+        .festival-card {
+            text-align: center;
+        }
+
+        .festival-card h3,
+        .upcoming-festival-card h3 {
+            color: #ffd166;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .festival-card p {
+            line-height: 1.8;
+        }
+
+        .festival-rule-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .festival-rule {
+            padding: 22px;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.38);
+            border: 1px solid rgba(255, 209, 102, 0.30);
+            text-align: left;
+            transition: 0.3s ease;
+        }
+
+        .festival-rule:hover {
+            transform: translateY(-5px);
+            border-color: #ffd166;
+        }
+
+        .festival-rule span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 209, 102, 0.18);
+            color: #ffd166;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .festival-rule h4 {
+            color: #ffd166;
+            margin-bottom: 8px;
+        }
+
+        .festival-rule p {
+            font-size: 15px;
+        }
+
+        .upcoming-festival-card {
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 209, 102, 0.12),
+                    rgba(0, 0, 0, 0.48)
+                );
+        }
+
+        .festival-date {
+            margin: 18px auto;
+            padding: 16px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.35);
+            color: white;
+            font-size: 18px;
+        }
+
+        .festival-table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        #festivalScheduleBody tr:hover {
+            background: rgba(255, 209, 102, 0.10);
+        }
+
+
+
+        /* =========================================
+           TEMPLE SECTION BEAUTIFICATION
+           ========================================= */
+
+        #temple.info-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #temple.info-section::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            top: 12%;
+            right: -120px;
+            border-radius: 50%;
+            background: rgba(255, 209, 102, .08);
+            filter: blur(12px);
+            pointer-events: none;
+            animation: templeGlow 6s ease-in-out infinite;
+        }
+
+        #temple.info-section .info-icon {
+            position: relative;
+            z-index: 1;
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        #temple.info-section:hover .info-icon {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 0 30px rgba(255, 209, 102, .18);
+        }
+
+        #templeTitle {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 16px rgba(0, 0, 0, .35);
+        }
+
+        #temple.info-section .info-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 209, 102, .20);
+            box-shadow: 0 14px 38px rgba(0, 0, 0, .18);
+            transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+        }
+
+        #temple.info-section .info-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd166, transparent);
+            opacity: .65;
+        }
+
+        #temple.info-section .info-card::after {
+            content: "🛕";
+            position: absolute;
+            right: 22px;
+            bottom: 12px;
+            font-size: 46px;
+            opacity: .055;
+            transform: rotate(-8deg);
+            pointer-events: none;
+        }
+
+        #temple.info-section .info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 209, 102, .42);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, .24);
+        }
+
+        #templeText {
+            position: relative;
+            z-index: 1;
+            line-height: 1.95;
+        }
+
+        @keyframes templeGlow {
+            0%, 100% { transform: translateY(0) scale(.92); opacity: .45; }
+            50% { transform: translateY(18px) scale(1.08); opacity: .8; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #temple.info-section::before { animation: none !important; }
+            #temple.info-section .info-icon,
+            #temple.info-section .info-card { transition: none !important; }
+        }
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 700px) {
+
+            .temple-timetable {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .temple-timetable th,
+            .temple-timetable td {
+                min-width: 135px;
+                font-size: 14px;
+            }
+
+            .festival-rule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .festival-rule {
+                padding: 18px;
+            }
+
+            .festival-card h3,
+            .upcoming-festival-card h3 {
+                font-size: 21px;
+            }
+
+            .festival-date {
+                font-size: 16px;
+            }
+        }
+
+
+        /* =========================================
+           HOME HERO BEAUTIFICATION
+           ========================================= */
+
+        #home.hero-section {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home.hero-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 50% 38%, rgba(255, 209, 102, .18), transparent 28%),
+                linear-gradient(180deg, rgba(8, 5, 2, .16), rgba(8, 5, 2, .58));
+            pointer-events: none;
+        }
+
+        #home.hero-section::after {
+            content: "";
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            left: 50%;
+            top: 48%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 209, 102, .16);
+            box-shadow: 0 0 70px rgba(255, 177, 67, .10);
+            animation: heroAura 5s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero-symbol {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 92px;
+            height: 92px;
+            margin-bottom: 22px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .26);
+            border: 1px solid rgba(255, 209, 102, .42);
+            box-shadow: 0 0 35px rgba(255, 188, 77, .16);
+            font-size: 48px;
+            animation: heroSymbolFloat 4s ease-in-out infinite;
+        }
+
+        #homeTitle {
+            opacity: 0;
+            transform: translateY(22px);
+            animation: heroReveal .9s ease-out .15s forwards;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, .42);
+        }
+
+        #homeText {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroReveal .9s ease-out .35s forwards;
+        }
+
+        #exploreButton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: transform .25s ease, box-shadow .25s ease;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: heroReveal .9s ease-out .55s forwards;
+        }
+
+        #exploreButton:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, .25);
+        }
+
+        .scroll-indicator {
+            opacity: 0;
+            animation: heroReveal .9s ease-out .85s forwards;
+        }
+
+        .scroll-indicator span {
+            display: inline-block;
+            animation: scrollArrow 1.7s ease-in-out infinite;
+        }
+
+        @keyframes heroReveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heroSymbolFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-7px) scale(1.025); }
+        }
+
+        @keyframes heroAura {
+            0%, 100% { opacity: .45; transform: translate(-50%, -50%) scale(.92); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+        }
+
+        @keyframes scrollArrow {
+            0%, 100% { transform: translateY(0); opacity: .65; }
+            50% { transform: translateY(7px); opacity: 1; }
+        }
+
+        @media (max-width: 700px) {
+            #home.hero-section {
+                min-height: 70vh;
+            }
+
+            .hero-content {
+                padding: 48px 18px;
+            }
+
+            .hero-symbol {
+                width: 76px;
+                height: 76px;
+                font-size: 40px;
+            }
+
+            #home.hero-section::after {
+                width: 230px;
+                height: 230px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #homeTitle, #homeText, #exploreButton, .scroll-indicator {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .hero-symbol, .scroll-indicator span, #home.hero-section::after {
+                animation: none !important;
+            }
+        }
+
+    
+/* HISTORY STORY BEAUTIFICATION */
+#history {
+    position: relative;
+    overflow: hidden;
+}
+#history::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    top: 15%;
+    left: -120px;
+    border-radius: 50%;
+    background: rgba(255, 209, 102, 0.07);
+    filter: blur(12px);
+    pointer-events: none;
+}
+#history .info-icon {
+    animation: historyIconFloat 4s ease-in-out infinite;
+}
+#historyTitle {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: historyReveal 0.8s ease-out 0.1s forwards;
+}
+#history .info-card {
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid rgba(255, 209, 102, 0.65);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: historyReveal 0.9s ease-out 0.25s forwards;
+}
+#history .info-card::before {
+    content: "📜";
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-size: 42px;
+    opacity: 0.10;
+}
+#historyText {
+    line-height: 2;
+}
+#historyText strong {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-left: 3px solid #ffd166;
+    background: rgba(255, 209, 102, 0.08);
+    border-radius: 0 8px 8px 0;
+}
+@keyframes historyReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes historyIconFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+@media (max-width: 700px) {
+    #historyText { line-height: 1.85; }
+    #history .info-card::before {
+        font-size: 32px;
+        top: 12px;
+        right: 14px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    #historyTitle, #history .info-card {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    #history .info-icon { animation: none !important; }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* =========================================================
+   FINAL WHOLE-WEBSITE POLISH
+   This layer improves the complete site without changing
+   the temple's existing content or functionality.
+   ========================================================= */
+
+:root {
+    --temple-gold: #ffd166;
+    --temple-gold-soft: rgba(255, 209, 102, .16);
+    --temple-dark: #120b06;
+    --temple-dark-2: #1b1009;
+    --temple-cream: #fff8e8;
+    --temple-muted: rgba(255,255,255,.78);
+    --temple-border: rgba(255,209,102,.22);
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 78px;
 }
 
 body {
-  font-family: "Noto Sans Kannada", "Nirmala UI", Arial, sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-wrap: break-word;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(255,185,75,.12), transparent 34%),
+        linear-gradient(180deg, #100904 0%, #170d07 42%, #0d0704 100%);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+.skip-link {
+    position: fixed;
+    left: 14px;
+    top: -60px;
+    z-index: 100001;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--temple-gold);
+    color: #211207;
+    font-weight: 800;
+    text-decoration: none;
+    transition: top .2s ease;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.skip-link:focus { top: 14px; }
+
+header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--temple-border);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.16), transparent 42%),
+        linear-gradient(180deg, rgba(35,18,8,.98), rgba(16,8,4,.96));
 }
 
-button,
-input,
-select {
-  font: inherit;
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-button {
-  cursor: pointer;
+header::before {
+    width: 180px;
+    height: 180px;
+    left: -90px;
+    top: -80px;
+    background: rgba(255,209,102,.07);
+    filter: blur(10px);
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
+header::after {
+    width: 240px;
+    height: 240px;
+    right: -120px;
+    bottom: -150px;
+    background: rgba(255,140,45,.06);
+    filter: blur(14px);
 }
 
-/* =========================================
-   HERO / BACKGROUND
-   Add your temple photo as:
-   temple-background.jpg
-   in the same folder as index.html
-   ========================================= */
-
-.hero {
-  position: relative;
-  min-height: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 65px 20px;
-  color: #fff;
-  background-color: var(--dark);
-  background-image:
-    linear-gradient(
-      rgba(35, 13, 3, 0.58),
-      rgba(35, 13, 3, 0.78)
-    ),
-    url("temple-background.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+#title {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 3px 20px rgba(0,0,0,.45);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
+#tagline {
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
 }
 
-.om {
-  color: var(--gold);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 1.3;
-  margin-bottom: 12px;
+.language-buttons button {
+    min-width: 88px;
+    min-height: 42px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,209,102,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-.hero h1 {
-  color: #fff2c6;
-  font-size: clamp(1.8rem, 4.5vw, 3.3rem);
-  line-height: 1.35;
-  margin-bottom: 14px;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+.language-buttons button:hover,
+.language-buttons button:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.24);
+    outline: none;
 }
-
-.hero p {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  color: #fff4e2;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-}
-
-.hero .tagline {
-  color: var(--gold);
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* =========================================
-   LANGUAGE BUTTON
-   ========================================= */
-
-#languageToggle,
-.language-toggle,
-button.language-toggle {
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: var(--dark);
-  border-radius: 30px;
-  padding: 10px 22px;
-  font-weight: 700;
-  transition: 0.2s ease;
-}
-
-#languageToggle:hover,
-.language-toggle:hover,
-button.language-toggle:hover {
-  background: #fff0bd;
-  transform: translateY(-2px);
-}
-
-/* =========================================
-   NAVIGATION
-   ========================================= */
 
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 10px 12px;
-  background: var(--dark);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(18,11,6,.88) !important;
+    border-bottom: 1px solid var(--temple-border);
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
 }
 
 nav a {
-  display: inline-block;
-  color: #fff5df;
-  padding: 9px 13px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: background 0.2s ease, color 0.2s ease;
+    position: relative;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
 }
 
-nav a:hover,
-nav a:focus-visible {
-  color: var(--dark);
-  background: var(--gold);
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--temple-gold);
+    transform: scaleX(0);
+    transition: transform .2s ease;
 }
 
-/* =========================================
-   GENERAL SECTIONS
-   ========================================= */
+nav a:hover::after,
+nav a.active::after { transform: scaleX(1); }
 
-.section {
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 58px 22px;
+main section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 }
 
-.section:nth-of-type(even) {
-  background: transparent;
+main section:not(#home) {
+    border-top: 1px solid rgba(255,209,102,.08);
 }
 
-.section h2 {
-  text-align: center;
-  color: var(--brown);
-  font-size: clamp(1.55rem, 3vw, 2.2rem);
-  line-height: 1.4;
-  margin-bottom: 24px;
+main section h2 {
+    text-shadow: 0 3px 18px rgba(0,0,0,.3);
 }
 
-.section h2::after {
-  content: "";
-  display: block;
-  width: 75px;
-  height: 4px;
-  background: var(--saffron);
-  border-radius: 5px;
-  margin: 12px auto 0;
+/* Temple / History / generic information cards */
+#temple .info-card,
+#history .info-card {
+    border: 1px solid var(--temple-border);
+    background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,209,102,.025));
+    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
 }
 
-.section h3 {
-  color: var(--brown);
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+#temple .info-card:hover,
+#history .info-card:hover {
+    border-color: rgba(255,209,102,.34);
+    box-shadow: 0 22px 60px rgba(0,0,0,.28);
 }
 
-.section p {
-  margin-bottom: 14px;
+#temple .info-icon,
+#history .info-icon {
+    filter: drop-shadow(0 7px 16px rgba(0,0,0,.35));
 }
 
-.section ul,
-.section ol {
-  padding-left: 25px;
-  margin-bottom: 18px;
+/* History readability */
+#historyText {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(1rem, 1.7vw, 1.08rem);
+    line-height: 2;
 }
 
-.section li {
-  margin-bottom: 7px;
+#historyText strong {
+    color: var(--temple-gold);
 }
 
-.section a:not(.map-button) {
-  color: #8b390e;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Timings */
+#timings {
+    background:
+        radial-gradient(circle at 15% 30%, rgba(255,209,102,.06), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(255,150,60,.05), transparent 30%);
 }
 
-/* =========================================
-   INFORMATION CARDS
-   ========================================= */
+.temple-timetable,
+.festival-table-container {
+    border: 1px solid var(--temple-border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(0,0,0,.22);
+    background: rgba(255,255,255,.025);
+}
 
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 25px;
+.temple-timetable table,
+.festival-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.temple-timetable th,
+.temple-timetable td,
+.festival-table th,
+.festival-table td {
+    padding: 14px 13px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.temple-timetable tr:last-child td,
+.festival-table tr:last-child td { border-bottom: 0; }
+
+.temple-timetable tbody tr,
+.festival-table tbody tr {
+    transition: background .2s ease;
+}
+
+.temple-timetable tbody tr:hover,
+.festival-table tbody tr:hover {
+    background: rgba(255,209,102,.055);
+}
+
+/* Pooja */
+#pooja {
+    background: radial-gradient(circle at 50% 30%, rgba(255,209,102,.055), transparent 42%);
+}
+
+#pooja .pooja-card,
+#pooja .pooja-item {
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+#pooja .pooja-card:hover,
+#pooja .pooja-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,209,102,.35);
+    box-shadow: 0 16px 38px rgba(0,0,0,.2);
+}
+
+/* Festival */
+#festival {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.08), transparent 38%),
+        linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+
+.festival-card,
+.upcoming-festival-card,
+.festival-rule {
+    border-color: var(--temple-border) !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.2);
+}
+
+.upcoming-festival-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.upcoming-festival-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ffd166, #ff9d4d);
+}
+
+/* Gallery */
+#gallery {
+    min-height: 60vh;
+    padding-bottom: 70px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,209,102,.08), transparent 36%),
+        linear-gradient(180deg, rgba(255,255,255,.015), transparent);
+}
+
+#galleryTitle {
+    margin-bottom: 28px;
+}
+
+.gallery-container {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gallery-container img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid rgba(255,209,102,.17);
+    background: #1b1009;
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    cursor: zoom-in;
+    transition: transform .3s ease, filter .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.gallery-container img:hover,
+.gallery-container img:focus-visible {
+    transform: translateY(-5px) scale(1.015);
+    filter: brightness(1.08) saturate(1.05);
+    border-color: rgba(255,209,102,.52);
+    box-shadow: 0 20px 38px rgba(0,0,0,.32);
+    outline: none;
+}
+
+/* Contact */
+#contact {
+    background:
+        radial-gradient(circle at 50% 15%, rgba(255,209,102,.07), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,.012), transparent);
+}
+
+#contact > p,
+#weeklyPandit,
+#mapsButton {
+    position: relative;
+}
+
+.maintenance-name,
+#panditTitle {
+    color: var(--temple-gold);
+}
+
+.call-button,
+#mapsButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 10px 18px;
+    margin-top: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--temple-border);
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.call-button:hover,
+.call-button:focus-visible,
+#mapsButton:hover,
+#mapsButton:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(255,209,102,.09);
+    border-color: rgba(255,209,102,.48);
+    box-shadow: 0 10px 28px rgba(0,0,0,.2);
+    outline: none;
+}
+
+#weeklyPandit {
+    width: min(620px, calc(100% - 28px));
+    margin: 16px auto 24px;
+    padding: 20px;
+    border: 1px solid var(--temple-border);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,209,102,.025));
+    box-shadow: 0 16px 42px rgba(0,0,0,.2);
+}
+
+/* Photo viewer */
+.photo-viewer {
+    background: rgba(5,3,2,.96) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100000 !important;
+}
+
+.photo-viewer #largePhoto {
+    max-width: min(88vw, 1100px);
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 30px 90px rgba(0,0,0,.55);
+    transition: opacity .18s ease, transform .18s ease;
+}
+
+.photo-viewer-topbar {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 14px;
+    border: 1px solid rgba(255,209,102,.24);
+    border-radius: 999px;
+    background: rgba(18,11,6,.72);
+    color: #fff4d5;
+    font-size: .9rem;
+    z-index: 2;
+}
+
+.photo-nav,
+.close-button {
+    min-width: 48px;
+    min-height: 48px;
+    border: 1px solid rgba(255,209,102,.25) !important;
+    background: rgba(18,11,6,.72) !important;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.photo-nav:hover,
+.photo-nav:focus-visible,
+.close-button:hover,
+.close-button:focus-visible {
+    transform: scale(1.06);
+    background: rgba(255,209,102,.14) !important;
+    border-color: rgba(255,209,102,.55) !important;
+    outline: none;
+}
+
+footer {
+    border-top: 1px solid var(--temple-border);
+    background: #0a0503;
+}
+
+#backToTop {
+    z-index: 9500;
+    border: 1px solid rgba(255,209,102,.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+/* Consistent focus state for keyboard and accessibility. */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--temple-gold);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1000px) {
+    .gallery-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+    html { scroll-padding-top: 64px; }
+
+    nav {
+        overflow-x: auto;
+        justify-content: flex-start;
+        scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex: 0 0 auto; }
+
+    .gallery-container {
+        width: min(100% - 20px, 680px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-container img { border-radius: 12px; }
+
+    .temple-timetable,
+    .festival-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .temple-timetable table,
+    .festival-table {
+        min-width: 620px;
+    }
+
+    #historyText { line-height: 1.85; }
+
+    .photo-viewer #largePhoto {
+        max-width: 94vw;
+        max-height: 76vh;
+    }
+
+    .photo-nav {
+        position: absolute;
+        bottom: 28px;
+        top: auto;
+    }
+
+    .prev-photo { left: 22%; }
+    .next-photo { right: 22%; }
+
+    .close-button {
+        top: 16px !important;
+        right: 16px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    .gallery-container { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .gallery-container img { aspect-ratio: 1 / 1; }
+    .prev-photo { left: 17%; }
+    .next-photo { right: 17%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* ===== CSS that was pasted after </html> in the supplied file ===== */
+
+/* =========================================================
+   SRI ARANYA ANJANEYA SWAMY TEMPLE
+   PREMIUM ANIMATED RESPONSIVE WEBSITE CSS
+   ========================================================= */
+
+/* =========================
+   BASIC RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("hanuman.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* =========================
+   AMBIENT GLOW
+   ========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    top: 35%;
+    left: 50%;
+
+    width: 450px;
+    height: 450px;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 209, 102, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+        ambientGlow 6s ease-in-out infinite;
+}
+
+/* =========================
+   GOLDEN PARTICLES
+   ========================= */
+
+body::after {
+    content: "✦  ✧  ✦  ✧  ✦";
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    font-size: 22px;
+    letter-spacing: 55px;
+    line-height: 120px;
+
+    opacity: 0.16;
+
+    color: #ffd166;
+
+    animation:
+        goldenParticles 8s linear infinite;
+}
+
+/* =========================
+   MAIN LAYERS
+   ========================= */
+
+header,
+nav,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+    position: relative;
+
+    text-align: center;
+
+    padding:
+        75px 20px 55px;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+    backdrop-filter:
+        blur(4px);
+
+    animation:
+        headerAppear 1.2s ease;
+}
+
+header h1 {
+    font-size:
+        clamp(30px, 6vw, 58px);
+
+    margin-bottom: 12px;
+
+    color: #ffd166;
+
+    text-shadow:
+        3px 3px 5px black,
+        0 0 20px rgba(255, 209, 102, 0.5);
+
+    animation:
+        headerTitleGlow 3s ease-in-out infinite;
+}
+
+header p {
+    font-size:
+        clamp(16px, 3vw, 21px);
+
+    font-weight: bold;
+
+    text-shadow:
+        2px 2px 4px black;
+
+    animation:
+        fadeUp 1.5s ease;
+}
+
+/* Floating temple icon */
+
+header::after {
+    content: "🛕";
+
+    position: absolute;
+
+    right: 25px;
+    top: 50%;
+
+    font-size: 38px;
+
+    transform:
+        translateY(-50%);
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255, 209, 102, 0.6)
+        );
+
+    animation:
+        templeGlowFloat 3s ease-in-out infinite;
+}
+
+/* =========================
+   LANGUAGE BUTTONS
+   ========================= */
+
+.language-buttons {
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.language-buttons button {
+    min-height: 44px;
+
+    border:
+        2px solid #ffd166;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    color: white;
+
+    padding:
+        10px 20px;
+
+    border-radius: 25px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+.language-buttons button:hover {
+    background: #ffd166;
+
+    color: black;
+
+    transform:
+        translateY(-3px)
+        scale(1.05);
+
+    box-shadow:
+        0 6px 20px
+        rgba(255, 209, 102, 0.5);
+}
+
+.language-buttons button:active {
+    transform:
+        scale(0.94);
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+nav {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 500;
+
+    background:
+        rgba(0, 0, 0, 0.84);
+
+    backdrop-filter:
+        blur(12px);
+
+    padding:
+        13px 10px;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid
+        rgba(255, 209, 102, 0.3);
+
+    box-shadow:
+        0 4px 20px
+        rgba(255, 209, 102, 0.12);
+
+    animation:
+        navAppear 1s ease;
+}
+
+nav a {
+    position: relative;
+
+    display: inline-block;
+
+    color: white;
+
+    text-decoration: none;
+
+    margin:
+        5px 12px;
+
+    padding:
+        8px 8px;
+
+    font-weight: bold;
+
+    border-radius: 20px;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+
+    bottom: 1px;
+
+    width: 0;
+
+    height: 2px;
+
+    background:
+        #ffd166;
+
+    border-radius: 10px;
+
+    transition:
+        width 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd166;
+
+    transform:
+        translateY(-2px);
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 209, 102, 0.8);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+nav a.active {
+    color: #ffd166;
+
+    background:
+        rgba(255, 209, 102, 0.15);
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 209, 102, 0.35);
+
+    transform:
+        translateY(-2px);
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 209, 102, 0.9);
+}
+
+nav a.active::after {
+    width: 80%;
+}
+
+nav a[href="#home"]::before {
+    content: "🏠";
+
+    margin-right: 5px;
+
+    display: inline-block;
+
+    animation:
+        homeIconFloat 2.5s ease-in-out infinite;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+    width: 100%;
+}
+
+/* =========================
+   MAIN SECTIONS
+   ========================= */
+
+main section {
+    max-width: 1000px;
+
+    margin:
+        45px auto;
+
+    padding:
+        55px 30px;
+
+    background:
+        rgba(0, 0, 0, 0.18) !important;
+
+    border-radius:
+        20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 0, 0, 0.25) !important;
+
+    backdrop-filter:
+        blur(3px);
+
+    animation:
+        sectionReveal 1s ease both;
+
+    transition:
+        transform 0.4s ease,
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+main section:hover {
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(0, 0, 0, 0.25) !important;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.35) !important;
+}
+
+main section:not(:first-child)::before {
+    content: "✦";
+
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    color:
+        #ffd166;
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 12px
+        rgba(255, 209, 102, 0.8);
+
+    animation:
+        dividerGlow 2.5s ease-in-out infinite;
+}
+
+main section h2 {
+    margin-bottom: 18px;
+
+    color:
+        #ffd166 !important;
+
+    font-size:
+        clamp(25px, 4vw, 38px);
+
+    text-shadow:
+        2px 2px 5px black;
+
+    background:
+        transparent !important;
+
+    animation:
+        fadeUp 1s ease;
+}
+
+main section p {
+    color:
+        white !important;
+
+    font-size:
+        clamp(16px, 2.2vw, 19px);
+
+    font-weight: 500;
+
+    text-shadow:
+        2px 2px 4px black;
+
+    background:
+        transparent !important;
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero-section {
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    animation:
+        heroEntrance 1.2s ease-out both;
+}
+
+.hero-symbol {
+    display: inline-block;
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation:
+        omFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255, 193, 7, 0.7)
+        );
+}
+
+.hero-section h2 {
+    font-size:
+        clamp(30px, 6vw, 52px) !important;
+
+    margin-bottom: 20px;
+
+    animation:
+        heroTitleAppear 1.2s ease,
+        heroTitleGlow 3s ease-in-out infinite;
+}
+
+.hero-section p {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    font-size:
+        clamp(16px, 2.5vw, 20px);
+
+    line-height: 1.8;
+
+    animation:
+        fadeUp 1.5s ease;
+}
+
+.explore-button {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    min-height: 48px;
+
+    padding:
+        14px 28px;
+
+    border-radius:
+        30px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    border:
+        2px solid #ffd166;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(0, 0, 0, 0.35);
+
+    animation:
+        explorePulse 2.5s ease-in-out infinite;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.explore-button:hover {
+    animation: none;
+
+    background:
+        #ffd166;
+
+    color: black;
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255, 209, 102, 0.4);
+}
+
+.explore-button:active {
+    transform:
+        scale(0.95);
+}
+
+.scroll-indicator {
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    opacity: 0.8;
+
+    animation:
+        fadeUp 2s ease;
+}
+
+.scroll-indicator span {
+    font-size: 30px;
+
+    animation:
+        scrollArrow 1.5s ease-in-out infinite;
+}
+
+.scroll-indicator small {
+    font-size: 12px;
+
+    text-shadow:
+        2px 2px 3px black;
+}
+
+/* =========================
+   TEMPLE / HISTORY
+   ========================= */
+
+.info-section {
+    text-align: center;
+}
+
+.info-icon {
+    font-size: 60px;
+
+    margin-bottom: 15px;
+
+    display: inline-block;
+
+    animation:
+        templeFloat 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255, 209, 102, 0.6)
+        );
 }
 
 .info-card {
-  min-width: 0;
-  padding: 24px;
-  background: var(--light);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  box-shadow: var(--shadow);
+    position: relative;
+
+    max-width: 800px;
+
+    margin:
+        25px auto 0;
+
+    padding:
+        25px;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid
+        rgba(255, 209, 102, 0.3);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.25);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
 }
 
-.info-card h3 {
-  color: var(--saffron);
-  margin-bottom: 12px;
+.info-card:hover {
+    transform:
+        translateY(-6px);
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.4);
 }
 
-.info-card p:last-child {
-  margin-bottom: 0;
+/* Card shine */
+
+.info-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 209, 102, 0.18),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    pointer-events: none;
+
+    transition:
+        left 0.9s ease;
 }
 
-/* =========================================
-   TEMPLE TIMINGS
-   ========================================= */
-
-.timing,
-.temple-timings {
-  text-align: center;
+.info-card:hover::before {
+    left: 140%;
 }
 
-.timing strong,
-.temple-timings strong {
-  color: var(--green);
+/* History */
+
+.history-icon {
+    animation:
+        historyFloat 3s ease-in-out infinite,
+        historyGlow 3s ease-in-out infinite;
 }
 
-.highlight,
-.notice {
-  padding: 16px 18px;
-  margin: 18px 0;
-  background: #fff0cc;
-  border-left: 5px solid var(--saffron);
-  border-radius: 8px;
+#history .info-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    bottom: 10px;
+
+    right: 18px;
+
+    font-size: 22px;
+
+    opacity: 0.5;
+
+    animation:
+        historySparkle 2s ease-in-out infinite;
 }
 
-/* =========================================
-   PANCHANG CALENDAR PANEL
-   ========================================= */
+/* =========================
+   CONTACT
+   ========================= */
 
-.calendar-panel {
-  width: 100%;
-  margin-top: 25px;
-  padding: clamp(15px, 3vw, 28px);
-  background: var(--light);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
+#contact {
+    text-align: center;
 }
 
-.calendar-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 20px;
+#contact h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
 }
 
-.calendar-controls h3 {
-  flex: 1;
-  text-align: center;
-  margin: 0;
-  font-size: clamp(1rem, 2.5vw, 1.35rem);
+#contact h2 {
+    margin-bottom: 25px;
 }
 
-.calendar-controls button,
-.date-controls button {
-  min-width: 42px;
-  min-height: 42px;
-  padding: 8px 13px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  background: var(--brown);
-  transition: background 0.2s ease;
+/* Maintenance */
+
+.maintenance-name {
+    color:
+        #8b0000;
+
+    background:
+        #fff3cd;
+
+    padding:
+        10px 18px;
+
+    border-radius:
+        12px;
+
+    font-weight:
+        bold;
+
+    display:
+        inline-block;
+
+    border:
+        2px solid #d4a017;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.calendar-controls button:hover,
-.date-controls button:hover {
-  background: var(--saffron);
+.maintenance-name:hover {
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 7px 18px
+        rgba(0, 0, 0, 0.4);
 }
 
-.date-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+/* Call button */
+
+.call-button {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    min-height: 46px;
+
+    padding:
+        12px 22px;
+
+    border-radius:
+        30px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    border:
+        2px solid #ffd166;
+
+    color:
+        white !important;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.date-controls input,
-.date-controls select,
-.calendar-panel input,
-.calendar-panel select {
-  min-height: 42px;
-  max-width: 100%;
-  padding: 8px 10px;
-  color: var(--text);
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+.call-button:hover {
+    background:
+        #ffd166;
+
+    color:
+        black !important;
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.45);
 }
 
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 6px;
-  margin-top: 15px;
+.call-button:active {
+    transform:
+        scale(0.95);
 }
 
-.weekday {
-  min-width: 0;
-  padding: 9px 2px;
-  text-align: center;
-  color: var(--brown);
-  font-weight: 700;
-  font-size: 0.9rem;
-  background: #ffefd1;
-  border-radius: 6px;
+/* =========================
+   PANDIT CARD
+   ========================= */
+
+.pandit-card {
+    position: relative;
+
+    max-width: 420px;
+
+    margin:
+        20px auto;
+
+    padding:
+        24px 20px;
+
+    text-align:
+        center;
+
+    background:
+        rgba(255, 248, 220, 0.94);
+
+    border:
+        2px solid #d4a017;
+
+    border-radius:
+        18px;
+
+    color:
+        #333;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18),
+        0 0 18px
+        rgba(255, 193, 7, 0.25);
+
+    overflow:
+        hidden;
+
+    animation:
+        contactCardFloat 4s ease-in-out infinite;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.calendar-empty {
-  min-height: 50px;
+.pandit-card::before {
+    content:
+        "🕉️";
+
+    position:
+        absolute;
+
+    top:
+        10px;
+
+    right:
+        15px;
+
+    font-size:
+        28px;
+
+    opacity:
+        0.25;
+
+    animation:
+        panditSymbol 2s ease-in-out infinite;
 }
 
-.calendar-day {
-  min-width: 0;
-  min-height: 54px;
-  padding: 7px 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  color: var(--text);
-  background: #fffdf8;
-  border: 1px solid #efdfc8;
-  border-radius: 8px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+.pandit-card:hover {
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.22),
+        0 0 25px
+        rgba(255, 193, 7, 0.45);
 }
 
-.calendar-day:hover {
-  background: #fff0cc;
-  border-color: var(--saffron);
+.pandit-card strong {
+    display:
+        inline-block;
+
+    font-size:
+        24px;
+
+    color:
+        #8b0000;
+
+    margin-bottom:
+        8px;
+
+    animation:
+        panditName 0.8s ease;
 }
 
-.calendar-day.selected {
-  color: white;
-  background: var(--brown);
-  border-color: var(--brown);
+.pandit-card a {
+    display:
+        inline-block;
+
+    min-height:
+        40px;
+
+    margin-top:
+        5px;
+
+    padding:
+        7px 13px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255, 255, 255, 0.5);
+
+    border:
+        1px solid #006400;
+
+    color:
+        #006400;
+
+    font-weight:
+        bold;
+
+    text-decoration:
+        none;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
-.calendar-day.today {
-  border: 2px solid var(--saffron);
-  font-weight: 700;
+.pandit-card a:hover {
+    background:
+        #006400;
+
+    color:
+        white;
+
+    transform:
+        scale(1.06);
 }
 
-.calendar-day.selected.today {
-  border-color: var(--gold);
+/* =========================
+   GOOGLE MAPS
+   ========================= */
+
+#contact > a:last-child {
+    display:
+        inline-block;
+
+    min-height:
+        46px;
+
+    margin-top:
+        25px;
+
+    padding:
+        13px 24px;
+
+    border-radius:
+        30px;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    border:
+        2px solid #ffd166;
+
+    color:
+        white !important;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        bold;
+
+    box-shadow:
+        0 6px 20px
+        rgba(0, 0, 0, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.calendar-day small {
-  font-size: 0.65rem;
-  line-height: 1.2;
-  opacity: 0.9;
+#contact > a:last-child:hover {
+    background:
+        #ffd166;
+
+    color:
+        black !important;
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255, 209, 102, 0.4);
 }
 
-.calendar-day:disabled {
-  cursor: default;
-  opacity: 0.4;
+/* =========================
+   GALLERY
+   ========================= */
+
+.gallery-container {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+
+    margin-top:
+        25px;
 }
 
-/* =========================================
-   PANCHANG DETAILS
-   ========================================= */
+.gallery-container img {
+    width:
+        100%;
 
-.panchang-card {
-  margin-top: 25px;
-  padding: clamp(16px, 3vw, 26px);
-  background: #fff6e6;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+    height:
+        230px;
+
+    object-fit:
+        cover;
+
+    border-radius:
+        18px;
+
+    cursor:
+        pointer;
+
+    border:
+        2px solid
+        rgba(255, 209, 102, 0.35);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.35);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease,
+        filter 0.5s ease;
+
+    animation:
+        galleryAppear 0.8s ease both;
 }
 
-.panchang-card h3 {
-  text-align: center;
-  font-size: 1.35rem;
-  margin-bottom: 18px;
+.gallery-container img:hover {
+    transform:
+        translateY(-8px)
+        scale(1.06);
+
+    filter:
+        brightness(1.1);
+
+    border-color:
+        #ffd166;
+
+    box-shadow:
+        0 18px 35px
+        rgba(0, 0, 0, 0.55);
 }
 
-.detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+/* Gallery stagger */
+
+.gallery-container img:nth-child(2) {
+    animation-delay:
+        0.1s;
 }
 
-.detail-grid > div {
-  min-width: 0;
-  padding: 14px;
-  background: white;
-  border: 1px solid #f0dfc8;
-  border-radius: 8px;
+.gallery-container img:nth-child(3) {
+    animation-delay:
+        0.2s;
 }
 
-.detail-grid strong {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--brown);
+.gallery-container img:nth-child(4) {
+    animation-delay:
+        0.3s;
 }
 
-.detail-grid span {
-  overflow-wrap: anywhere;
+.gallery-container img:nth-child(5) {
+    animation-delay:
+        0.4s;
 }
 
-#panchangStatus,
-.panchang-status {
-  margin-top: 15px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.95rem;
+.gallery-container img:nth-child(6) {
+    animation-delay:
+        0.5s;
 }
 
-/* =========================================
-   REMINDERS
-   ========================================= */
+/* =========================
+   PHOTO VIEWER
+   ========================= */
 
-.reminder-panel {
-  margin-top: 25px;
-  padding: 22px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+.photo-viewer {
+    display:
+        none;
+
+    position:
+        fixed;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        rgba(0, 0, 0, 0.94);
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    z-index:
+        1000;
+
+    padding:
+        30px;
+
+    animation:
+        viewerAppear 0.3s ease;
 }
 
-.reminder-panel h3 {
-  margin-bottom: 12px;
+.photo-viewer img {
+    max-width:
+        92%;
+
+    max-height:
+        88%;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 10px 50px
+        rgba(0, 0, 0, 0.8);
+
+    animation:
+        photoZoom 0.4s ease;
 }
 
-.reminder-panel label {
-  display: block;
-  margin: 12px 0 5px;
-  font-weight: 600;
+/* Close button */
+
+.close-button {
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        25px;
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    color:
+        white;
+
+    font-size:
+        40px;
+
+    line-height:
+        1;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        background 0.3s ease;
 }
 
-.reminder-panel input,
-.reminder-panel select {
-  width: 100%;
-  min-height: 44px;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: white;
+.close-button:hover {
+    color:
+        #ffd166;
+
+    background:
+        rgba(0, 0, 0, 0.85);
+
+    transform:
+        rotate(90deg)
+        scale(1.1);
 }
 
-.reminder-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 16px;
+/* Photo navigation */
+
+.photo-nav {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    border-radius:
+        50%;
+
+    border:
+        2px solid #ffd166;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    color:
+        white;
+
+    font-size:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    cursor:
+        pointer;
+
+    z-index:
+        10;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.reminder-buttons button,
-.reminder-panel button {
-  min-height: 44px;
-  padding: 10px 17px;
-  color: white;
-  background: var(--brown);
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
+.prev-photo {
+    left:
+        20px;
 }
 
-.reminder-buttons button:hover,
-.reminder-panel button:hover {
-  background: var(--saffron);
+.next-photo {
+    right:
+        20px;
 }
 
-#reminderStatus,
-.reminder-status {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  color: var(--muted);
+.photo-nav:hover {
+    background:
+        #ffd166;
+
+    color:
+        black;
+
+    transform:
+        translateY(-50%)
+        scale(1.12);
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 209, 102, 0.6);
 }
 
-/* =========================================
-   MAP / CONTACT
-   ========================================= */
-
-.map-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 12px 20px;
-  color: white;
-  background: var(--green);
-  border-radius: 8px;
-  font-weight: 700;
-  text-align: center;
-  transition: background 0.2s ease;
+.photo-nav:active {
+    transform:
+        translateY(-50%)
+        scale(0.92);
 }
 
-.map-button:hover {
-  color: white;
-  background: #25492e;
+/* =========================
+   BACK TO TOP
+   ========================= */
+
+#backToTop {
+    position:
+        fixed;
+
+    right:
+        30px;
+
+    bottom:
+        30px;
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    border-radius:
+        50%;
+
+    border:
+        2px solid #ffd166;
+
+    background:
+        rgba(0, 0, 0, 0.75);
+
+    color:
+        #ffd166;
+
+    font-size:
+        28px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        translateY(20px);
+
+    z-index:
+        9999;
+
+    box-shadow:
+        0 6px 20px
+        rgba(0, 0, 0, 0.4);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-.contact-info {
-  text-align: center;
+#backToTop.show {
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateY(0);
 }
 
-.contact-info p {
-  margin-bottom: 12px;
+#backToTop:hover {
+    background:
+        #ffd166;
+
+    color:
+        black;
+
+    transform:
+        translateY(-5px)
+        scale(1.08);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255, 209, 102, 0.45);
 }
 
-/* =========================================
+#backToTop:active {
+    transform:
+        scale(0.92);
+}
+
+/* =========================
    FOOTER
-   ========================================= */
+   ========================= */
 
 footer {
-  padding: 28px 20px;
-  text-align: center;
-  color: #fff3df;
-  background: var(--dark);
+    position:
+        relative;
+
+    text-align:
+        center;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    color:
+        white;
+
+    padding:
+        28px 15px;
+
+    margin-top:
+        50px;
+
+    border-top:
+        1px solid
+        rgba(255, 209, 102, 0.35);
+
+    box-shadow:
+        0 -5px 25px
+        rgba(255, 209, 102, 0.08);
+
+    animation:
+        footerGlow 4s ease-in-out infinite;
 }
 
 footer p {
-  margin: 5px 0;
+    text-shadow:
+        2px 2px 4px black;
 }
 
-footer a {
-  color: var(--gold);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline:
+        3px solid #ffd166;
+
+    outline-offset:
+        4px;
 }
 
-/* =========================================
-   RESPONSIVE TABLETS
-   ========================================= */
+section {
+    scroll-margin-top:
+        90px;
+}
+
+/* =========================
+   TABLET
+   ========================= */
 
 @media (max-width: 800px) {
-  .info-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
-  .hero {
-    min-height: 360px;
-  }
+    header {
+        padding:
+            60px 15px 45px;
+    }
 
-  .section {
-    padding: 45px 18px;
-  }
+    nav {
+        padding:
+            12px 5px;
+    }
 
-  nav {
-    gap: 3px;
-  }
+    nav a {
+        margin:
+            4px 8px;
 
-  nav a {
-    padding: 8px 10px;
-    font-size: 0.9rem;
-  }
+        font-size:
+            15px;
+    }
+
+    main section {
+        margin:
+            30px 15px;
+
+        padding:
+            40px 22px;
+    }
+
+    .gallery-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .gallery-container img {
+        height:
+            210px;
+    }
 }
 
-/* =========================================
-   RESPONSIVE MOBILE PHONES
-   ========================================= */
+/* =========================
+   MOBILE NAVIGATION
+   ========================= */
 
-@media (max-width: 520px) {
-  body {
-    font-size: 15px;
-  }
+@media (max-width: 700px) {
 
-  .hero {
-    min-height: 320px;
-    padding: 45px 16px;
-    background-attachment: scroll;
-  }
+    nav {
+        overflow-x:
+            auto;
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+        overflow-y:
+            hidden;
 
-  .hero p {
-    font-size: 0.98rem;
-  }
+        white-space:
+            nowrap;
 
-  nav {
-    position: relative;
-    padding: 9px;
-    gap: 5px;
-  }
+        text-align:
+            left;
 
-  nav a {
-    padding: 8px 10px;
-    font-size: 0.82rem;
-  }
+        padding:
+            10px 8px;
 
-  .section {
-    padding: 38px 15px;
-  }
+        scrollbar-width:
+            none;
 
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
+        -webkit-overflow-scrolling:
+            touch;
+    }
 
-  .info-card {
-    padding: 19px;
-  }
+    nav::-webkit-scrollbar {
+        display:
+            none;
+    }
 
-  .calendar-panel {
-    padding: 12px 9px;
-  }
+    nav a {
+        flex:
+            0 0 auto;
 
-  .calendar-controls {
-    gap: 6px;
-  }
+        margin:
+            4px 7px;
 
-  .calendar-controls button {
-    min-width: 36px;
-    min-height: 40px;
-    padding: 6px 9px;
-  }
+        padding:
+            8px 10px;
 
-  .calendar-grid {
-    gap: 3px;
-  }
+        font-size:
+            14px;
+    }
 
-  .weekday {
-    padding: 7px 0;
-    font-size: 0.72rem;
-  }
+    nav a.active {
+        background:
+            rgba(255, 209, 102, 0.18);
 
-  .calendar-day {
-    min-height: 43px;
-    padding: 4px 0;
-    border-radius: 5px;
-    font-size: 0.85rem;
-  }
+        box-shadow:
+            0 0 10px
+            rgba(255, 209, 102, 0.25);
+    }
 
-  .calendar-day small {
-    font-size: 0.55rem;
-  }
+    .gallery-container {
+        grid-template-columns:
+            repeat(2, 1fr);
 
-  .calendar-empty {
-    min-height: 43px;
-  }
+        gap:
+            12px;
+    }
 
-  .detail-grid {
-    grid-template-columns: 1fr;
-    gap: 9px;
-  }
+    .gallery-container img {
+        height:
+            170px;
 
-  .date-controls {
-    gap: 7px;
-  }
+        border-radius:
+            14px;
+    }
 
-  .date-controls input,
-  .date-controls select {
-    width: 100%;
-  }
+    button,
+    nav a,
+    .explore-button,
+    .call-button,
+    .pandit-card a {
+        -webkit-tap-highlight-color:
+            transparent;
+    }
 
-  .reminder-panel {
-    padding: 16px;
-  }
-
-  .reminder-buttons {
-    flex-direction: column;
-  }
-
-  .reminder-buttons button,
-  .reminder-panel button {
-    width: 100%;
-  }
-
-  .map-button {
-    width: 100%;
-  }
-
-  footer {
-    padding: 24px 15px;
-  }
+    button:active,
+    nav a:active,
+    .explore-button:active,
+    .call-button:active,
+    .pandit-card a:active {
+        transform:
+            scale(0.94);
+    }
 }
 
-/* =========================================
-   SMALL PHONES
-   ========================================= */
+/* =========================
+   MOBILE
+   ========================= */
 
-@media (max-width: 360px) {
-  .hero h1 {
-    font-size: 1.55rem;
-  }
+@media (max-width: 550px) {
 
-  .calendar-controls h3 {
-    font-size: 0.95rem;
-  }
+    header {
+        padding:
+            48px 12px 34px;
+    }
 
-  .calendar-day {
-    min-height: 38px;
-    font-size: 0.78rem;
-  }
+    header h1 {
+        line-height:
+            1.2;
 
-  .calendar-day small {
-    display: none;
-  }
+        padding:
+            0 8px;
+    }
 
-  .weekday {
-    font-size: 0.65rem;
-  }
+    header p {
+        margin-top:
+            8px;
+
+        padding:
+            0 10px;
+    }
+
+    header::after {
+        right:
+            10px;
+
+        top:
+            25px;
+
+        font-size:
+            26px;
+
+        transform:
+            none;
+    }
+
+    .language-buttons {
+        gap:
+            8px;
+
+        margin-top:
+            20px;
+    }
+
+    .language-buttons button {
+        padding:
+            9px 15px;
+
+        font-size:
+            14px;
+    }
+
+    main section {
+        margin:
+            20px 9px;
+
+        padding:
+            30px 16px;
+
+        border-radius:
+            16px;
+    }
+
+    main section h2 {
+        line-height:
+            1.3;
+    }
+
+    .hero-section {
+        min-height:
+            70vh;
+
+        margin-top:
+            12px;
+    }
+
+    .hero-content {
+        width:
+            100%;
+    }
+
+    .hero-symbol {
+        font-size:
+            45px;
+    }
+
+    .hero-section h2 {
+        font-size:
+            28px !important;
+
+        padding:
+            0 5px;
+    }
+
+    .hero-section p {
+        line-height:
+            1.7;
+
+        padding:
+            0 5px;
+    }
+
+    .explore-button {
+        padding:
+            12px 23px;
+
+        font-size:
+            16px;
+    }
+
+    .scroll-indicator {
+        margin-top:
+            25px;
+    }
+
+    .info-icon {
+        font-size:
+            48px;
+    }
+
+    .info-card {
+        padding:
+            20px 16px;
+    }
+
+    .pandit-card {
+        width:
+            100%;
+
+        padding:
+            20px 15px;
+
+        margin:
+            15px auto;
+    }
+
+    .pandit-card strong {
+        font-size:
+            21px;
+    }
+
+    .pandit-card a,
+    .call-button {
+        display:
+            block;
+
+        width:
+            90%;
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+        padding:
+            13px 18px;
+
+        font-size:
+            16px;
+    }
+
+    #contact > a:last-child {
+        width:
+            90%;
+
+        padding:
+            13px 16px;
+    }
+
+    .gallery-container img {
+        height:
+            150px;
+    }
+
+    .photo-viewer {
+        padding:
+            15px;
+    }
+
+    .photo-viewer img {
+        max-width:
+            96%;
+
+        max-height:
+            82%;
+    }
+
+    .photo-nav {
+        width:
+            42px;
+
+        height:
+            42px;
+
+        font-size:
+            24px;
+    }
+
+    .prev-photo {
+        left:
+            8px;
+    }
+
+    .next-photo {
+        right:
+            8px;
+    }
+
+    .close-button {
+        top:
+            10px;
+
+        right:
+            18px;
+
+        width:
+            44px;
+
+        height:
+            44px;
+
+        font-size:
+            36px;
+    }
+
+    #backToTop {
+        width:
+            45px;
+
+        height:
+            45px;
+
+        right:
+            14px;
+
+        bottom:
+            14px;
+
+        font-size:
+            24px;
+    }
+
+    footer {
+        margin-top:
+            30px;
+
+        padding:
+            24px 12px;
+    }
 }
 
-/* Respect users who prefer less motion */
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 450px) {
+
+    .gallery-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap:
+            10px;
+    }
+
+    .gallery-container img {
+        height:
+            145px;
+
+        border-radius:
+            12px;
+    }
+
+    .photo-nav {
+        width:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            22px;
+    }
+
+    .prev-photo {
+        left:
+            5px;
+    }
+
+    .next-photo {
+        right:
+            5px;
+    }
+}
+
+/* =========================
+   MOBILE HANUMAN BACKGROUND
+   ========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.55)
+            ),
+            url("hanuman.jfif");
+
+        background-size:
+            100% 100%;
+
+        background-position:
+            center center;
+
+        background-repeat:
+            no-repeat;
+
+        background-attachment:
+            fixed;
+
+        background-color:
+            #000;
+    }
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes headerAppear {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(-30px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes navAppear {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes sectionReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(35px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes heroEntrance {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(45px)
+            scale(0.96);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes heroTitleAppear {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+    }
+}
+
+@keyframes omFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(3deg);
+    }
+}
+
+@keyframes heroTitleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 8px
+            rgba(255, 193, 7, 0.25);
+    }
+
+    50% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 22px
+            rgba(255, 193, 7, 0.7);
+    }
+}
+
+@keyframes explorePulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 6px 20px
+            rgba(0, 0, 0, 0.35);
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 28px
+            rgba(255, 209, 102, 0.45);
+
+        transform:
+            scale(1.04);
+    }
+}
+
+@keyframes scrollArrow {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(10px);
+    }
+}
+
+@keyframes templeFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+}
+
+@keyframes historyFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(-3deg);
+    }
+}
+
+@keyframes historyGlow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 5px
+                rgba(255, 209, 102, 0.4)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 18px
+                rgba(255, 209, 102, 0.8)
+            );
+    }
+}
+
+@keyframes historySparkle {
+
+    0%,
+    100% {
+        transform:
+            scale(0.8);
+
+        opacity:
+            0.3;
+    }
+
+    50% {
+        transform:
+            scale(1.3);
+
+        opacity:
+            0.8;
+    }
+}
+
+@keyframes galleryAppear {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(30px)
+            scale(0.95);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes viewerAppear {
+
+    from {
+        opacity:
+            0;
+    }
+
+    to {
+        opacity:
+            1;
+    }
+}
+
+@keyframes photoZoom {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            scale(0.85);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+    }
+}
+
+@keyframes templeGlowFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(-50%);
+    }
+
+    50% {
+        transform:
+            translateY(-65%);
+    }
+}
+
+@keyframes goldenParticles {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-25px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes ambientGlow {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+        opacity:
+            0.5;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+        opacity:
+            1;
+    }
+}
+
+@keyframes panditSymbol {
+
+    0%,
+    100% {
+        transform:
+            rotate(-5deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotate(5deg)
+            scale(1.15);
+    }
+}
+
+@keyframes panditName {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes contactCardFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+}
+
+@keyframes homeIconFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-3px);
+    }
+}
+
+@keyframes dividerGlow {
+
+    0%,
+    100% {
+        opacity:
+            0.45;
+
+        transform:
+            scale(0.9);
+    }
+
+    50% {
+        opacity:
+            1;
+
+        transform:
+            scale(1.15);
+    }
+}
+
+@keyframes footerGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 -5px 20px
+            rgba(255, 209, 102, 0.06);
+    }
+
+    50% {
+        box-shadow:
+            0 -5px 30px
+            rgba(255, 209, 102, 0.2);
+    }
+}
+
+@keyframes headerTitleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 5px
+            rgba(255, 209, 102, 0.2);
+    }
+
+    50% {
+        text-shadow:
+            2px 2px 5px black,
+            0 0 20px
+            rgba(255, 209, 102, 0.75);
+    }
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
+/* =========================================================
+   HISTORY • TIMETABLE • TYPES OF POOJA
+   NEW TEMPLE SECTION DESIGN
+   ========================================================= */
+
+/* =========================
+   HISTORY SECTION
+   ========================= */
+
+#history {
+    text-align: center;
+}
+
+#history .info-card {
+    max-width: 900px;
+    margin: 25px auto 0;
+    padding: 30px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(255, 209, 102, 0.38);
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 20px rgba(255, 209, 102, 0.04);
+}
+
+#history .info-card h3 {
+    color: #ffd166;
+    font-size: 24px;
+    margin: 25px 0 10px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#history .info-card h3:first-child {
+    margin-top: 0;
+}
+
+#history .info-card p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+#history .info-card strong {
+    color: #ffd166;
+}
+
+#history .info-card hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 209, 102, 0.25);
+    margin: 25px 0;
+}
+
+
+/* =========================
+   TIMETABLE SECTION
+   ========================= */
+
+#timings {
+    text-align: center;
+}
+
+#timings .info-card {
+    max-width: 950px;
+    margin: 25px auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(255, 209, 102, 0.38);
+    border-radius: 20px;
+    overflow-x: auto;
+}
+
+#timings table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    background: rgba(0, 0, 0, 0.28);
+}
+
+#timings th {
+    padding: 15px 12px;
+    background: rgba(255, 209, 102, 0.18);
+    color: #ffd166;
+    font-size: 17px;
+    border-bottom: 1px solid rgba(255, 209, 102, 0.35);
+    text-shadow: 2px 2px 3px black;
+}
+
+#timings td {
+    padding: 15px 12px;
+    color: white;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-shadow: 1px 1px 3px black;
+}
+
+#timings tr:last-child td {
+    border-bottom: none;
+}
+
+#timings tbody tr {
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+#timings tbody tr:hover {
+    background: rgba(255, 209, 102, 0.10);
+}
+
+#timings tbody tr:nth-child(2) {
+    background: rgba(255, 209, 102, 0.06);
+}
+
+/* Saturday highlight */
+
+#timings tbody tr:nth-child(2) td:first-child {
+    color: #ffd166;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SATURDAY ANNADANA
+   ========================= */
+
+#timings .annadana-card {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    text-align: center;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 209, 102, 0.12),
+            rgba(0, 0, 0, 0.48)
+        );
+    border: 1px solid rgba(255, 209, 102, 0.4);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+#timings .annadana-card h3 {
+    color: #ffd166;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+#timings .annadana-card p {
+    line-height: 1.8;
+}
+
+
+/* =========================
+   DAILY RELIGIOUS PRACTICES
+   ========================= */
+
+#timings .practice-card {
+    max-width: 850px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+#timings .practice-item {
+    padding: 22px;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(255, 209, 102, 0.3);
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#timings .practice-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.58);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+#timings .practice-item h3 {
+    color: #ffd166;
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+#timings .practice-item p {
+    line-height: 1.75;
+}
+
+
+/* =========================
+   TEMPLE CLOSING TIME
+   ========================= */
+
+#timings .closing-card {
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 22px;
+    text-align: center;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.42);
+    border-left: 4px solid #ffd166;
+    border-right: 4px solid #ffd166;
+}
+
+#timings .closing-card h3 {
+    color: #ffd166;
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   TYPES OF POOJA
+   ========================= */
+
+#pooja {
+    text-align: center;
+}
+
+#pooja .pooja-container {
+    max-width: 850px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+#pooja .pooja-card,
+#pooja .pooja-item {
+    position: relative;
+    padding: 30px 22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 209, 102, 0.10),
+            rgba(0, 0, 0, 0.48)
+        );
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.30);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+#pooja .pooja-card:hover,
+#pooja .pooja-item:hover {
+    transform: translateY(-7px);
+    border-color: #ffd166;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(255, 209, 102, 0.15);
+}
+
+#pooja .pooja-card h3,
+#pooja .pooja-item h3 {
+    color: #ffd166;
+    font-size: 23px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#pooja .pooja-card p,
+#pooja .pooja-item p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+#pooja .pooja-card::before,
+#pooja .pooja-item::before {
+    content: "🌸";
+    display: block;
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   MOBILE DESIGN
+   ========================= */
+
+@media (max-width: 700px) {
+
+    #history .info-card {
+        padding: 22px 17px;
+    }
+
+    #history .info-card p {
+        font-size: 16px;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+    #history .info-card h3 {
+        font-size: 21px;
+    }
+
+    #timings .info-card {
+        padding: 15px 10px;
+    }
+
+    #timings table {
+        min-width: 650px;
+    }
+
+    #timings th,
+    #timings td {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+
+    #timings .practice-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    #timings .annadana-card,
+    #timings .closing-card {
+        padding: 20px 16px;
+    }
+
+    #pooja .pooja-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #pooja .pooja-card,
+    #pooja .pooja-item {
+        padding: 25px 18px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 450px) {
+
+    #history .info-card h3 {
+        font-size: 20px;
+    }
+
+    #history .info-card p {
+        font-size: 15px;
+    }
+
+    #timings th,
+    #timings td {
+        font-size: 13px;
+        padding: 10px 8px;
+    }
+
+    #timings .annadana-card h3,
+    #timings .practice-item h3,
+    #timings .closing-card h3 {
+        font-size: 20px;
+    }
+
+    #pooja .pooja-card h3,
+    #pooja .pooja-item h3 {
+        font-size: 21px;
+    }
 }
