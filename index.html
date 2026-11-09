@@ -4557,24 +4557,31 @@ function calendarNormalize(value) {
 }
 function calendarTranslateValue(value, type) {
     if (value == null || value === "") return "";
-    const original = String(value).trim();
-    const normalized = calendarNormalize(original);
+    let result = String(value).trim();
     const entries = calendarValueTranslations[type] || [];
+    const isKannada = hinduCalendarState.language === "kn";
+
     for (const entry of entries) {
         const aliases = entry[0].split("|");
-        if (aliases.some(alias => normalized === calendarNormalize(alias) || normalized.startsWith(calendarNormalize(alias) + " "))) {
-            if (hinduCalendarState.language === "en") return entry[1];
-            const knAlias = aliases.find(alias => /[\u0C80-\u0CFF]/.test(alias));
-            if (knAlias) {
-                let suffix = original;
-                const match = aliases.find(alias => normalized.startsWith(calendarNormalize(alias)));
-                if (match) suffix = original.slice(match.length).trim();
-                return knAlias + (suffix ? " " + suffix : "");
+        const kannadaName = aliases.find(alias => /[\u0C80-\u0CFF]/.test(alias));
+        const englishAliases = aliases.filter(alias => !/[\u0C80-\u0CFF]/.test(alias));
+        if (isKannada && kannadaName) {
+            // Replace Roman-script Panchanga names wherever they occur in a value,
+            // including combined strings such as "Saptami - Krishna".
+            for (const alias of englishAliases.sort((a, b) => b.length - a.length)) {
+                const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                const re = new RegExp("(^|[^A-Za-z])" + escaped + "(?=$|[^A-Za-z])", "ig");
+                result = result.replace(re, (match, prefix) => prefix + kannadaName);
             }
+        } else if (!isKannada && kannadaName) {
+            // Convert Kannada Panchanga names back to their English equivalent.
+            const escaped = kannadaName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            result = result.replace(new RegExp(escaped, "g"), entry[1]);
         }
     }
-    return original;
+    return result;
 }
+
 function calendarGetDayValue(day, type) {
     if (!day) return "";
     const fieldNames = {
