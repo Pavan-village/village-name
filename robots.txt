@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pavan-village.github.io/village-name/sitemap.xml
