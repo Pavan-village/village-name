@@ -4413,6 +4413,7 @@ function scrollToTop() {
 
 /* =========================================
    HINDU CALENDAR — BENGALURU PANCHANGA
+   Kannada / English calendar language support
    ========================================= */
 const hinduCalendarState = {
     visibleMonth: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
@@ -4449,6 +4450,86 @@ const calendarText = {
     }
 };
 
+/* Common Panchanga terms in both scripts. These translations are used
+   when the API supplies only one language for a particular field. */
+const calendarValueTranslations = {
+    tithi: [
+        ["ಪ್ರತಿಪದೆ|ಪ್ರತಿಪದ|ಪ್ರತಿಪತ್|pratipada|pratipadam", "Pratipada"],
+        ["ದ್ವಿತೀಯ|ದ್ವಿತೀಯಾ|dvitiya", "Dvitiya"],
+        ["ತೃತೀಯ|ತೃತೀಯಾ|tritiya", "Tritiya"],
+        ["ಚತುರ್ಥಿ|ಚತುರ್ಥೀ|chaturthi|caturthi", "Chaturthi"],
+        ["ಪಂಚಮಿ|ಪಂಚಮೀ|panchami", "Panchami"],
+        ["ಷಷ್ಠಿ|ಷಷ್ಠೀ|shashthi|shashti", "Shashthi"],
+        ["ಸಪ್ತಮಿ|ಸಪ್ತಮೀ|saptami", "Saptami"],
+        ["ಅಷ್ಟಮಿ|ಅಷ್ಟಮೀ|ashtami", "Ashtami"],
+        ["ನವಮಿ|ನವಮೀ|navami", "Navami"],
+        ["ದಶಮಿ|ದಶಮೀ|dashami|dasami", "Dashami"],
+        ["ಏಕಾದಶಿ|ಏಕಾದಶೀ|ekadashi|ekādaśī", "Ekadashi"],
+        ["ದ್ವಾದಶಿ|ದ್ವಾದಶೀ|dwadashi|dvadashi", "Dwadashi"],
+        ["ತ್ರಯೋದಶಿ|ತ್ರಯೋದಶೀ|trayodashi|trayodaśī", "Trayodashi"],
+        ["ಚತುರ್ದಶಿ|ಚತುರ್ದಶೀ|chaturdashi|caturdashi", "Chaturdashi"],
+        ["ಪೌರ್ಣಮಿ|ಪೂರ್ಣಿಮೆ|ಪೂರ್ಣಿಮಾ|ಪೌರ್ಣಿಮೆ|purnima|pournami|poornima", "Purnima"],
+        ["ಅಮಾವಾಸ್ಯೆ|ಅಮಾವಾಸ್ಯಾ|amavasya|amāvasyā", "Amavasya"]
+    ],
+    paksha: [
+        ["ಶುಕ್ಲ ಪಕ್ಷ|ಶುಕ್ಲಪಕ್ಷ|ಶುಕ್ಲ|shukla paksha|shukla", "Shukla Paksha"],
+        ["ಕೃಷ್ಣ ಪಕ್ಷ|ಕೃಷ್ಣಪಕ್ಷ|ಕೃಷ್ಣ|krishna paksha|krishna|kṛṣṇa", "Krishna Paksha"]
+    ],
+    nakshatra: [
+        ["ಅಶ್ವಿನಿ|ಅಶ್ವಿನೀ|ashwini|ashvini", "Ashwini"],
+        ["ಭರಣಿ|bharani", "Bharani"],
+        ["ಕೃತ್ತಿಕೆ|ಕೃತಿಕಾ|krittika|krithika", "Krittika"],
+        ["ರೋಹಿಣಿ|rohini", "Rohini"],
+        ["ಮೃಗಶಿರ|ಮೃಗಶಿರಾ|mrigashira|mrigasira", "Mrigashira"],
+        ["ಆರ್ದ್ರಾ|ಆರ್ದ್ರ|ardra", "Ardra"],
+        ["ಪುನರ್ವಸು|punarvasu", "Punarvasu"],
+        ["ಪುಷ್ಯ|ಪುಷ್ಯಮಿ|pushya", "Pushya"],
+        ["ಆಶ್ಲೇಷಾ|ಆಶ್ಲೇಷ|ashlesha", "Ashlesha"],
+        ["ಮಖ|ಮಘಾ|magha", "Magha"],
+        ["ಪೂರ್ವ ಫಲ್ಗುಣಿ|ಪೂರ್ವಫಲ್ಗುಣಿ|purva phalguni", "Purva Phalguni"],
+        ["ಉತ್ತರ ಫಲ್ಗುಣಿ|ಉತ್ತರಫಲ್ಗುಣಿ|uttara phalguni", "Uttara Phalguni"],
+        ["ಹಸ್ತ|hasta", "Hasta"],
+        ["ಚಿತ್ರಾ|ಚಿತ್ರ|chitra", "Chitra"],
+        ["ಸ್ವಾತಿ|swati", "Swati"],
+        ["ವಿಶಾಖಾ|ವಿಶಾಖ|vishakha", "Vishakha"],
+        ["ಅನುರಾಧಾ|anuradha", "Anuradha"],
+        ["ಜ್ಯೇಷ್ಠಾ|ಜ್ಯೇಷ್ಠ|jyeshtha", "Jyeshtha"],
+        ["ಮೂಲ|moola|mula", "Mula"],
+        ["ಪೂರ್ವಾಷಾಢಾ|ಪೂರ್ವಾಷಾಢ|purva ashada", "Purva Ashadha"],
+        ["ಉತ್ತರಾಷಾಢಾ|ಉತ್ತರಾಷಾಢ|uttara ashada", "Uttara Ashadha"],
+        ["ಶ್ರವಣ|ಶ್ರವಣಾ|shravana", "Shravana"],
+        ["ಧನಿಷ್ಠಾ|ಧನಿಷ್ಠ|dhanishta", "Dhanishta"],
+        ["ಶತಭಿಷ|ಶತಭಿಷಾ|shatabhisha", "Shatabhisha"],
+        ["ಪೂರ್ವಭಾದ್ರಪದ|ಪೂರ್ವ ಭಾದ್ರಪದ|purva bhadrapada", "Purva Bhadrapada"],
+        ["ಉತ್ತರಭಾದ್ರಪದ|ಉತ್ತರ ಭಾದ್ರಪದ|uttara bhadrapada", "Uttara Bhadrapada"],
+        ["ರೇವತಿ|revati", "Revati"]
+    ],
+    yoga: [
+        ["ವಿಷ್ಕಂಭ|vishkambha", "Vishkambha"], ["ಪ್ರೀತಿ|preeti|priti", "Priti"],
+        ["ಆಯುಷ್ಮಾನ್|ayushman", "Ayushman"], ["ಸೌಭಾಗ್ಯ|saubhagya", "Saubhagya"],
+        ["ಶೋಭನ|shobhana", "Shobhana"], ["ಅತಿಗಂಡ|atiganda", "Atiganda"],
+        ["ಸುಕರ್ಮ|sukarma", "Sukarma"], ["ಧೃತಿ|dhriti", "Dhriti"],
+        ["ಶೂಲ|shoola|shula", "Shula"], ["ಗಂಡ|ganda", "Ganda"],
+        ["ವೃದ್ಧಿ|vriddhi", "Vriddhi"], ["ಧ್ರುವ|dhruva", "Dhruva"],
+        ["ವ್ಯಾಘಾತ|vyaghata", "Vyaghata"], ["ಹರ್ಷಣ|harshana", "Harshana"],
+        ["ವಜ್ರ|vajra", "Vajra"], ["ಸಿದ್ಧಿ|siddhi", "Siddhi"],
+        ["ವ್ಯತೀಪಾತ|vyatipata", "Vyatipata"], ["ವರೀಯಾನ್|variyaan|variyan", "Variyan"],
+        ["ಪರಿಘ|parigha", "Parigha"], ["ಶಿವ|shiva", "Shiva"],
+        ["ಸಿದ್ಧ|siddha", "Siddha"], ["ಸಾಧ್ಯ|sadhya", "Sadhya"],
+        ["ಶುಭ|shubha", "Shubha"], ["ಶುಕ್ಲ|shukla", "Shukla"],
+        ["ಬ್ರಹ್ಮ|brahma", "Brahma"], ["ಇಂದ್ರ|indra", "Indra"],
+        ["ವೈಧೃತಿ|vaidhriti", "Vaidhriti"]
+    ],
+    karana: [
+        ["ಬವ|ಬವಂ|bava", "Bava"], ["ಬಾಲವ|balava", "Balava"],
+        ["ಕೌಲವ|kaulava", "Kaulava"], ["ತೈತಿಲ|ತೈತಿಲಂ|taitila", "Taitila"],
+        ["ಗರಜ|ಗರ|garaja|gara", "Garaja"], ["ವಣಿಜ|vanija", "Vanija"],
+        ["ವಿಷ್ಟಿ|ಭದ್ರಾ|vishti|bhadra", "Vishti (Bhadra)"],
+        ["ಶಕುನಿ|shakuni", "Shakuni"], ["ಚತುಷ್ಪಾದ|chatushpada", "Chatushpada"],
+        ["ನಾಗ|naga", "Naga"], ["ಕಿಂಸ್ತುಘ್ನ|ಕಿಂಸ್ತುಘ್ನಂ|kimstughna", "Kimstughna"]
+    ]
+};
+
 function calendarLocalISO(date) {
     return date.getFullYear() + "-" + String(date.getMonth() + 1).padStart(2, "0") + "-" + String(date.getDate()).padStart(2, "0");
 }
@@ -4471,10 +4552,55 @@ function calendarMinutesToTime(value) {
     const h = Math.floor(value / 60), m = value % 60;
     return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0");
 }
+function calendarNormalize(value) {
+    return String(value == null ? "" : value).toLowerCase().replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+}
+function calendarTranslateValue(value, type) {
+    if (value == null || value === "") return "";
+    const original = String(value).trim();
+    const normalized = calendarNormalize(original);
+    const entries = calendarValueTranslations[type] || [];
+    for (const entry of entries) {
+        const aliases = entry[0].split("|");
+        if (aliases.some(alias => normalized === calendarNormalize(alias) || normalized.startsWith(calendarNormalize(alias) + " "))) {
+            if (hinduCalendarState.language === "en") return entry[1];
+            const knAlias = aliases.find(alias => /[\u0C80-\u0CFF]/.test(alias));
+            if (knAlias) {
+                let suffix = original;
+                const match = aliases.find(alias => normalized.startsWith(calendarNormalize(alias)));
+                if (match) suffix = original.slice(match.length).trim();
+                return knAlias + (suffix ? " " + suffix : "");
+            }
+        }
+    }
+    return original;
+}
+function calendarGetDayValue(day, type) {
+    if (!day) return "";
+    const fieldNames = {
+        tithi: ["tithi_name_kn", "tithi_kn", "tithi_name_en", "tithi_en", "tithi_name", "tithiName", "tithi"],
+        paksha: ["paksha_kn", "paksha_en", "paksha"],
+        nakshatra: ["nakshatra_name_kn", "nakshatra_kn", "nakshatra_name_en", "nakshatra_en", "nakshatra_name", "nakshatraName", "nakshatra"],
+        yoga: ["yoga_name_kn", "yoga_kn", "yoga_name_en", "yoga_en", "yoga_name", "yogaName", "yoga"],
+        karana: ["karana_name_kn", "karana_kn", "karana_name_en", "karana_en", "karana_name", "karanaName", "karana"]
+    };
+    const candidates = fieldNames[type] || [];
+    const langSuffixes = hinduCalendarState.language === "kn" ? ["_kn", "_en"] : ["_en", "_kn"];
+    let value = "";
+    for (const suffix of langSuffixes) {
+        const preferred = candidates.filter(name => name.endsWith(suffix));
+        for (const key of preferred) if (day[key] != null && day[key] !== "") { value = day[key]; break; }
+        if (value) break;
+    }
+    if (!value) {
+        for (const key of candidates) if (day[key] != null && day[key] !== "") { value = day[key]; break; }
+    }
+    return calendarTranslateValue(value, type);
+}
 function calendarTithiText(day) {
     if (!day) return "";
-    const name = day.tithi_name || day.tithiName || "";
-    const paksha = day.paksha || "";
+    const name = calendarGetDayValue(day, "tithi");
+    const paksha = calendarGetDayValue(day, "paksha");
     return [name, paksha].filter(Boolean).join(" · ");
 }
 function calendarExtractDays(payload) {
@@ -4519,8 +4645,15 @@ async function calendarLoadFestivals() {
                 dates.forEach(date => {
                     if (!date) return;
                     if (!hinduCalendarState.festivalsByDate[date]) hinduCalendarState.festivalsByDate[date] = [];
-                    const name = item.kn || item.kn_name || item.kn_name_local || item.en || key.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-                    if (!hinduCalendarState.festivalsByDate[date].includes(name)) hinduCalendarState.festivalsByDate[date].push(name);
+                    const names = {
+                        kn: item.kn || item.kn_name || item.kn_name_local || item.name_kn || "",
+                        en: item.en || item.en_name || item.name_en || item.name || ""
+                    };
+                    if (!names.kn && /[\u0C80-\u0CFF]/.test(names.en)) names.kn = names.en;
+                    if (!names.en) names.en = key.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+                    const entry = { kn: names.kn, en: names.en };
+                    const exists = hinduCalendarState.festivalsByDate[date].some(f => f.en === entry.en || (entry.kn && f.kn === entry.kn));
+                    if (!exists) hinduCalendarState.festivalsByDate[date].push(entry);
                 });
             });
         } catch (error) {
@@ -4530,8 +4663,8 @@ async function calendarLoadFestivals() {
     return hinduCalendarState.festivalLoadPromise;
 }
 function calendarObservances(iso, day) {
-    const tithi = String(day && (day.tithi_name || day.tithiName) || "").toLowerCase();
-    const paksha = String(day && day.paksha || "").toLowerCase();
+    const tithi = calendarNormalize(day && (day.tithi_name || day.tithiName || day.tithi_name_en || day.tithi_name_kn) || "");
+    const paksha = calendarNormalize(day && (day.paksha || day.paksha_en || day.paksha_kn) || "");
     const result = [];
     const isEkadashi = tithi.includes("ekadashi") || tithi.includes("ekādaśī") || tithi.includes("ಏಕಾದಶಿ");
     const isTrayodashi = tithi.includes("trayodashi") || tithi.includes("trayodaśī") || tithi.includes("ತ್ರಯೋದಶಿ");
@@ -4544,7 +4677,10 @@ function calendarObservances(iso, day) {
     if (isAmavasya) result.push(calendarText[hinduCalendarState.language].amavasya);
     if (isChaturthi && (paksha.includes("krishna") || paksha.includes("ಕೃಷ್ಣ"))) result.push(calendarText[hinduCalendarState.language].sankashti);
     const festivalNames = hinduCalendarState.festivalsByDate[iso] || [];
-    festivalNames.forEach(name => result.push(name));
+    festivalNames.forEach(item => {
+        const selectedName = hinduCalendarState.language === "kn" ? (item.kn || item.en) : (item.en || item.kn);
+        if (selectedName) result.push(calendarTranslateValue(selectedName, "tithi") || selectedName);
+    });
     return [...new Set(result)];
 }
 function calendarUpdateStaticLabels() {
@@ -4574,9 +4710,9 @@ function calendarRenderDetail(iso) {
     }
     const rows = [
         [t.tithi, calendarTithiText(day) || t.tithiUnknown],
-        [t.nakshatra, day.nakshatra_name || day.nakshatraName || "—"],
-        [t.yoga, day.yoga_name || day.yogaName || "—"],
-        [t.karana, day.karana_name || day.karanaName || "—"],
+        [t.nakshatra, calendarGetDayValue(day, "nakshatra") || "—"],
+        [t.yoga, calendarGetDayValue(day, "yoga") || "—"],
+        [t.karana, calendarGetDayValue(day, "karana") || "—"],
         [t.sunrise, calendarMinutesToTime(day.sunrise)],
         [t.sunset, calendarMinutesToTime(day.sunset)],
         [t.events, events.length ? events.join(", ") : t.noEvents]
